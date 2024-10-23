@@ -47,7 +47,7 @@ public class Registro_Personas extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(252, 228, 186));
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\Icono de Registro de JDM Surveys (PNG).png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\BRAYAN D\\Documents\\NetBeansProjects\\PROYECTOFINAL_GRUPO05\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\Icono de Registro de JDM Surveys (PNG).png")); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(153, 204, 255));
 
