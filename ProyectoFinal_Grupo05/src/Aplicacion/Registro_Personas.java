@@ -47,7 +47,7 @@ public class Registro_Personas extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(252, 228, 186));
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Proyecto Final - Grupo 05\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\Icono de Registro de JDM Surveys (PNG).png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\Icono de Registro de JDM Surveys (PNG).png")); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(153, 204, 255));
 
@@ -90,6 +90,11 @@ public class Registro_Personas extends javax.swing.JFrame {
 
         btnAtras.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         btnAtras.setText("Atras");
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtrasActionPerformed(evt);
+            }
+        });
 
         btnSiguiente.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         btnSiguiente.setText("Siguiente");
@@ -105,13 +110,14 @@ public class Registro_Personas extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(133, 133, 133))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(rbEncuestador)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(rbParticipante))
-                            .addComponent(jLabel2))
-                        .addGap(74, 74, 74))))
+                        .addComponent(rbEncuestador)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rbParticipante)
+                        .addGap(74, 74, 74))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel2)
+                        .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -211,7 +217,7 @@ public class Registro_Personas extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(58, 58, 58))
         );
@@ -231,6 +237,12 @@ public class Registro_Personas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        InicioPlataformaEncuesta ventana = new InicioPlataformaEncuesta();
+        ventana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAtrasActionPerformed
 
     /**
      * @param args the command line arguments

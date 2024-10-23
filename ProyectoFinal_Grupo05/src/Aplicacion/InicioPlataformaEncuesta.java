@@ -11,7 +11,7 @@ public class InicioPlataformaEncuesta extends javax.swing.JFrame {
     public InicioPlataformaEncuesta() {
         initComponents();
         this.setTitle("JDM Surveys");
-        this.setSize(1000, 650);
+        this.setSize(800, 500);
         this.setLocationRelativeTo(null);
         
     }
@@ -46,15 +46,16 @@ public class InicioPlataformaEncuesta extends javax.swing.JFrame {
 
         btnIniciar.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         btnIniciar.setText("Iniciar");
+        btnIniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnIniciar)
-                .addGap(99, 99, 99))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -62,7 +63,10 @@ public class InicioPlataformaEncuesta extends javax.swing.JFrame {
                         .addComponent(jLabel3))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(98, 98, 98)
-                        .addComponent(jLabel4)))
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(btnIniciar)))
                 .addContainerGap(63, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -72,12 +76,12 @@ public class InicioPlataformaEncuesta extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(79, 79, 79)
                 .addComponent(btnIniciar)
-                .addGap(43, 43, 43))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Proyecto Final - Grupo 05\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\Oso logo de JDM Surveys (Color) (PNG).png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\Oso logo de JDM Surveys (Color) (PNG).png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -107,6 +111,12 @@ public class InicioPlataformaEncuesta extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
+        Registro_Personas nuevaventana = new Registro_Personas();
+        nuevaventana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnIniciarActionPerformed
 
     /**
      * @param args the command line arguments
