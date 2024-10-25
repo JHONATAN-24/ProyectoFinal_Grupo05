@@ -15,9 +15,7 @@ public class App_Encuestador {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       EncuestadorList nuevoEncuestador = new EncuestadorList("U23246360", "Pablo" , "Gonzales", "25/10/2024", "Masculino");
-       
-       nuevoEncuestador
+        
     }
     
 }
