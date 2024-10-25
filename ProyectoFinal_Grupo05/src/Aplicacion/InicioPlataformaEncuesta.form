@@ -87,7 +87,7 @@
                               <Component id="btnIniciar" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="63" max="32767" attributes="0"/>
+                      <EmptySpace pref="59" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -111,9 +111,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Cabin Sketch" size="48" style="2"/>
                 </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Surveys"/>
               </Properties>
             </Component>
@@ -121,9 +118,6 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Cabin Sketch" size="48" style="2"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="JDM "/>
               </Properties>
@@ -144,7 +138,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\BRAYAN D\Documents\NetBeansProjects\PROYECTOFINAL_GRUPO05\ProyectoFinal_Grupo05\ProyectoFinal_Grupo05\src\Iconos\Oso logo de JDM Surveys (Color) (PNG).png"/>
+              <Image iconType="2" name="C:\Users\LAB-USR-CHIMBOTE\Documents\AA_POO\ProyectoFinal_Grupo05\ProyectoFinal_Grupo05\src\Iconos\Oso logo de JDM Surveys (Color) (PNG).png"/>
             </Property>
           </Properties>
         </Component>

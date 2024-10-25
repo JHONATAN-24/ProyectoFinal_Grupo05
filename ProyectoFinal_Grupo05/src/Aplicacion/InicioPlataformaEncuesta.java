@@ -37,11 +37,9 @@ public class InicioPlataformaEncuesta extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 243, 232));
 
         jLabel3.setFont(new java.awt.Font("Cabin Sketch", 2, 48)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Surveys");
 
         jLabel4.setFont(new java.awt.Font("Cabin Sketch", 2, 48)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("JDM ");
 
         btnIniciar.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
@@ -67,7 +65,7 @@ public class InicioPlataformaEncuesta extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(98, 98, 98)
                         .addComponent(btnIniciar)))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,7 +79,7 @@ public class InicioPlataformaEncuesta extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\BRAYAN D\\Documents\\NetBeansProjects\\PROYECTOFINAL_GRUPO05\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\Oso logo de JDM Surveys (Color) (PNG).png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\LAB-USR-CHIMBOTE\\Documents\\AA_POO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\Oso logo de JDM Surveys (Color) (PNG).png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
