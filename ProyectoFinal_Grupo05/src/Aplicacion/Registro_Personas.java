@@ -47,7 +47,7 @@ public class Registro_Personas extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(252, 228, 186));
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\LAB-USR-CHIMBOTE\\Documents\\AA_POO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\Icono de Registro de JDM Surveys (PNG).png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\Icono de Registro de JDM Surveys (PNG).png")); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(153, 204, 255));
 
@@ -87,6 +87,8 @@ public class Registro_Personas extends javax.swing.JFrame {
 
         rbFemenino.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         rbFemenino.setText("Femenino");
+
+        txtNombre.setForeground(new java.awt.Color(204, 204, 204));
 
         btnAtras.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         btnAtras.setText("Atras");
@@ -217,8 +219,8 @@ public class Registro_Personas extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(58, 58, 58))
         );
 
@@ -226,9 +228,7 @@ public class Registro_Personas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 4, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
