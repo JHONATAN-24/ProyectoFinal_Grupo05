@@ -28,10 +28,12 @@ public class MenuOpciones_Encuestador extends javax.swing.JFrame {
 
         Fondo = new javax.swing.JPanel();
         Menu = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        nombreapp = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         ventanaInicio = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        datename = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         mensaje = new javax.swing.JLabel();
 
@@ -43,23 +45,50 @@ public class MenuOpciones_Encuestador extends javax.swing.JFrame {
         Menu.setForeground(new java.awt.Color(255, 255, 255));
         Menu.setPreferredSize(new java.awt.Dimension(270, 640));
 
-        jLabel3.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
-        jLabel3.setText("JDM");
+        nombreapp.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
+        nombreapp.setForeground(new java.awt.Color(0, 0, 0));
+        nombreapp.setText("     JDM");
+        nombreapp.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jLabel4.setFont(new java.awt.Font("Microsoft PhagsPa", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("____________________________________________");
+
+        jButton1.setBackground(new java.awt.Color(0, 102, 204));
+        jButton1.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("Principal");
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setOpaque(true);
 
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
         MenuLayout.setHorizontalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addComponent(jLabel3)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(nombreapp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(23, 23, 23))
+            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
+                .addComponent(nombreapp)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -69,11 +98,11 @@ public class MenuOpciones_Encuestador extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Administrar/Crear/Participar ");
+        jLabel1.setText("Juzgar/Diseñar/Modificar\n ");
 
-        jLabel2.setFont(new java.awt.Font("Myanmar Text", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Hoy es {dayname} {day} \nde {month} de {year}");
+        datename.setFont(new java.awt.Font("Myanmar Text", 1, 24)); // NOI18N
+        datename.setForeground(new java.awt.Color(0, 0, 0));
+        datename.setText("Hoy es {dayname} {day} \nde {month} de {year}");
 
         javax.swing.GroupLayout ventanaInicioLayout = new javax.swing.GroupLayout(ventanaInicio);
         ventanaInicio.setLayout(ventanaInicioLayout);
@@ -82,7 +111,7 @@ public class MenuOpciones_Encuestador extends javax.swing.JFrame {
             .addGroup(ventanaInicioLayout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addGroup(ventanaInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(datename, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(134, Short.MAX_VALUE))
         );
@@ -92,7 +121,7 @@ public class MenuOpciones_Encuestador extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(datename, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
@@ -196,11 +225,13 @@ public class MenuOpciones_Encuestador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Fondo;
     private javax.swing.JPanel Menu;
+    private javax.swing.JLabel datename;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel mensaje;
+    private javax.swing.JLabel nombreapp;
     private javax.swing.JPanel ventanaInicio;
     // End of variables declaration//GEN-END:variables
 }
