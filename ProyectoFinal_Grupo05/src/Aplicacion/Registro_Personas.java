@@ -19,6 +19,8 @@ public class Registro_Personas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bgGrupo01 = new javax.swing.ButtonGroup();
+        bgGrupo02 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -31,7 +33,7 @@ public class Registro_Personas extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         rbEncuestador = new javax.swing.JRadioButton();
         rbParticipante = new javax.swing.JRadioButton();
-        jLabel9 = new javax.swing.JLabel();
+        jlvariante = new javax.swing.JLabel();
         rbMasculino = new javax.swing.JRadioButton();
         rbFemenino = new javax.swing.JRadioButton();
         txtNombre = new javax.swing.JTextField();
@@ -40,6 +42,7 @@ public class Registro_Personas extends javax.swing.JFrame {
         txtCodigo = new javax.swing.JTextField();
         btnAtras = new javax.swing.JButton();
         btnSiguiente = new javax.swing.JButton();
+        btnGuardarDatos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 500));
@@ -73,22 +76,40 @@ public class Registro_Personas extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         jLabel8.setText("Genero :");
 
+        bgGrupo01.add(rbEncuestador);
         rbEncuestador.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         rbEncuestador.setText("Encuestador");
+        rbEncuestador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbEncuestadorActionPerformed(evt);
+            }
+        });
 
+        bgGrupo01.add(rbParticipante);
         rbParticipante.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         rbParticipante.setText("Participante");
+        rbParticipante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbParticipanteActionPerformed(evt);
+            }
+        });
 
-        jLabel9.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel9.setText("Codigo :");
+        jlvariante.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jlvariante.setText("Codigo :");
 
+        bgGrupo02.add(rbMasculino);
         rbMasculino.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         rbMasculino.setText("Masculino");
 
+        bgGrupo02.add(rbFemenino);
         rbFemenino.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         rbFemenino.setText("Femenino");
 
-        txtNombre.setForeground(new java.awt.Color(204, 204, 204));
+        txtNombre.setForeground(new java.awt.Color(0, 0, 0));
+
+        txtApellido.setForeground(new java.awt.Color(0, 0, 0));
+
+        txtFechaNacimiento.setForeground(new java.awt.Color(0, 0, 0));
 
         btnAtras.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         btnAtras.setText("Atras");
@@ -100,6 +121,14 @@ public class Registro_Personas extends javax.swing.JFrame {
 
         btnSiguiente.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         btnSiguiente.setText("Siguiente");
+        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguienteActionPerformed(evt);
+            }
+        });
+
+        btnGuardarDatos.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        btnGuardarDatos.setText("GuardarDatos");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -122,9 +151,6 @@ public class Registro_Personas extends javax.swing.JFrame {
                         .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSiguiente))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,17 +169,7 @@ public class Registro_Personas extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtFechaNacimiento))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel8))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCodigo))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(2, 2, 2)
-                                        .addComponent(btnAtras)))
+                                .addComponent(jLabel4)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGap(86, 86, 86)
@@ -162,6 +178,29 @@ public class Registro_Personas extends javax.swing.JFrame {
                         .addComponent(rbFemenino)
                         .addGap(0, 15, Short.MAX_VALUE)))
                 .addGap(74, 74, 74))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnAtras)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel8)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jlvariante)
+                                .addGap(14, 14, 14)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCodigo)
+                                .addGap(74, 74, 74))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(btnGuardarDatos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnSiguiente)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,21 +227,26 @@ public class Registro_Personas extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbMasculino)
-                    .addComponent(rbFemenino))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAtras)
-                    .addComponent(btnSiguiente))
-                .addGap(24, 24, 24))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rbMasculino)
+                            .addComponent(rbFemenino))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jlvariante)
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnSiguiente)
+                            .addComponent(btnAtras)
+                            .addComponent(btnGuardarDatos))
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -244,6 +288,24 @@ public class Registro_Personas extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 
+    private void rbEncuestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbEncuestadorActionPerformed
+        jlvariante.setText("Codigo:");
+    }//GEN-LAST:event_rbEncuestadorActionPerformed
+
+    private void rbParticipanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbParticipanteActionPerformed
+        jlvariante.setText("Email:");
+    }//GEN-LAST:event_rbParticipanteActionPerformed
+
+    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
+        if(rbEncuestador.isSelected()){
+            MenuOpciones_Encuestador nuevoMenu = new MenuOpciones_Encuestador();
+                nuevoMenu.setVisible(true);
+            this.dispose();
+        }else if (rbParticipante.isSelected()){
+            
+        }
+    }//GEN-LAST:event_btnSiguienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -280,7 +342,10 @@ public class Registro_Personas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup bgGrupo01;
+    private javax.swing.ButtonGroup bgGrupo02;
     private javax.swing.JButton btnAtras;
+    private javax.swing.JButton btnGuardarDatos;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -290,9 +355,9 @@ public class Registro_Personas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jlvariante;
     private javax.swing.JRadioButton rbEncuestador;
     private javax.swing.JRadioButton rbFemenino;
     private javax.swing.JRadioButton rbMasculino;
