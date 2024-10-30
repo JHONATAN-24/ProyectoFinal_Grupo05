@@ -4,7 +4,7 @@
  */
 package Aplicacion;
 
-import ArrayList.EncuestadorList;
+import ArrayList.ListaEncuestadores;
 import Clases.Encuestador;
 import javax.swing.table.DefaultTableModel;
 
@@ -12,15 +12,15 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author user
  */
-public class ListadeEncuestadores extends javax.swing.JFrame {
+public class SeccionEncuestadores extends javax.swing.JFrame {
 
     /**
      * Creates new form ListadeEncuestadores
      */
 
-    EncuestadorList datos = new EncuestadorList();
+    ListaEncuestadores datos = new ListaEncuestadores();
 
-    public ListadeEncuestadores() {
+    public SeccionEncuestadores() {
         initComponents();
         this.setTitle("JDM Surveys-ListaEncuestadores");
         this.setSize(800, 600);
@@ -75,7 +75,6 @@ public class ListadeEncuestadores extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\IconListaE.png")); // NOI18N
         jLabel2.setText("Escoja su nombre en la lista en la tabla");
 
         btnListar.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
@@ -121,7 +120,7 @@ public class ListadeEncuestadores extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSiguiente)
                     .addComponent(btnListar))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -156,7 +155,7 @@ public class ListadeEncuestadores extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        MenuOpciones_Encuestador nuevaVentana = new MenuOpciones_Encuestador();
+        MenuEncuestador nuevaVentana = new MenuEncuestador();
             nuevaVentana.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_btnSiguienteActionPerformed
@@ -178,20 +177,21 @@ public class ListadeEncuestadores extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListadeEncuestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SeccionEncuestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListadeEncuestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SeccionEncuestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListadeEncuestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SeccionEncuestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListadeEncuestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SeccionEncuestadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListadeEncuestadores().setVisible(true);
+                new SeccionEncuestadores().setVisible(true);
             }
         });
     }

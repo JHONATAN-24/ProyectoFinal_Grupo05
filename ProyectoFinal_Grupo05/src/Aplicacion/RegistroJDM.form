@@ -78,7 +78,7 @@
               <Color blue="ba" green="e4" red="fc" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\user\Documents\POO_PROYECTO\ProyectoFinal_Grupo05\ProyectoFinal_Grupo05\src\Iconos\Icono de Registro de JDM Surveys (PNG).png"/>
+              <Image iconType="2" name="C:\Users\Usuario\Documents\NetBeansProjects\Proyecto Final - Grupo 05\ProyectoFinal_Grupo05\ProyectoFinal_Grupo05\src\Iconos\Icono de Registro de JDM Surveys (PNG).png"/>
             </Property>
           </Properties>
         </Component>
@@ -221,7 +221,7 @@
                                   <Component id="jlvariante" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtVariante" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="24" max="32767" attributes="0"/>
+                              <EmptySpace min="24" pref="132" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>

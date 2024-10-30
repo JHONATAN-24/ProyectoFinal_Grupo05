@@ -6,16 +6,16 @@
 */
 package Aplicacion;
 
-import ArrayList.EncuestadorList;
+import ArrayList.ListaEncuestadores;
 import Clases.Encuestador;
 import javax.swing.JOptionPane;
 
 
-public class Registro_Personas extends javax.swing.JFrame {
+public class RegistroJDM extends javax.swing.JFrame {
     
-    EncuestadorList datos = new EncuestadorList();
+    ListaEncuestadores datos = new ListaEncuestadores();
     
-    public Registro_Personas() {
+    public RegistroJDM() {
         initComponents();
         this.setTitle("JDM Surveys - Registros");
         this.setSize(800, 500);
@@ -56,7 +56,7 @@ public class Registro_Personas extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(252, 228, 186));
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\Icono de Registro de JDM Surveys (PNG).png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Proyecto Final - Grupo 05\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\Icono de Registro de JDM Surveys (PNG).png")); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(153, 204, 255));
 
@@ -237,7 +237,7 @@ public class Registro_Personas extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jlvariante)
                             .addComponent(txtVariante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(24, 132, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -280,7 +280,7 @@ public class Registro_Personas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        InicioPlataformaEncuesta ventana = new InicioPlataformaEncuesta();
+        InicioJDM ventana = new InicioJDM();
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
@@ -301,7 +301,7 @@ public class Registro_Personas extends javax.swing.JFrame {
                 nuevoEncuestador.setFechaNacimiento(txtFechaNacimiento.getText());
                 if(rbMasculino.isSelected()) nuevoEncuestador.setGenero("Masculino");
                 if(rbFemenino.isSelected()) nuevoEncuestador.setGenero("Femenino");
-                nuevoEncuestador.setGenero(txtVariante.getText());
+                nuevoEncuestador.setCodigo(txtVariante.getText());
                 
                 datos.agregar(nuevoEncuestador);
                 JOptionPane.showMessageDialog(this,"¡Encuestador Registrado!");
@@ -310,7 +310,7 @@ public class Registro_Personas extends javax.swing.JFrame {
                 limpiarControles();
                 
                 // Pasar la misma instancia de datos al nuevo frame
-                ListadeEncuestadores nuevoMenu = new ListadeEncuestadores();
+                SeccionEncuestadores nuevoMenu = new SeccionEncuestadores();
                 nuevoMenu.setVisible(true);
                 this.dispose();
                 
@@ -346,20 +346,23 @@ public class Registro_Personas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Registro_Personas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroJDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Registro_Personas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroJDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Registro_Personas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroJDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Registro_Personas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroJDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Registro_Personas().setVisible(true);
+                new RegistroJDM().setVisible(true);
             }
         });
     }

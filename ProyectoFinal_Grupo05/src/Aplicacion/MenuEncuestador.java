@@ -16,12 +16,12 @@ import javax.swing.Timer;
  *
  * @author user
  */
-public class MenuOpciones_Encuestador extends javax.swing.JFrame {
+public class MenuEncuestador extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuOpciones_Encuestador
      */
-    public MenuOpciones_Encuestador() {
+    public MenuEncuestador() {
         initComponents();
         mensajeFecha();
         mensajeHora();
@@ -104,9 +104,9 @@ public class MenuOpciones_Encuestador extends javax.swing.JFrame {
 
         FondoBlanco.setBackground(new java.awt.Color(255, 255, 255));
 
-        MenuOpciones.setBackground(new java.awt.Color(51, 153, 255));
+        MenuOpciones.setBackground(new java.awt.Color(153, 204, 255));
 
-        Icon.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\menuOpciones_Icon.png")); // NOI18N
+        Icon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Proyecto Final - Grupo 05\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\Logo JDM Surveys (JPEG) (140px) (Fondo 0).png")); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -119,7 +119,6 @@ public class MenuOpciones_Encuestador extends javax.swing.JFrame {
         btnInicio.setBackground(new java.awt.Color(102, 153, 255));
         btnInicio.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnInicio.setForeground(new java.awt.Color(0, 0, 0));
-        btnInicio.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\InicioIcon.png")); // NOI18N
         btnInicio.setText("Inicio");
         btnInicio.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnInicio.setBorderPainted(false);
@@ -137,7 +136,6 @@ public class MenuOpciones_Encuestador extends javax.swing.JFrame {
         btnCrearEncuestas.setBackground(new java.awt.Color(102, 153, 255));
         btnCrearEncuestas.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnCrearEncuestas.setForeground(new java.awt.Color(0, 0, 0));
-        btnCrearEncuestas.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\CrearEncuestas_Icon1.png")); // NOI18N
         btnCrearEncuestas.setText("Crear Encuestas");
         btnCrearEncuestas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnCrearEncuestas.setBorderPainted(false);
@@ -150,7 +148,6 @@ public class MenuOpciones_Encuestador extends javax.swing.JFrame {
         btnEncuestasGuardadas.setBackground(new java.awt.Color(102, 153, 255));
         btnEncuestasGuardadas.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnEncuestasGuardadas.setForeground(new java.awt.Color(0, 0, 0));
-        btnEncuestasGuardadas.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\EncuestasGuardadas.png")); // NOI18N
         btnEncuestasGuardadas.setText("Encuestas Guardadas");
         btnEncuestasGuardadas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnEncuestasGuardadas.setBorderPainted(false);
@@ -163,7 +160,6 @@ public class MenuOpciones_Encuestador extends javax.swing.JFrame {
         btnEncuestasPublicadas.setBackground(new java.awt.Color(102, 153, 255));
         btnEncuestasPublicadas.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnEncuestasPublicadas.setForeground(new java.awt.Color(0, 0, 0));
-        btnEncuestasPublicadas.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\EncuestasPublicadas.png")); // NOI18N
         btnEncuestasPublicadas.setText("Encuestas Publicadas");
         btnEncuestasPublicadas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnEncuestasPublicadas.setBorderPainted(false);
@@ -176,7 +172,6 @@ public class MenuOpciones_Encuestador extends javax.swing.JFrame {
         btnReportesEncuestas.setBackground(new java.awt.Color(102, 153, 255));
         btnReportesEncuestas.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnReportesEncuestas.setForeground(new java.awt.Color(0, 0, 0));
-        btnReportesEncuestas.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\ReportesEncuestas.png")); // NOI18N
         btnReportesEncuestas.setText("Reportes Encuestas");
         btnReportesEncuestas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnReportesEncuestas.setBorderPainted(false);
@@ -189,7 +184,6 @@ public class MenuOpciones_Encuestador extends javax.swing.JFrame {
         btnSalir.setBackground(new java.awt.Color(102, 153, 255));
         btnSalir.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(0, 0, 0));
-        btnSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\Salir.png")); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnSalir.setBorderPainted(false);
@@ -210,7 +204,7 @@ public class MenuOpciones_Encuestador extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(13, 13, 13))
-                    .addComponent(Icon, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
+                    .addComponent(Icon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(43, 43, 43))
             .addComponent(btnInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnCrearEncuestas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -241,7 +235,7 @@ public class MenuOpciones_Encuestador extends javax.swing.JFrame {
                 .addGap(20, 20, 20))
         );
 
-        Fecha.setBackground(new java.awt.Color(102, 153, 255));
+        Fecha.setBackground(new java.awt.Color(102, 102, 255));
 
         lbFecha.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         lbFecha.setForeground(new java.awt.Color(0, 0, 0));
@@ -329,7 +323,7 @@ public class MenuOpciones_Encuestador extends javax.swing.JFrame {
 
     //Metodo para Impletar un Panel dentro de Otro
     public void panelInicial(){
-        PanelInicio nuevoP = new PanelInicio();
+        PanelBienvenida nuevoP = new PanelBienvenida();
             nuevoP.setSize(703,507); //Colocamos el tamaño de nuestro Jpanel
             nuevoP.setLocation(0,0);
             
@@ -355,20 +349,21 @@ public class MenuOpciones_Encuestador extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuOpciones_Encuestador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuEncuestador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuOpciones_Encuestador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuEncuestador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuOpciones_Encuestador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuEncuestador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuOpciones_Encuestador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuEncuestador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuOpciones_Encuestador().setVisible(true);
+                new MenuEncuestador().setVisible(true);
             }
         });
     }

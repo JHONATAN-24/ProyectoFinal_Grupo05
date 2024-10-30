@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ArrayList;
+package Pruebas;
 
+import ArrayList.ListaEncuestadores;
 import Clases.Encuestador;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -15,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Prueba extends javax.swing.JFrame {
 
-    EncuestadorList datos = new EncuestadorList();
+    ListaEncuestadores datos = new ListaEncuestadores();
     /**
      * Creates new form Prueba
      */

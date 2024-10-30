@@ -6,9 +6,9 @@
 */
 package Aplicacion;
 
-public class InicioPlataformaEncuesta extends javax.swing.JFrame {
+public class InicioJDM extends javax.swing.JFrame {
   
-    public InicioPlataformaEncuesta() {
+    public InicioJDM() {
         initComponents();
         this.setTitle("JDM Surveys");
         this.setSize(800, 500);
@@ -79,7 +79,7 @@ public class InicioPlataformaEncuesta extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        LogoOso.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\Oso logo de JDM Surveys (Color) (PNG).png")); // NOI18N
+        LogoOso.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Proyecto Final - Grupo 05\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\Oso logo de JDM Surveys (Color) (PNG).png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -111,7 +111,7 @@ public class InicioPlataformaEncuesta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-        Registro_Personas nuevaventana = new Registro_Personas();
+        RegistroJDM nuevaventana = new RegistroJDM();
         nuevaventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnIniciarActionPerformed
@@ -133,20 +133,23 @@ public class InicioPlataformaEncuesta extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InicioPlataformaEncuesta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioJDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InicioPlataformaEncuesta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioJDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InicioPlataformaEncuesta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioJDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InicioPlataformaEncuesta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioJDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InicioPlataformaEncuesta().setVisible(true);
+                new InicioJDM().setVisible(true);
             }
         });
     }
