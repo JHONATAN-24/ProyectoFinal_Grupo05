@@ -310,7 +310,7 @@ public class RegistroJDM extends javax.swing.JFrame {
                 limpiarControles();
                 
                 // Pasar la misma instancia de datos al nuevo frame
-                SeccionEncuestadores nuevoMenu = new SeccionEncuestadores();
+                SeccionEncuestadores nuevoMenu = new SeccionEncuestadores(datos);
                 nuevoMenu.setVisible(true);
                 this.dispose();
                 
