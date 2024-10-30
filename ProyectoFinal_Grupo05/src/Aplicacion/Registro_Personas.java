@@ -9,13 +9,12 @@ package Aplicacion;
 import ArrayList.EncuestadorList;
 import Clases.Encuestador;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+
 
 public class Registro_Personas extends javax.swing.JFrame {
     
-    //Entorno
     EncuestadorList datos = new EncuestadorList();
-
+    
     public Registro_Personas() {
         initComponents();
         this.setTitle("JDM Surveys - Registros");
@@ -310,10 +309,11 @@ public class Registro_Personas extends javax.swing.JFrame {
                 //Metodo para limpiar los controles
                 limpiarControles();
                 
-                //Ventana Lista de Encuestadores
+                // Pasar la misma instancia de datos al nuevo frame
                 ListadeEncuestadores nuevoMenu = new ListadeEncuestadores();
                 nuevoMenu.setVisible(true);
                 this.dispose();
+                
         }else if(rbParticipante.isSelected()){
             //Falta Agregar la clase Participante
         }

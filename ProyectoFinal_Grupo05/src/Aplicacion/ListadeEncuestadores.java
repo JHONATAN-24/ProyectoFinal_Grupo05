@@ -14,17 +14,17 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ListadeEncuestadores extends javax.swing.JFrame {
 
-    //Entorno
-    EncuestadorList datos = new EncuestadorList();
     /**
      * Creates new form ListadeEncuestadores
      */
+
+    EncuestadorList datos = new EncuestadorList();
+
     public ListadeEncuestadores() {
         initComponents();
         this.setTitle("JDM Surveys-ListaEncuestadores");
         this.setSize(800, 600);
         this.setLocationRelativeTo(null);
-     
     }
 
     /**
@@ -67,6 +67,11 @@ public class ListadeEncuestadores extends javax.swing.JFrame {
         btnSiguiente.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         btnSiguiente.setForeground(new java.awt.Color(0, 0, 0));
         btnSiguiente.setText("SIGUIENTE");
+        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguienteActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -149,6 +154,12 @@ public class ListadeEncuestadores extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnListarActionPerformed
+
+    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
+        MenuOpciones_Encuestador nuevaVentana = new MenuOpciones_Encuestador();
+            nuevaVentana.setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_btnSiguienteActionPerformed
 
     /**
      * @param args the command line arguments

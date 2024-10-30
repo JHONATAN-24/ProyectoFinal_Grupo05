@@ -25,7 +25,5 @@ public class EncuestadorList {
     
     public List<Encuestador> listar(){
         return listaEncuestador;
-    }
-    
-    
+    }  
 }
