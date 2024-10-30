@@ -6,7 +6,15 @@
 */
 package Aplicacion;
 
+import ArrayList.EncuestadorList;
+import Clases.Encuestador;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 public class Registro_Personas extends javax.swing.JFrame {
+    
+    //Entorno
+    EncuestadorList datos = new EncuestadorList();
 
     public Registro_Personas() {
         initComponents();
@@ -39,9 +47,8 @@ public class Registro_Personas extends javax.swing.JFrame {
         txtNombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
         txtFechaNacimiento = new javax.swing.JTextField();
-        txtCodigo = new javax.swing.JTextField();
+        txtVariante = new javax.swing.JTextField();
         btnAtras = new javax.swing.JButton();
-        btnSiguiente = new javax.swing.JButton();
         btnGuardarDatos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -119,16 +126,13 @@ public class Registro_Personas extends javax.swing.JFrame {
             }
         });
 
-        btnSiguiente.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        btnSiguiente.setText("Siguiente");
-        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSiguienteActionPerformed(evt);
-            }
-        });
-
         btnGuardarDatos.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         btnGuardarDatos.setText("GuardarDatos");
+        btnGuardarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarDatosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -182,25 +186,20 @@ public class Registro_Personas extends javax.swing.JFrame {
                 .addGap(57, 57, 57)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnAtras)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel8)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jlvariante)
                                 .addGap(14, 14, 14)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCodigo)
-                                .addGap(74, 74, 74))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(btnGuardarDatos)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnSiguiente)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtVariante)
+                        .addGap(74, 74, 74))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnAtras)
+                        .addGap(39, 39, 39)
+                        .addComponent(btnGuardarDatos)
+                        .addGap(65, 65, 65))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,12 +237,11 @@ public class Registro_Personas extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jlvariante)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtVariante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSiguiente)
                             .addComponent(btnAtras)
                             .addComponent(btnGuardarDatos))
                         .addContainerGap())))
@@ -296,16 +294,41 @@ public class Registro_Personas extends javax.swing.JFrame {
         jlvariante.setText("Email:");
     }//GEN-LAST:event_rbParticipanteActionPerformed
 
-    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
+    private void btnGuardarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarDatosActionPerformed
         if(rbEncuestador.isSelected()){
-            MenuOpciones_Encuestador nuevoMenu = new MenuOpciones_Encuestador();
+            Encuestador nuevoEncuestador = new Encuestador();
+                nuevoEncuestador.setNombre(txtNombre.getText());
+                nuevoEncuestador.setApellidos(txtApellido.getText());
+                nuevoEncuestador.setFechaNacimiento(txtFechaNacimiento.getText());
+                if(rbMasculino.isSelected()) nuevoEncuestador.setGenero("Masculino");
+                if(rbFemenino.isSelected()) nuevoEncuestador.setGenero("Femenino");
+                nuevoEncuestador.setGenero(txtVariante.getText());
+                
+                datos.agregar(nuevoEncuestador);
+                JOptionPane.showMessageDialog(this,"¡Encuestador Registrado!");
+                
+                //Metodo para limpiar los controles
+                limpiarControles();
+                
+                //Ventana Lista de Encuestadores
+                ListadeEncuestadores nuevoMenu = new ListadeEncuestadores();
                 nuevoMenu.setVisible(true);
-            this.dispose();
-        }else if (rbParticipante.isSelected()){
-            
+                this.dispose();
+        }else if(rbParticipante.isSelected()){
+            //Falta Agregar la clase Participante
         }
-    }//GEN-LAST:event_btnSiguienteActionPerformed
+        
+    }//GEN-LAST:event_btnGuardarDatosActionPerformed
 
+    public void limpiarControles(){
+        txtNombre.setText("");
+        txtApellido.setText("");
+        txtFechaNacimiento.setText("");
+        bgGrupo01.clearSelection();
+        bgGrupo02.clearSelection();
+        txtVariante.setText("");
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -346,7 +369,6 @@ public class Registro_Personas extends javax.swing.JFrame {
     private javax.swing.ButtonGroup bgGrupo02;
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnGuardarDatos;
-    private javax.swing.JButton btnSiguiente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -363,8 +385,8 @@ public class Registro_Personas extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbMasculino;
     private javax.swing.JRadioButton rbParticipante;
     private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtFechaNacimiento;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtVariante;
     // End of variables declaration//GEN-END:variables
 }

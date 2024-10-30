@@ -18,18 +18,12 @@ public class Encuestador extends Persona {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
-    }
-
-    @Override
-    public String toString() {
-        return "Encuestador{" + "codigo=" + codigo + '}';
-    }
-    
+    }  
     //Metodos
 
     @Override
     public String descripcion() {
-        return super.descripcion()+  ", Encuestador:{" + codigo +"}";
+        return super.descripcion()+  ", Encuestador:{"+"codigo=" + codigo +"}";
     }
     
     public void crearEncuesta(){

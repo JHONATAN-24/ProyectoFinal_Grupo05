@@ -23,12 +23,9 @@ public class EncuestadorList {
         listaEncuestador.remove(e);
     }
     
-    public void listar(Encuestador e){
-        if (listaEncuestador.contains(e)) {
-        System.out.println(e);
-        } else {
-        System.out.println("El encuestador no está en la lista.");
-        }
+    public List<Encuestador> listar(){
+        return listaEncuestador;
     }
-
+    
+    
 }

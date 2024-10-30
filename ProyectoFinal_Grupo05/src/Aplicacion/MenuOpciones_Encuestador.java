@@ -25,7 +25,7 @@ public class MenuOpciones_Encuestador extends javax.swing.JFrame {
         initComponents();
         mensajeFecha();
         mensajeHora();
-        this.setTitle("JDM Surveys - Registros");
+        this.setTitle("JDM Surveys - MenuOpciones");
         this.setSize(940, 560);
         this.setLocationRelativeTo(null);
     }
