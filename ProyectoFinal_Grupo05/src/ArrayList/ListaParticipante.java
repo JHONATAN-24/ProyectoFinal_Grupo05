@@ -18,5 +18,6 @@ public class ListaParticipante {
         listaParticipante.remove(p);
     }
     public List<Participante> listarParticipante(){
-        return listaParticipante;   
+        return listaParticipante;
+    }
 }

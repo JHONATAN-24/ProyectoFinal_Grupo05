@@ -25,7 +25,7 @@ public class SeccionEncuestadores extends javax.swing.JFrame {
         this.setTitle("JDM Surveys-ListaEncuestadores");
         this.setSize(800, 600);
         this.setLocationRelativeTo(null);
-        datos = datosE;
+        this.datos = datosE;
     }
 
     /**

@@ -106,7 +106,7 @@ public class MenuEncuestador extends javax.swing.JFrame {
 
         MenuOpciones.setBackground(new java.awt.Color(153, 204, 255));
 
-        Icon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Proyecto Final - Grupo 05\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\Logo JDM Surveys (JPEG) (140px) (Fondo 0).png")); // NOI18N
+        Icon.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\menuOpciones_Icon.png")); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -119,6 +119,7 @@ public class MenuEncuestador extends javax.swing.JFrame {
         btnInicio.setBackground(new java.awt.Color(102, 153, 255));
         btnInicio.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnInicio.setForeground(new java.awt.Color(0, 0, 0));
+        btnInicio.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\InicioIcon.png")); // NOI18N
         btnInicio.setText("Inicio");
         btnInicio.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnInicio.setBorderPainted(false);
@@ -136,6 +137,7 @@ public class MenuEncuestador extends javax.swing.JFrame {
         btnCrearEncuestas.setBackground(new java.awt.Color(102, 153, 255));
         btnCrearEncuestas.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnCrearEncuestas.setForeground(new java.awt.Color(0, 0, 0));
+        btnCrearEncuestas.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\CrearEncuestas_Icon1.png")); // NOI18N
         btnCrearEncuestas.setText("Crear Encuestas");
         btnCrearEncuestas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnCrearEncuestas.setBorderPainted(false);
@@ -148,6 +150,7 @@ public class MenuEncuestador extends javax.swing.JFrame {
         btnEncuestasGuardadas.setBackground(new java.awt.Color(102, 153, 255));
         btnEncuestasGuardadas.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnEncuestasGuardadas.setForeground(new java.awt.Color(0, 0, 0));
+        btnEncuestasGuardadas.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\EncuestasGuardadas.png")); // NOI18N
         btnEncuestasGuardadas.setText("Encuestas Guardadas");
         btnEncuestasGuardadas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnEncuestasGuardadas.setBorderPainted(false);
@@ -160,6 +163,7 @@ public class MenuEncuestador extends javax.swing.JFrame {
         btnEncuestasPublicadas.setBackground(new java.awt.Color(102, 153, 255));
         btnEncuestasPublicadas.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnEncuestasPublicadas.setForeground(new java.awt.Color(0, 0, 0));
+        btnEncuestasPublicadas.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\EncuestasPublicadas.png")); // NOI18N
         btnEncuestasPublicadas.setText("Encuestas Publicadas");
         btnEncuestasPublicadas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnEncuestasPublicadas.setBorderPainted(false);
@@ -271,7 +275,7 @@ public class MenuEncuestador extends javax.swing.JFrame {
         Contorno.setLayout(ContornoLayout);
         ContornoLayout.setHorizontalGroup(
             ContornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 703, Short.MAX_VALUE)
+            .addGap(0, 649, Short.MAX_VALUE)
         );
         ContornoLayout.setVerticalGroup(
             ContornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
