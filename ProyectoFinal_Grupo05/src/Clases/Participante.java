@@ -3,47 +3,36 @@ package Clases;
 
 public class Participante extends Persona {
     // ATRIBUTOS :______________________________________________________________
-    private String direccion;
-    private int numerocelular;
+    private String email;
     // CONSTRUCTOR SIN PARAMETROS:______________________________________________
     public Participante() {
     }
     // CONSTRUCTOR CON PARAMETROS:______________________________________________
-    public Participante(String direccion, int numerocelular, String nombre, String apellidos, String fechaNacimiento, String genero) {
+    public Participante(String email, String nombre, String apellidos, String fechaNacimiento, String genero) {
         super(nombre, apellidos, fechaNacimiento, genero);
-        this.direccion = direccion;
-        this.numerocelular = numerocelular;
+        this.email = email;
+
     }
 
     // GETTERS :________________________________________________________________
-    public String getDireccion() {
-        return direccion;
+    public String getEmail() {
+        return email;
     }
-    
-    public int getNumerocelular() {
-        return numerocelular;
-    }
-    
     // SETTERS :________________________________________________________________
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setEmail(String email) {
+        this.email = email;
     }
-
-    public void setNumerocelular(int numerocelular) {
-        this.numerocelular = numerocelular;
-    }
-
     // SOBREESCRITURA DEL METODO TO STRING :____________________________________
     @Override
     public String toString() {
-        return "Participante{" + "direccion=" + direccion + ", numerocelular=" + numerocelular + '}';
+        return "Participante{" + "email=" + email +'}';
     }
     
     // METODOS :________________________________________________________________
 
     @Override
     public String descripcion() {
-        return super.descripcion() +"Participante: {"+direccion + " " +numerocelular +"}" ;
+        return super.descripcion() +"Participante: {"+email + "}" ;
     }
     
     public void ResponderEncuesta(){

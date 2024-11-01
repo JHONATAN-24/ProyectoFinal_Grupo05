@@ -17,7 +17,7 @@ public class ListaParticipante {
     public void quitar(Participante p){
         listaParticipante.remove(p);
     }
-    public List<Participante> listarParticipante(){
+    public List<Participante> listar(){
         return listaParticipante;
     }
 }

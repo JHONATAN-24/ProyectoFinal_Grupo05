@@ -7,13 +7,16 @@
 package Aplicacion;
 
 import ArrayList.ListaEncuestadores;
+import ArrayList.ListaParticipante;
 import Clases.Encuestador;
+import Clases.Participante;
 import javax.swing.JOptionPane;
 
 
 public class RegistroJDM extends javax.swing.JFrame {
     
-    ListaEncuestadores datos = new ListaEncuestadores();
+    ListaEncuestadores datos = new ListaEncuestadores(); 
+    ListaParticipante datosp = new ListaParticipante ();
     
     public RegistroJDM() {
         initComponents();
@@ -315,7 +318,23 @@ public class RegistroJDM extends javax.swing.JFrame {
                 this.dispose();
                 
         }else if(rbParticipante.isSelected()){
-            //Falta Agregar la clase Participante
+          Participante nuevoParticipante = new Participante();
+                nuevoParticipante.setNombre(txtNombre.getText());
+                nuevoParticipante.setApellidos(txtApellido.getText());
+                nuevoParticipante.setFechaNacimiento(txtFechaNacimiento.getText());
+                if(rbMasculino.isSelected()) nuevoParticipante.setGenero("Masculino");
+                if(rbFemenino.isSelected()) nuevoParticipante.setGenero("Femenino");
+                nuevoParticipante.setEmail(txtVariante.getText());
+                
+                datosp.agregar(nuevoParticipante);
+                JOptionPane.showMessageDialog(this,"¡Participante Registrado!");
+                
+                //Metodo para limpiar los controles
+                limpiarControles();   
+                
+                SeccionParticipantes nuevoMenup = new SeccionParticipantes(datosp);
+                nuevoMenup.setVisible(true);
+                this.dispose();
         }
         
     }//GEN-LAST:event_btnGuardarDatosActionPerformed

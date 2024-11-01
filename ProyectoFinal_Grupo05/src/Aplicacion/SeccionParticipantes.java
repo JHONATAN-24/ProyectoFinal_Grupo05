@@ -4,21 +4,25 @@
  */
 package Aplicacion;
 
+import ArrayList.ListaParticipante;
+import Clases.Participante;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author user
  */
 public class SeccionParticipantes extends javax.swing.JFrame {
-
+ListaParticipante datosp = new ListaParticipante();
     /**
      * Creates new form SeccionParticipantes
      */
-    public SeccionParticipantes() {
+    public SeccionParticipantes(ListaParticipante datospe) {
         initComponents();
         this.setTitle("JDM Surveys-ListaParticiapantes");
         this.setSize(800, 600);
         this.setLocationRelativeTo(null);
-        
+        datosp = datospe;
     }
 
     /**
@@ -64,6 +68,11 @@ public class SeccionParticipantes extends javax.swing.JFrame {
         btnListarParticipante.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         btnListarParticipante.setForeground(new java.awt.Color(0, 0, 0));
         btnListarParticipante.setText("LISTAR");
+        btnListarParticipante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarParticipanteActionPerformed(evt);
+            }
+        });
 
         btnSiguienteP.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         btnSiguienteP.setForeground(new java.awt.Color(0, 0, 0));
@@ -119,40 +128,21 @@ public class SeccionParticipantes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SeccionParticipantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SeccionParticipantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SeccionParticipantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SeccionParticipantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void btnListarParticipanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarParticipanteActionPerformed
+        DefaultTableModel dtm=(DefaultTableModel) tblParticipante.getModel();
+        while(dtm.getRowCount() !=0)dtm.removeRow(0);
+        
+        for(Participante p: datosp.listar()){
+            Object[] rowData = {
+                p.getNombre(),
+                p.getApellidos(),
+                p.getFechaNacimiento(),
+                p.getGenero(),
+                p.getEmail(),
+            };
+            dtm.addRow(rowData);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SeccionParticipantes().setVisible(true);
-            }
-        });
-    }
+    }//GEN-LAST:event_btnListarParticipanteActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnListarParticipante;
