@@ -1,6 +1,8 @@
 
 package Clases;
 
+import ArrayList.ListaPreguntas;
+
 public class Encuesta {
     // ATRIBUTOS :______________________________________________________________
     private String titulo;
@@ -8,15 +10,15 @@ public class Encuesta {
     private String tipoEncuesta;
     private String fechaCreacion;
     private String fechaCierre;
+    private ListaPreguntas nuevaPre;
     
     // CONSTRUCTOR SIN PARAMETROS:______________________________________________
     public Encuesta() {
     }
 
     // CONSTRUCTOR CON PARAMETROS:______________________________________________
-    public Encuesta(String titulo, String descripción,
-                    String tipoEncuesta, String fechaCreacion,
-                    String fechaCierre) {
+    public Encuesta(String titulo, String descripción, String tipoEncuesta, 
+                    String fechaCreacion, String fechaCierre) {
     
         this.titulo = titulo;
         this.descripción = descripción;

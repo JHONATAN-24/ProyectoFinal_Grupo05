@@ -1,33 +1,33 @@
+
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+ GRUPO 05:
+- JHONATAN BRANDON QUISPE CAUTIVO
+- MOISES SEBASTIAN AVILA ROLDAN
+- D'ALESSANDRO WILLIAMS CASANA MONTOYA
+*/
+
 package Aplicacion;
 
+import ArrayList.ListaEncuestadores;
+import Clases.Encuestador;
 import java.awt.BorderLayout;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import javax.swing.Timer;
 
+public class MenuEncuestador extends javax.swing.JFrame{
 
-/**
- *
- * @author user
- */
-public class MenuEncuestador extends javax.swing.JFrame {
-
-    /**
-     * Creates new form MenuOpciones_Encuestador
-     */
+    ListaEncuestadores encuestador = new ListaEncuestadores();
     public MenuEncuestador() {
         initComponents();
         mensajeFecha();
         mensajeHora();
         this.setTitle("JDM Surveys - MenuOpciones");
-        this.setSize(940, 560);
+        this.setSize(950, 580);
         this.setLocationRelativeTo(null);
+        
+
     }
     
     public void mensajeFecha(){
@@ -46,6 +46,11 @@ public class MenuEncuestador extends javax.swing.JFrame {
         //Definimos un Arreglo
         String[] meses= {"01","02","03","04","05","06","07","08","09","10","11","12"};
         lbFecha.setText(dia+"/"+meses[mes-1]+"/"+año);
+    }
+    
+    // METODO PARA MOSTRAR EL NOMBRE DE PERFIL EN LOS MENUS
+    public void MostrarNombre(){
+        
     }
 
     public void mensajeHora(){
@@ -87,39 +92,38 @@ public class MenuEncuestador extends javax.swing.JFrame {
         FondoBlanco = new javax.swing.JPanel();
         MenuOpciones = new javax.swing.JPanel();
         Icon = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         btnInicio = new javax.swing.JButton();
         btnCrearEncuestas = new javax.swing.JButton();
-        btnEncuestasGuardadas = new javax.swing.JButton();
+        btnEncuestasEnviadas = new javax.swing.JButton();
         btnEncuestasPublicadas = new javax.swing.JButton();
         btnReportesEncuestas = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        Contorno = new javax.swing.JPanel();
         Fecha = new javax.swing.JPanel();
         lbFecha = new javax.swing.JLabel();
         jlHora = new javax.swing.JLabel();
-        Contorno = new javax.swing.JPanel();
+        lbNombreE = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(940, 560));
+        setMinimumSize(new java.awt.Dimension(950, 580));
 
-        FondoBlanco.setBackground(new java.awt.Color(255, 255, 255));
+        FondoBlanco.setBackground(new java.awt.Color(255, 204, 102));
+        FondoBlanco.setMaximumSize(new java.awt.Dimension(950, 580));
+        FondoBlanco.setMinimumSize(new java.awt.Dimension(950, 580));
+        FondoBlanco.setPreferredSize(new java.awt.Dimension(950, 580));
 
-        MenuOpciones.setBackground(new java.awt.Color(153, 204, 255));
+        MenuOpciones.setBackground(new java.awt.Color(255, 255, 204));
+        MenuOpciones.setMaximumSize(new java.awt.Dimension(224, 580));
+        MenuOpciones.setMinimumSize(new java.awt.Dimension(224, 580));
 
-        Icon.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\menuOpciones_Icon.png")); // NOI18N
+        Icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Logo JDM Surveys (JPEG) (140px) (Fondo 0).png"))); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("JDM");
-        jLabel1.setToolTipText("");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        btnInicio.setBackground(new java.awt.Color(102, 153, 255));
-        btnInicio.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        btnInicio.setBackground(new java.awt.Color(255, 204, 102));
+        btnInicio.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btnInicio.setForeground(new java.awt.Color(0, 0, 0));
-        btnInicio.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\InicioIcon.png")); // NOI18N
+        btnInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Inicio Menu.png"))); // NOI18N
         btnInicio.setText("Inicio");
         btnInicio.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnInicio.setBorderPainted(false);
@@ -134,10 +138,10 @@ public class MenuEncuestador extends javax.swing.JFrame {
             }
         });
 
-        btnCrearEncuestas.setBackground(new java.awt.Color(102, 153, 255));
-        btnCrearEncuestas.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        btnCrearEncuestas.setBackground(new java.awt.Color(255, 204, 102));
+        btnCrearEncuestas.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btnCrearEncuestas.setForeground(new java.awt.Color(0, 0, 0));
-        btnCrearEncuestas.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\CrearEncuestas_Icon1.png")); // NOI18N
+        btnCrearEncuestas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Crear Menu.png"))); // NOI18N
         btnCrearEncuestas.setText("Crear Encuestas");
         btnCrearEncuestas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnCrearEncuestas.setBorderPainted(false);
@@ -146,25 +150,34 @@ public class MenuEncuestador extends javax.swing.JFrame {
         btnCrearEncuestas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnCrearEncuestas.setIconTextGap(10);
         btnCrearEncuestas.setOpaque(true);
+        btnCrearEncuestas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearEncuestasActionPerformed(evt);
+            }
+        });
 
-        btnEncuestasGuardadas.setBackground(new java.awt.Color(102, 153, 255));
-        btnEncuestasGuardadas.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        btnEncuestasGuardadas.setForeground(new java.awt.Color(0, 0, 0));
-        btnEncuestasGuardadas.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\EncuestasGuardadas.png")); // NOI18N
-        btnEncuestasGuardadas.setText("Encuestas Guardadas");
-        btnEncuestasGuardadas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
-        btnEncuestasGuardadas.setBorderPainted(false);
-        btnEncuestasGuardadas.setContentAreaFilled(false);
-        btnEncuestasGuardadas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnEncuestasGuardadas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnEncuestasGuardadas.setIconTextGap(10);
-        btnEncuestasGuardadas.setOpaque(true);
+        btnEncuestasEnviadas.setBackground(new java.awt.Color(255, 204, 102));
+        btnEncuestasEnviadas.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        btnEncuestasEnviadas.setForeground(new java.awt.Color(0, 0, 0));
+        btnEncuestasEnviadas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Publicadas Menu.png"))); // NOI18N
+        btnEncuestasEnviadas.setText("Encuestas Enviadas");
+        btnEncuestasEnviadas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        btnEncuestasEnviadas.setBorderPainted(false);
+        btnEncuestasEnviadas.setContentAreaFilled(false);
+        btnEncuestasEnviadas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEncuestasEnviadas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnEncuestasEnviadas.setIconTextGap(10);
+        btnEncuestasEnviadas.setOpaque(true);
+        btnEncuestasEnviadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEncuestasEnviadasActionPerformed(evt);
+            }
+        });
 
-        btnEncuestasPublicadas.setBackground(new java.awt.Color(102, 153, 255));
-        btnEncuestasPublicadas.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        btnEncuestasPublicadas.setBackground(new java.awt.Color(255, 204, 102));
+        btnEncuestasPublicadas.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btnEncuestasPublicadas.setForeground(new java.awt.Color(0, 0, 0));
-        btnEncuestasPublicadas.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\EncuestasPublicadas.png")); // NOI18N
-        btnEncuestasPublicadas.setText("Encuestas Publicadas");
+        btnEncuestasPublicadas.setText("Encuestas Publicadas x");
         btnEncuestasPublicadas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnEncuestasPublicadas.setBorderPainted(false);
         btnEncuestasPublicadas.setContentAreaFilled(false);
@@ -173,9 +186,10 @@ public class MenuEncuestador extends javax.swing.JFrame {
         btnEncuestasPublicadas.setIconTextGap(10);
         btnEncuestasPublicadas.setOpaque(true);
 
-        btnReportesEncuestas.setBackground(new java.awt.Color(102, 153, 255));
-        btnReportesEncuestas.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        btnReportesEncuestas.setBackground(new java.awt.Color(255, 204, 102));
+        btnReportesEncuestas.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btnReportesEncuestas.setForeground(new java.awt.Color(0, 0, 0));
+        btnReportesEncuestas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Reportes Menu.png"))); // NOI18N
         btnReportesEncuestas.setText("Reportes Encuestas");
         btnReportesEncuestas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnReportesEncuestas.setBorderPainted(false);
@@ -184,10 +198,16 @@ public class MenuEncuestador extends javax.swing.JFrame {
         btnReportesEncuestas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnReportesEncuestas.setIconTextGap(10);
         btnReportesEncuestas.setOpaque(true);
+        btnReportesEncuestas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReportesEncuestasActionPerformed(evt);
+            }
+        });
 
-        btnSalir.setBackground(new java.awt.Color(102, 153, 255));
-        btnSalir.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        btnSalir.setBackground(new java.awt.Color(255, 204, 102));
+        btnSalir.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(0, 0, 0));
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Salir Menu.png"))); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnSalir.setBorderPainted(false);
@@ -197,55 +217,95 @@ public class MenuEncuestador extends javax.swing.JFrame {
         btnSalir.setIconTextGap(10);
         btnSalir.setOpaque(true);
 
+        jLabel4.setFont(new java.awt.Font("Cabin Sketch", 2, 48)); // NOI18N
+        jLabel4.setText("JDM ");
+
         javax.swing.GroupLayout MenuOpcionesLayout = new javax.swing.GroupLayout(MenuOpciones);
         MenuOpciones.setLayout(MenuOpcionesLayout);
         MenuOpcionesLayout.setHorizontalGroup(
             MenuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuOpcionesLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addGroup(MenuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MenuOpcionesLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(13, 13, 13))
-                    .addComponent(Icon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(Icon, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addGap(43, 43, 43))
-            .addComponent(btnInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnCrearEncuestas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnEncuestasGuardadas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnEncuestasPublicadas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnReportesEncuestas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(MenuOpcionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(MenuOpcionesLayout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(MenuOpcionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnCrearEncuestas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(MenuOpcionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnEncuestasEnviadas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(MenuOpcionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnEncuestasPublicadas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(MenuOpcionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnReportesEncuestas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(MenuOpcionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         MenuOpcionesLayout.setVerticalGroup(
             MenuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuOpcionesLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(Icon, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                .addComponent(Icon, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCrearEncuestas, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEncuestasGuardadas, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                .addComponent(btnEncuestasEnviadas, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEncuestasPublicadas, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnReportesEncuestas, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                .addGap(20, 20, 20))
+                .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                .addGap(34, 34, 34))
         );
 
-        Fecha.setBackground(new java.awt.Color(102, 102, 255));
+        Contorno.setBackground(new java.awt.Color(255, 255, 153));
+        Contorno.setForeground(new java.awt.Color(0, 0, 0));
+        Contorno.setMaximumSize(new java.awt.Dimension(700, 500));
+        Contorno.setMinimumSize(new java.awt.Dimension(700, 500));
+        Contorno.setPreferredSize(new java.awt.Dimension(700, 500));
+
+        javax.swing.GroupLayout ContornoLayout = new javax.swing.GroupLayout(Contorno);
+        Contorno.setLayout(ContornoLayout);
+        ContornoLayout.setHorizontalGroup(
+            ContornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
+        );
+        ContornoLayout.setVerticalGroup(
+            ContornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 500, Short.MAX_VALUE)
+        );
+
+        Fecha.setBackground(new java.awt.Color(255, 204, 204));
+        Fecha.setMaximumSize(new java.awt.Dimension(200, 40));
+        Fecha.setMinimumSize(new java.awt.Dimension(200, 40));
+        Fecha.setPreferredSize(new java.awt.Dimension(200, 40));
 
         lbFecha.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         lbFecha.setForeground(new java.awt.Color(0, 0, 0));
         lbFecha.setText("{day}/{month}/{year}");
 
-        jlHora.setBackground(new java.awt.Color(0, 0, 0));
+        jlHora.setBackground(new java.awt.Color(255, 255, 255));
         jlHora.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         jlHora.setForeground(new java.awt.Color(0, 0, 0));
         jlHora.setText("{HH}:{mm}");
@@ -255,32 +315,30 @@ public class MenuEncuestador extends javax.swing.JFrame {
         FechaLayout.setHorizontalGroup(
             FechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FechaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(9, Short.MAX_VALUE)
                 .addComponent(lbFecha)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlHora)
                 .addContainerGap())
         );
         FechaLayout.setVerticalGroup(
             FechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FechaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(11, Short.MAX_VALUE)
                 .addGroup(FechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbFecha)
-                    .addComponent(jlHora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jlHora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbFecha))
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout ContornoLayout = new javax.swing.GroupLayout(Contorno);
-        Contorno.setLayout(ContornoLayout);
-        ContornoLayout.setHorizontalGroup(
-            ContornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 649, Short.MAX_VALUE)
-        );
-        ContornoLayout.setVerticalGroup(
-            ContornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 507, Short.MAX_VALUE)
-        );
+        lbNombreE.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        lbNombreE.setText("Nombre Persona");
+        lbNombreE.setPreferredSize(new java.awt.Dimension(100, 20));
+
+        jLabel1.setText("ICONO");
+        jLabel1.setMaximumSize(new java.awt.Dimension(50, 50));
+        jLabel1.setMinimumSize(new java.awt.Dimension(50, 50));
+        jLabel1.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout FondoBlancoLayout = new javax.swing.GroupLayout(FondoBlanco);
         FondoBlanco.setLayout(FondoBlancoLayout);
@@ -288,34 +346,41 @@ public class MenuEncuestador extends javax.swing.JFrame {
             FondoBlancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FondoBlancoLayout.createSequentialGroup()
                 .addComponent(MenuOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(FondoBlancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(FondoBlancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(FondoBlancoLayout.createSequentialGroup()
-                        .addComponent(Contorno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoBlancoLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbNombreE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Contorno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
         FondoBlancoLayout.setVerticalGroup(
             FondoBlancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MenuOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoBlancoLayout.createSequentialGroup()
+            .addGroup(FondoBlancoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Contorno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(FondoBlancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FondoBlancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbNombreE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Fecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Contorno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(MenuOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FondoBlanco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(FondoBlanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FondoBlanco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(FondoBlanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -325,52 +390,63 @@ public class MenuEncuestador extends javax.swing.JFrame {
         panelInicial();
     }//GEN-LAST:event_btnInicioActionPerformed
 
+    private void btnCrearEncuestasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearEncuestasActionPerformed
+        panelPlantilas();
+    }//GEN-LAST:event_btnCrearEncuestasActionPerformed
+
+    private void btnEncuestasEnviadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncuestasEnviadasActionPerformed
+        panelEncuestas();
+    }//GEN-LAST:event_btnEncuestasEnviadasActionPerformed
+
+    private void btnReportesEncuestasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesEncuestasActionPerformed
+        panelReportes();
+    }//GEN-LAST:event_btnReportesEncuestasActionPerformed
+
     //Metodo para Impletar un Panel dentro de Otro
     public void panelInicial(){
-        PanelBienvenida nuevoP = new PanelBienvenida();
-            nuevoP.setSize(703,507); //Colocamos el tamaño de nuestro Jpanel
-            nuevoP.setLocation(0,0);
+        PanelBienvenidaE pInicio = new PanelBienvenidaE();
+            pInicio.setSize(700,500); //Colocamos el tamaño de nuestro Jpanel
+            pInicio.setLocation(0,0);
             
             Contorno.removeAll();
-            Contorno.add(nuevoP,BorderLayout.CENTER);
+            Contorno.add(pInicio,BorderLayout.CENTER);
             Contorno.revalidate();
             Contorno.repaint();
     }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuEncuestador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuEncuestador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuEncuestador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuEncuestador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuEncuestador().setVisible(true);
-            }
-        });
+    
+    public void panelPlantilas(){
+        CrearEncuestas pPlantillas = new CrearEncuestas();
+            pPlantillas.setSize(700,500); //Colocamos el tamaño de nuestro Jpanel
+            pPlantillas.setLocation(0,0);
+            
+            Contorno.removeAll();
+            Contorno.add(pPlantillas,BorderLayout.CENTER);
+            Contorno.revalidate();
+            Contorno.repaint();
     }
+    
+    public void panelEncuestas(){
+        EncuestasEnviadas eEnviadas = new EncuestasEnviadas();
+            eEnviadas.setSize(700,500); //Colocamos el tamaño de nuestro Jpanel
+            eEnviadas.setLocation(0,0);
+            
+            Contorno.removeAll();
+            Contorno.add(eEnviadas,BorderLayout.CENTER);
+            Contorno.revalidate();
+            Contorno.repaint();
+    }
+    
+    public void panelReportes(){
+        ReportesEncuestas eReportes = new ReportesEncuestas();
+            eReportes.setSize(700,500); //Colocamos el tamaño de nuestro Jpanel
+            eReportes.setLocation(0,0);
+            
+            Contorno.removeAll();
+            Contorno.add(eReportes,BorderLayout.CENTER);
+            Contorno.revalidate();
+            Contorno.repaint();
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Contorno;
@@ -379,13 +455,15 @@ public class MenuEncuestador extends javax.swing.JFrame {
     private javax.swing.JLabel Icon;
     private javax.swing.JPanel MenuOpciones;
     private javax.swing.JButton btnCrearEncuestas;
-    private javax.swing.JButton btnEncuestasGuardadas;
+    private javax.swing.JButton btnEncuestasEnviadas;
     private javax.swing.JButton btnEncuestasPublicadas;
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnReportesEncuestas;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jlHora;
     private javax.swing.JLabel lbFecha;
+    private javax.swing.JLabel lbNombreE;
     // End of variables declaration//GEN-END:variables
 }
