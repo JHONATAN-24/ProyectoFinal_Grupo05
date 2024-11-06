@@ -1,6 +1,8 @@
 
 package Clases;
 
+import java.util.Objects;
+
 public class Encuestador extends Persona {
     // ATRIBUTOS :______________________________________________________________
     private String codigo;
@@ -24,6 +26,12 @@ public class Encuestador extends Persona {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }  
+
+    @Override
+    public String toString() {
+        return "Encuestador{" + "codigo=" + codigo + '}';
+    }
+    
     
     // SOBREESCRITURA DEL METODO TO STRING :____________________________________
     @Override
@@ -43,4 +51,5 @@ public class Encuestador extends Persona {
     public void eliminarEncuesta(){
         
     }
+ 
 }

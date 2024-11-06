@@ -284,7 +284,43 @@ public class RegistroJDM extends javax.swing.JFrame {
     }//GEN-LAST:event_rbParticipanteActionPerformed
 
     private void btnGuardarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarDatosActionPerformed
+        //Validando Encuestador y Participante
+        if(rbEncuestador.isSelected()==false && rbParticipante.isSelected()==false){
+            JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Seleccionar un Rol");
+                    return; //Salir del metodo
+        }
+        
         if(rbEncuestador.isSelected()){
+            //Validando Nombre
+                if(txtNombre.getText().length()==0){ //get obtener
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar su nombre");
+                    return; //Salir del metodo
+                }
+
+                //Validando Apellido
+                if(txtApellido.getText().length()==0){
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar su Apellido");
+                    return;
+                }
+                
+                //Validando Fecha Nacimiento
+                if(txtFechaNacimiento.getText().length()==0){
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar su Fecha de Nacimiento");
+                    return;
+                }
+                
+                //Validando Genero
+                if(rbMasculino.isSelected()==false && rbFemenino.isSelected()==false){
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Seleccionar un Genero");
+                    return;
+                }
+                
+                //Validando Codigo
+                if(txtVariante.getText().length()==0){
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar su Codigo");
+                    return;
+                }
+
             Encuestador nuevoEncuestador = new Encuestador();
                 nuevoEncuestador.setNombre(txtNombre.getText());
                 nuevoEncuestador.setApellidos(txtApellido.getText());
@@ -305,6 +341,38 @@ public class RegistroJDM extends javax.swing.JFrame {
                 this.dispose();
                 
         }else if(rbParticipante.isSelected()){
+            
+          //Validando 
+                //Validando Nombre
+                if(txtNombre.getText().length()==0){
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar su Nombre");
+                    return;
+                }
+                
+                //Validando Apellido
+                if(txtApellido.getText().length()==0){
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar su Apellido");
+                    return;
+                }
+          
+                //Validando Fecha Nacimiento
+                if(txtFechaNacimiento.getText().length()==0){
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar su Fecha de Nacimiento");
+                    return;
+                }
+                
+                //Validando Genero
+                if(rbMasculino.isSelected()==false && rbFemenino.isSelected()==false){
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Seleccionar un Genero");
+                    return;
+                }
+                
+                //Validando Email
+                if(txtVariante.getText().length()==0){
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Escribir su Email");
+                    return;
+                }
+                
           Participante nuevoParticipante = new Participante();
                 nuevoParticipante.setNombre(txtNombre.getText());
                 nuevoParticipante.setApellidos(txtApellido.getText());
@@ -335,11 +403,6 @@ public class RegistroJDM extends javax.swing.JFrame {
         txtVariante.setText("");
     }
     
-    // METODO PARA MOSTRAR EL NOMBRE DE PERFIL EN LOS MENUS
-    public void NombrePersona(){
-        String nombre = txtNombre.getText();
-        
-    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

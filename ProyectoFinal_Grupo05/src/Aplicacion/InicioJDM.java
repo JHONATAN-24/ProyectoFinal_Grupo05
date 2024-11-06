@@ -12,7 +12,7 @@ public class InicioJDM extends javax.swing.JFrame {
     public InicioJDM() {
         initComponents();
         this.setTitle("JDM Surveys");
-        //this.setSize(800, 540);
+        this.setSize(800, 540);
         this.setLocationRelativeTo(null);
         this.setResizable(false); // Bloquea el tamaño de la ventana
         

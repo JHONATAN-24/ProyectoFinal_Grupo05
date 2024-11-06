@@ -10,6 +10,7 @@ package Aplicacion;
 
 import ArrayList.ListaEncuestadores;
 import Clases.Encuestador;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class SeccionEncuestadores extends javax.swing.JFrame {
@@ -23,7 +24,7 @@ public class SeccionEncuestadores extends javax.swing.JFrame {
         this.setSize(800, 540);
         this.setLocationRelativeTo(null);
         
-        this.datos1 = datosE;
+        datos1 = datosE;
     }
 
     @SuppressWarnings("unchecked")
@@ -39,7 +40,6 @@ public class SeccionEncuestadores extends javax.swing.JFrame {
         btnSiguiente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(800, 500));
         setMinimumSize(new java.awt.Dimension(800, 500));
         setResizable(false);
 
@@ -108,12 +108,12 @@ public class SeccionEncuestadores extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnListar)
                     .addComponent(btnSiguiente))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -135,6 +135,7 @@ public class SeccionEncuestadores extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+
         DefaultTableModel dtm=(DefaultTableModel) tblEncuestadores.getModel();
         while(dtm.getRowCount() !=0)dtm.removeRow(0);
 
@@ -151,9 +152,23 @@ public class SeccionEncuestadores extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        MenuEncuestador nuevaVentana = new MenuEncuestador();
-        nuevaVentana.setVisible(true);
-        this.dispose();
+        // Escoger al usuario de la tabla
+            int selectedRow = tblEncuestadores.getSelectedRow();
+    
+        // Validación
+            if (selectedRow == -1) {
+                JOptionPane.showMessageDialog(this, "Debe seleccionar un Encuestador.");
+                return;
+            }   
+    
+        // Obtener valores de la tabla
+            String nombreEncuestador = tblEncuestadores.getValueAt(selectedRow, 1).toString();
+            String apellidoEncuestador = tblEncuestadores.getValueAt(selectedRow, 2).toString();
+
+        // Crear y mostrar nueva ventana
+            MenuEncuestador nuevaVentana = new MenuEncuestador(datos1, nombreEncuestador, apellidoEncuestador);
+                nuevaVentana.setVisible(true);
+                this.dispose();
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
    

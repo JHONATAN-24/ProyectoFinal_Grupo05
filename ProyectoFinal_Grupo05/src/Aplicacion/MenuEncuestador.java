@@ -20,18 +20,28 @@ import java.util.GregorianCalendar;
 import javax.swing.Timer;
 
 public class MenuEncuestador extends javax.swing.JFrame{
+    
+    ListaEncuestadores datosEn = new ListaEncuestadores();
     private Timer timer;
-    ListaEncuestadores encuestador = new ListaEncuestadores();
-    public MenuEncuestador() {
+    private String nombreEncuestador;
+    private String apellidoEncuestador;
+
+    public MenuEncuestador(ListaEncuestadores datos1, String nombreEncuestador, String apellidoEncuestador) {
         initComponents();
+        this.setTitle("JDM Surveys - MenuOpciones");
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        
+        // Guardar los datos
+        this.datosEn = datos1;
+        this.nombreEncuestador = nombreEncuestador;
+        this.apellidoEncuestador = apellidoEncuestador;
+        
+        // Inicializar componentes
+        iniciarReloj();
         mensajeFecha();
         mensajeHora();
-        this.setTitle("JDM Surveys - MenuOpciones");
-        //this.setSize(965, 620);
-        this.setLocationRelativeTo(null);
-        this.setResizable(false); // Bloquea el tamaño de la ventana
-        iniciarReloj();
-
+        MostrarNombre();
     }
     
     public void mensajeFecha(){
@@ -54,7 +64,7 @@ public class MenuEncuestador extends javax.swing.JFrame{
     
     // METODO PARA MOSTRAR EL NOMBRE DE PERFIL EN LOS MENUS
     public void MostrarNombre(){
-        
+        jlbNombreE.setText(nombreEncuestador + " " + apellidoEncuestador);
     }
 
     private void iniciarReloj() {
@@ -117,7 +127,7 @@ public class MenuEncuestador extends javax.swing.JFrame{
         Fecha = new javax.swing.JPanel();
         jlHora = new javax.swing.JLabel();
         lbFecha = new javax.swing.JLabel();
-        lbNombreE = new javax.swing.JLabel();
+        jlbNombreE = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -329,9 +339,9 @@ public class MenuEncuestador extends javax.swing.JFrame{
                 .addContainerGap())
         );
 
-        lbNombreE.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        lbNombreE.setText("Nombre Persona");
-        lbNombreE.setPreferredSize(new java.awt.Dimension(100, 20));
+        jlbNombreE.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        jlbNombreE.setText("Nombre Persona");
+        jlbNombreE.setPreferredSize(new java.awt.Dimension(100, 20));
 
         jLabel1.setText("ICONO");
         jLabel1.setMaximumSize(new java.awt.Dimension(50, 50));
@@ -348,24 +358,25 @@ public class MenuEncuestador extends javax.swing.JFrame{
                 .addGroup(FondoBlancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(FondoBlancoLayout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbNombreE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jlbNombreE, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(Contorno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 14, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         FondoBlancoLayout.setVerticalGroup(
             FondoBlancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FondoBlancoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(FondoBlancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbNombreE, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(FondoBlancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlbNombreE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(Fecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Contorno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
             .addComponent(MenuOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -459,7 +470,7 @@ public class MenuEncuestador extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jlHora;
+    private javax.swing.JLabel jlbNombreE;
     private javax.swing.JLabel lbFecha;
-    private javax.swing.JLabel lbNombreE;
     // End of variables declaration//GEN-END:variables
 }
