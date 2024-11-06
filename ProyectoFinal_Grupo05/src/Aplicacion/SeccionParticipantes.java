@@ -10,20 +10,21 @@ package Aplicacion;
 
 import ArrayList.ListaParticipante;
 import Clases.Participante;
+import HashSet.HashParticipante;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
 public class SeccionParticipantes extends javax.swing.JFrame {
-    ListaParticipante datosp = new ListaParticipante();
+    HashParticipante hparticipante = new HashParticipante();
     
-    public SeccionParticipantes(ListaParticipante datospe) {
+    public SeccionParticipantes(HashParticipante hashP) {
         initComponents();
         this.setTitle("JDM Surveys-ListaParticiapantes");
         this.setSize(820, 540);
         this.setLocationRelativeTo(null);
         
-        datosp = datospe;
+        hparticipante = hashP;
     }
 
     @SuppressWarnings("unchecked")
@@ -142,7 +143,7 @@ public class SeccionParticipantes extends javax.swing.JFrame {
         DefaultTableModel dtm=(DefaultTableModel) tblParticipante.getModel();
         while(dtm.getRowCount() !=0)dtm.removeRow(0);
         
-        for(Participante p: datosp.listar()){
+        for(Participante p: hparticipante.listar()){
             Object[] rowData = {
                 p.getNombre(),
                 p.getApellidos(),

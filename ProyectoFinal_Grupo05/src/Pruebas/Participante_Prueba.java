@@ -289,7 +289,7 @@ public class Participante_Prueba extends javax.swing.JFrame {
 
         // Validar que se haya seleccionado una fila
         if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(this, "Debe seleccionar un Encuestador");
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un Participante");
             return;
         }
 
@@ -299,12 +299,23 @@ public class Participante_Prueba extends javax.swing.JFrame {
 
         hp.quitar(pEliminar);
 
+        //Metodo para limpiar los controles
+        limpiarControles(); 
+        
         // Actualizar la tabla
         DefaultTableModel dtm = (DefaultTableModel) tblParticipante.getModel();
         dtm.removeRow(selectedRow);
-        JOptionPane.showMessageDialog(this, "Encuestador eliminado.");
+        JOptionPane.showMessageDialog(this, "Participante eliminado.");
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+     public void limpiarControles(){
+        txtNombre.setText("");
+        txtApellidos.setText("");
+        txtFecha.setText("");
+        bgGenero.clearSelection();
+        txtEmail.setText("");
+    }
+     
     private void btnTamañoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTamañoActionPerformed
         JOptionPane.showMessageDialog(this, "El tamaño es de: "+ hp.tamaño());
     }//GEN-LAST:event_btnTamañoActionPerformed

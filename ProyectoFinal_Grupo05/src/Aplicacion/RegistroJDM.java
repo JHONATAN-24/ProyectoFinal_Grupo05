@@ -10,13 +10,14 @@ import ArrayList.ListaEncuestadores;
 import ArrayList.ListaParticipante;
 import Clases.Encuestador;
 import Clases.Participante;
+import HashSet.HashParticipante;
 import javax.swing.JOptionPane;
 
 
 public class RegistroJDM extends javax.swing.JFrame {
     
     ListaEncuestadores datosE = new ListaEncuestadores(); 
-    ListaParticipante datosP = new ListaParticipante ();
+    HashParticipante hashP = new HashParticipante();
     
     public RegistroJDM() {
         initComponents();
@@ -381,13 +382,13 @@ public class RegistroJDM extends javax.swing.JFrame {
                 if(rbFemenino.isSelected()) nuevoParticipante.setGenero("Femenino");
                 nuevoParticipante.setEmail(txtVariante.getText());
                 
-                datosP.agregar(nuevoParticipante);
+                hashP.agregar(nuevoParticipante);
                 JOptionPane.showMessageDialog(this,"¡Participante Registrado!");
                 
                 //Metodo para limpiar los controles
                 limpiarControles();   
                 
-                SeccionParticipantes nuevoMenup = new SeccionParticipantes(datosP);
+                SeccionParticipantes nuevoMenup = new SeccionParticipantes(hashP);
                 nuevoMenup.setVisible(true);
                 this.dispose();
         }
