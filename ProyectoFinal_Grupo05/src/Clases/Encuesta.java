@@ -2,6 +2,7 @@
 package Clases;
 
 import ArrayList.ListaPreguntas;
+import java.util.Objects;
 
 public class Encuesta {
     // ATRIBUTOS :______________________________________________________________
@@ -73,6 +74,21 @@ public class Encuesta {
     @Override
     public String toString() {
         return "Pregunta{" + "titulo=" + titulo + ", descripci\u00f3n=" + descripción + ", tipoEncuesta=" + tipoEncuesta + ", fechaCreacion=" + fechaCreacion + ", fechaCierre=" + fechaCierre + '}';
+    }
+    
+    // Verifica si dos participantes son iguales comparando sus emails.
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Encuesta other = (Encuesta) obj;
+        return Objects.equals(titulo, other.titulo);
+    }
+    
+    // Genera un código hash basado en el email para usar en estructuras de datos.
+    @Override
+    public int hashCode() {
+        return Objects.hash(titulo);
     }
     
 }

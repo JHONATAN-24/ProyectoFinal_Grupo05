@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package Pruebas;
 
 import HashSet.HashParticipante;
@@ -10,15 +7,8 @@ import ArrayList.ListaParticipante;
 import Clases.Encuestador;
 import Clases.Participante;
 
-/**
- *
- * @author user
- */
 public class ArraylistvsHashSet {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         Encuestador e = new Encuestador("U23246360", "Moises", "Avila", "14-01-2006", "Masculino");
         
