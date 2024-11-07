@@ -1,56 +1,66 @@
 
 package Clases;
 
-public class Participante extends Persona {
-    private String direccion;
-    private int numerocelular;
+import java.util.Objects;
 
+public class Participante extends Persona {
+    // ATRIBUTOS :______________________________________________________________
+    private String email;
+    // CONSTRUCTOR SIN PARAMETROS:______________________________________________
     public Participante() {
     }
-
-    public Participante(String direccion, int numerocelular, String nombre, String apellidos, String fechaNacimiento, String genero) {
+    // CONSTRUCTOR CON PARAMETROS:______________________________________________
+    public Participante(String email, String nombre, String apellidos, String fechaNacimiento, String genero) {
         super(nombre, apellidos, fechaNacimiento, genero);
-        this.direccion = direccion;
-        this.numerocelular = numerocelular;
+        this.email = email;
+
     }
 
-    //Getters and Setters
-    public String getDireccion() {
-        return direccion;
+    // GETTERS :________________________________________________________________
+    public String getEmail() {
+        return email;
+    }
+    // SETTERS :________________________________________________________________
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public int getNumerocelular() {
-        return numerocelular;
-    }
-
-    public void setNumerocelular(int numerocelular) {
-        this.numerocelular = numerocelular;
-    }
-
+    //SOBREESCRITURA:___________________________________________________________
     @Override
     public String toString() {
-        return "Participante{" + "direccion=" + direccion + ", numerocelular=" + numerocelular + '}';
+        return "Participante{" + "email=" + email + '}';
     }
-    
-    //Metodos
+
+    // METODOS :________________________________________________________________
 
     @Override
     public String descripcion() {
-        return super.descripcion() +"Participante: {"+direccion + " " +numerocelular +"}" ;
+        return super.descripcion() +"Participante: {"+email + "}" ;
     }
     
     public void ResponderEncuesta(){
-        //Definir la funcionalidad del metodo
+        
     }
     
     public void verResultados(){
-        //Definir la funcionalidad del metodo
+        
+    }
+
+   // Verifica si dos participantes son iguales comparando sus emails.
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Participante other = (Participante) obj;
+        return Objects.equals(email, other.email);
+    }
+    
+    // Genera un código hash basado en el email para usar en estructuras de datos.
+    @Override
+    public int hashCode() {
+        return Objects.hash(email);
     }
     
     
-    
+
 }

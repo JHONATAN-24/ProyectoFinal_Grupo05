@@ -1,3 +1,4 @@
+
 /*
  GRUPO 05:
 - JHONATAN BRANDON QUISPE CAUTIVO
@@ -6,13 +7,14 @@
 */
 package Aplicacion;
 
-public class InicioPlataformaEncuesta extends javax.swing.JFrame {
+public class InicioJDM extends javax.swing.JFrame {
   
-    public InicioPlataformaEncuesta() {
+    public InicioJDM() {
         initComponents();
         this.setTitle("JDM Surveys");
-        this.setSize(800, 500);
+        this.setSize(800, 540);
         this.setLocationRelativeTo(null);
+        this.setResizable(false); // Bloquea el tamaño de la ventana
         
     }
     
@@ -22,19 +24,28 @@ public class InicioPlataformaEncuesta extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        LogoOso = new javax.swing.JLabel();
         PanelBienvenida = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnIniciar = new javax.swing.JButton();
-        LogoOso = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JDM Surveys");
+        setMaximumSize(new java.awt.Dimension(800, 500));
         setMinimumSize(new java.awt.Dimension(800, 500));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMaximumSize(new java.awt.Dimension(800, 500));
+        jPanel1.setMinimumSize(new java.awt.Dimension(800, 500));
 
-        PanelBienvenida.setBackground(new java.awt.Color(255, 243, 232));
+        LogoOso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Oso logo de JDM Surveys (Color) (PNG).png"))); // NOI18N
+
+        PanelBienvenida.setBackground(new java.awt.Color(255, 255, 204));
+        PanelBienvenida.setMaximumSize(new java.awt.Dimension(300, 500));
+        PanelBienvenida.setMinimumSize(new java.awt.Dimension(300, 500));
+        PanelBienvenida.setPreferredSize(new java.awt.Dimension(300, 500));
 
         jLabel3.setFont(new java.awt.Font("Cabin Sketch", 2, 48)); // NOI18N
         jLabel3.setText("Surveys");
@@ -61,11 +72,12 @@ public class InicioPlataformaEncuesta extends javax.swing.JFrame {
                         .addComponent(jLabel3))
                     .addGroup(PanelBienvenidaLayout.createSequentialGroup()
                         .addGap(98, 98, 98)
-                        .addComponent(jLabel4))
-                    .addGroup(PanelBienvenidaLayout.createSequentialGroup()
-                        .addGap(98, 98, 98)
                         .addComponent(btnIniciar)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelBienvenidaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(98, 98, 98))
         );
         PanelBienvenidaLayout.setVerticalGroup(
             PanelBienvenidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,8 +90,6 @@ public class InicioPlataformaEncuesta extends javax.swing.JFrame {
                 .addComponent(btnIniciar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        LogoOso.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\Oso logo de JDM Surveys (Color) (PNG).png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -111,7 +121,7 @@ public class InicioPlataformaEncuesta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-        Registro_Personas nuevaventana = new Registro_Personas();
+        RegistroJDM nuevaventana = new RegistroJDM();
         nuevaventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnIniciarActionPerformed
@@ -133,20 +143,23 @@ public class InicioPlataformaEncuesta extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InicioPlataformaEncuesta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioJDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InicioPlataformaEncuesta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioJDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InicioPlataformaEncuesta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioJDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InicioPlataformaEncuesta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioJDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InicioPlataformaEncuesta().setVisible(true);
+                new InicioJDM().setVisible(true);
             }
         });
     }

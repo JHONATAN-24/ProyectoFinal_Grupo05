@@ -6,21 +6,25 @@
 */
 package Aplicacion;
 
-import ArrayList.EncuestadorList;
+import ArrayList.ListaEncuestadores;
+import ArrayList.ListaParticipante;
 import Clases.Encuestador;
+import Clases.Participante;
+import HashSet.HashParticipante;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
-public class Registro_Personas extends javax.swing.JFrame {
+
+public class RegistroJDM extends javax.swing.JFrame {
     
-    //Entorno
-    EncuestadorList datos = new EncuestadorList();
-
-    public Registro_Personas() {
+    ListaEncuestadores datosE = new ListaEncuestadores(); 
+    HashParticipante hashP = new HashParticipante();
+    
+    public RegistroJDM() {
         initComponents();
         this.setTitle("JDM Surveys - Registros");
-        this.setSize(800, 500);
+        this.setSize(800, 540);
         this.setLocationRelativeTo(null);
+        
     }
     
     @SuppressWarnings("unchecked")
@@ -57,7 +61,7 @@ public class Registro_Personas extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(252, 228, 186));
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\POO_PROYECTO\\ProyectoFinal_Grupo05\\ProyectoFinal_Grupo05\\src\\Iconos\\Icono de Registro de JDM Surveys (PNG).png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Icono de Registro de JDM Surveys (PNG).png"))); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(153, 204, 255));
 
@@ -127,7 +131,7 @@ public class Registro_Personas extends javax.swing.JFrame {
         });
 
         btnGuardarDatos.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        btnGuardarDatos.setText("GuardarDatos");
+        btnGuardarDatos.setText("Guardar");
         btnGuardarDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarDatosActionPerformed(evt);
@@ -138,24 +142,31 @@ public class Registro_Personas extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(jLabel2)
+                .addGap(0, 78, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(124, 124, 124)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(txtVariante))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(133, 133, 133))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(rbEncuestador)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rbParticipante)
-                        .addGap(74, 74, 74))
+                        .addComponent(rbParticipante))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel2)
-                        .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(rbMasculino)
+                        .addGap(27, 27, 27)
+                        .addComponent(rbFemenino)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -173,42 +184,25 @@ public class Registro_Personas extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtFechaNacimiento))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(rbMasculino)
-                        .addGap(27, 27, 27)
-                        .addComponent(rbFemenino)
-                        .addGap(0, 15, Short.MAX_VALUE)))
-                .addGap(74, 74, 74))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel8)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jlvariante))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jlvariante)
-                                .addGap(14, 14, 14)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtVariante)
-                        .addGap(74, 74, 74))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnAtras)
-                        .addGap(39, 39, 39)
-                        .addComponent(btnGuardarDatos)
-                        .addGap(65, 65, 65))))
+                                .addComponent(btnAtras)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnGuardarDatos)))))
+                .addGap(74, 74, 74))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(12, 12, 12)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(7, 7, 7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -226,25 +220,21 @@ public class Registro_Personas extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rbMasculino)
-                            .addComponent(rbFemenino))
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlvariante)
-                            .addComponent(txtVariante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAtras)
-                            .addComponent(btnGuardarDatos))
-                        .addContainerGap())))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8)
+                .addGap(12, 12, 12)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbMasculino)
+                    .addComponent(rbFemenino))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlvariante)
+                    .addComponent(txtVariante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAtras)
+                    .addComponent(btnGuardarDatos))
+                .addGap(25, 25, 25))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -260,10 +250,10 @@ public class Registro_Personas extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(58, 58, 58))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -281,7 +271,7 @@ public class Registro_Personas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        InicioPlataformaEncuesta ventana = new InicioPlataformaEncuesta();
+        InicioJDM ventana = new InicioJDM();
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
@@ -295,27 +285,112 @@ public class Registro_Personas extends javax.swing.JFrame {
     }//GEN-LAST:event_rbParticipanteActionPerformed
 
     private void btnGuardarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarDatosActionPerformed
+        //Validando Encuestador y Participante
+        if(rbEncuestador.isSelected()==false && rbParticipante.isSelected()==false){
+            JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Seleccionar un Rol");
+                    return; //Salir del metodo
+        }
+        
         if(rbEncuestador.isSelected()){
+            //Validando Nombre
+                if(txtNombre.getText().length()==0){ //get obtener
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar su nombre");
+                    return; //Salir del metodo
+                }
+
+                //Validando Apellido
+                if(txtApellido.getText().length()==0){
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar su Apellido");
+                    return;
+                }
+                
+                //Validando Fecha Nacimiento
+                if(txtFechaNacimiento.getText().length()==0){
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar su Fecha de Nacimiento");
+                    return;
+                }
+                
+                //Validando Genero
+                if(rbMasculino.isSelected()==false && rbFemenino.isSelected()==false){
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Seleccionar un Genero");
+                    return;
+                }
+                
+                //Validando Codigo
+                if(txtVariante.getText().length()==0){
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar su Codigo");
+                    return;
+                }
+
             Encuestador nuevoEncuestador = new Encuestador();
                 nuevoEncuestador.setNombre(txtNombre.getText());
                 nuevoEncuestador.setApellidos(txtApellido.getText());
                 nuevoEncuestador.setFechaNacimiento(txtFechaNacimiento.getText());
                 if(rbMasculino.isSelected()) nuevoEncuestador.setGenero("Masculino");
                 if(rbFemenino.isSelected()) nuevoEncuestador.setGenero("Femenino");
-                nuevoEncuestador.setGenero(txtVariante.getText());
+                nuevoEncuestador.setCodigo(txtVariante.getText());
                 
-                datos.agregar(nuevoEncuestador);
+                datosE.agregar(nuevoEncuestador);
                 JOptionPane.showMessageDialog(this,"¡Encuestador Registrado!");
                 
                 //Metodo para limpiar los controles
                 limpiarControles();
                 
-                //Ventana Lista de Encuestadores
-                ListadeEncuestadores nuevoMenu = new ListadeEncuestadores();
+                // Pasar la misma instancia de datos al nuevo frame
+                SeccionEncuestadores nuevoMenu = new SeccionEncuestadores(datosE);
                 nuevoMenu.setVisible(true);
                 this.dispose();
+                
         }else if(rbParticipante.isSelected()){
-            //Falta Agregar la clase Participante
+            
+          //Validando 
+                //Validando Nombre
+                if(txtNombre.getText().length()==0){
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar su Nombre");
+                    return;
+                }
+                
+                //Validando Apellido
+                if(txtApellido.getText().length()==0){
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar su Apellido");
+                    return;
+                }
+          
+                //Validando Fecha Nacimiento
+                if(txtFechaNacimiento.getText().length()==0){
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar su Fecha de Nacimiento");
+                    return;
+                }
+                
+                //Validando Genero
+                if(rbMasculino.isSelected()==false && rbFemenino.isSelected()==false){
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Seleccionar un Genero");
+                    return;
+                }
+                
+                //Validando Email
+                if(txtVariante.getText().length()==0){
+                    JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Escribir su Email");
+                    return;
+                }
+                
+          Participante nuevoParticipante = new Participante();
+                nuevoParticipante.setNombre(txtNombre.getText());
+                nuevoParticipante.setApellidos(txtApellido.getText());
+                nuevoParticipante.setFechaNacimiento(txtFechaNacimiento.getText());
+                if(rbMasculino.isSelected()) nuevoParticipante.setGenero("Masculino");
+                if(rbFemenino.isSelected()) nuevoParticipante.setGenero("Femenino");
+                nuevoParticipante.setEmail(txtVariante.getText());
+                
+                hashP.agregar(nuevoParticipante);
+                JOptionPane.showMessageDialog(this,"¡Participante Registrado!");
+                
+                //Metodo para limpiar los controles
+                limpiarControles();   
+                
+                SeccionParticipantes nuevoMenup = new SeccionParticipantes(hashP);
+                nuevoMenup.setVisible(true);
+                this.dispose();
         }
         
     }//GEN-LAST:event_btnGuardarDatosActionPerformed
@@ -329,40 +404,7 @@ public class Registro_Personas extends javax.swing.JFrame {
         txtVariante.setText("");
     }
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Registro_Personas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Registro_Personas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Registro_Personas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Registro_Personas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Registro_Personas().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup bgGrupo01;

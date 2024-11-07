@@ -1,26 +1,26 @@
 
 package ArrayList;
 
-import Clases.Pregunta;
+import Clases.Encuesta;
 import java.util.List;
 import java.util.ArrayList;
 
 public class ListaPreguntas {
-    List<Pregunta> listaPreguntas = new ArrayList<>();
+    List<Encuesta> listaPreguntas = new ArrayList<>();
     
     // METODOS
-    public void agregarPregunta(Pregunta p){
+    public void agregarPregunta(Encuesta p){
         listaPreguntas.add(p);
     }
     
-    public void eliminarPregunta(Pregunta p){
+    public void eliminarPregunta(Encuesta p){
         listaPreguntas.remove(p);
     }
     
-    public Pregunta obtener(int pos){
+    public Encuesta obtenerPregunta(int pos){
         return listaPreguntas.get(pos);
     }
-    public List<Pregunta> listar(){
+    public List<Encuesta> listarPregunta(){
         return this.listaPreguntas;   
     }
     
