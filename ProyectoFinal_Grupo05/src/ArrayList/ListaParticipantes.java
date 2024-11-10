@@ -8,7 +8,7 @@ import Clases.Participante;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListaParticipante {
+public class ListaParticipantes {
     List <Participante> listaParticipante = new ArrayList<>();
     
     public void agregar(Participante p){

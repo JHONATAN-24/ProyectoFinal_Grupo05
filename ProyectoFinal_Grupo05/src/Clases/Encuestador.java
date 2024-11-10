@@ -51,5 +51,20 @@ public class Encuestador extends Persona {
     public void eliminarEncuesta(){
         
     }
+    
+    // Verifica si dos participantes son iguales comparando sus emails.
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Encuestador other = (Encuestador) obj;
+        return Objects.equals(codigo, other.codigo);
+    }
+    
+    // Genera un código hash basado en el email para usar en estructuras de datos.
+    @Override
+    public int hashCode() {
+        return Objects.hash(codigo);
+    }
  
 }

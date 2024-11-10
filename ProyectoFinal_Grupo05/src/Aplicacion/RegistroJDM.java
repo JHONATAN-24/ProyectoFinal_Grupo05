@@ -7,7 +7,7 @@
 package Aplicacion;
 
 import ArrayList.ListaEncuestadores;
-import ArrayList.ListaParticipante;
+import ArrayList.ListaParticipantes;
 import Clases.Encuestador;
 import Clases.Participante;
 import HashSet.HashParticipante;

@@ -1,6 +1,8 @@
 
 package Clases;
 
+import java.util.Objects;
+
 public class Pregunta {
     // ATRIBUTOS :______________________________________________________________
     private String enunciado;
@@ -41,4 +43,18 @@ public class Pregunta {
         return "Pregunta{" + "enunciado=" + enunciado + ", tipoPregunta=" + tipoPregunta + '}';
     }
     
+    // Verifica si dos Preguntas son iguales comparando sus emails.
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Pregunta other = (Pregunta) obj;
+        return Objects.equals(enunciado, other.enunciado);
+    }
+    
+    // Genera un código hash basado en el email para usar en estructuras de datos.
+    @Override
+    public int hashCode() {
+        return Objects.hash(enunciado);
+    }
 }

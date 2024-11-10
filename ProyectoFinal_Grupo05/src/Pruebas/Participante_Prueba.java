@@ -1,7 +1,9 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+ GRUPO 05:
+- JHONATAN BRANDON QUISPE CAUTIVO
+- MOISES SEBASTIAN AVILA ROLDAN
+- D'ALESSANDRO WILLIAMS CASANA MONTOYA
+*/
 package Pruebas;
 
 import Clases.Participante;
@@ -25,6 +27,10 @@ public class Participante_Prueba extends javax.swing.JFrame {
      */
     public Participante_Prueba() {
         initComponents();
+        this.setTitle("Participante Prueba");
+        //this.setSize(678, 670);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**

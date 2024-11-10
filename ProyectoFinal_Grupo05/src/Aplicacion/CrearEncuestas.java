@@ -176,6 +176,21 @@ public class CrearEncuestas extends javax.swing.JPanel {
 
     private void btnPlantilla01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlantilla01ActionPerformed
         // Mostrar el JFrame de la Plantilla 1
+        /*
+        PanelBienvenidaE pInicio = new PanelBienvenidaE();
+            pInicio.setSize(700,500); //Colocamos el tamaño de nuestro Jpanel
+            pInicio.setLocation(0,0);
+            
+            Contorno.removeAll();
+            Contorno.add(pInicio,BorderLayout.CENTER);
+            Contorno.revalidate();
+            Contorno.repaint();
+            */
+        
+        PlantillaEncuesta_01 p1 = new PlantillaEncuesta_01();
+            p1.setSize(950, 580);
+            p1.setLocation(0,0);
+        
     }//GEN-LAST:event_btnPlantilla01ActionPerformed
 
     private void btnPlantilla02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlantilla02ActionPerformed

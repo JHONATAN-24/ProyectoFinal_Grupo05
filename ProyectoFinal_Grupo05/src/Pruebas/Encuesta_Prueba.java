@@ -1,4 +1,9 @@
-
+/*
+ GRUPO 05:
+- JHONATAN BRANDON QUISPE CAUTIVO
+- MOISES SEBASTIAN AVILA ROLDAN
+- D'ALESSANDRO WILLIAMS CASANA MONTOYA
+*/
 package Pruebas;
 
 import HashSet.HashEncuesta;
@@ -14,6 +19,10 @@ public class Encuesta_Prueba extends javax.swing.JFrame {
     
     public Encuesta_Prueba() {
         initComponents();
+        this.setTitle("Encuesta Prueba");
+        //this.setSize(800, 540);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     @SuppressWarnings("unchecked")

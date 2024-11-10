@@ -8,7 +8,7 @@
 
 package Aplicacion;
 
-import ArrayList.ListaParticipante;
+import ArrayList.ListaParticipantes;
 import Clases.Participante;
 import HashSet.HashParticipante;
 import javax.swing.JOptionPane;
