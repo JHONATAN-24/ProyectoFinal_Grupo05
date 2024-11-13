@@ -11,6 +11,8 @@ import ArrayList.ListaParticipantes;
 import Clases.Encuestador;
 import Clases.Participante;
 import HashSet.HashParticipante;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 
@@ -297,12 +299,30 @@ public class RegistroJDM extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar su nombre");
                     return; //Salir del metodo
                 }
-
+                
+                //Pattern and Matcher
+                String nombre = txtNombre.getText();
+                Pattern validarNombre = Pattern.compile("^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$"); //Formato
+                Matcher validacionNombre = validarNombre.matcher(nombre);
+                if (!validacionNombre.matches()){ //Comprueba si el nombre ingresado no coincide con el patrón esperado (que son letras)
+                    JOptionPane.showMessageDialog(this, "[x] El nombre solo puede contener letras");
+                    return; //Salir del bucle
+                }
+                
                 //Validando Apellido
                 if(txtApellido.getText().length()==0){
                     JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar su Apellido");
                     return;
                 }
+                
+                String apellido = txtApellido.getText();
+                Pattern validarApellido = Pattern.compile("^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$");
+                Matcher validandoA = validarApellido.matcher(apellido);
+                if(!validandoA.matches()){
+                    JOptionPane.showMessageDialog(this, "[x] El apellido solo puede contener letras");
+                    return; //Salir del bucle
+                }
+                
                 
                 //Validando Fecha Nacimiento
                 if(txtFechaNacimiento.getText().length()==0){
@@ -321,6 +341,33 @@ public class RegistroJDM extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar su Codigo");
                     return;
                 }
+                String codigo = txtVariante.getText();
+
+                // Verifica si el código tiene exactamente 9 dígitos (sin letra al inicio)
+                Pattern validarNumeros = Pattern.compile("^[0-9]{9}$");
+                Matcher validandoNumeros = validarNumeros.matcher(codigo);
+
+                // Verifica si el código empieza con una letra pero tiene menos de 8 dígitos
+                Pattern validarNumF = Pattern.compile("^[a-zA-ZáéíóúÁÉÍÓÚñÑ][0-9]{1,7}$");
+                Matcher validandoNume = validarNumF.matcher(codigo);
+
+                // Verifica si el código comienza con una letra y tiene exactamente 8 dígitos
+                Pattern validarCodigo = Pattern.compile("^[a-zA-ZáéíóúÁÉÍÓÚñÑ][0-9]{8}$");
+                Matcher validandoCodigo = validarCodigo.matcher(codigo);
+
+                if (validandoCodigo.matches()) {
+                    // El código cumple con el formato correcto, continúa el flujo normal
+                } else if (validandoNumeros.matches()) {
+                    JOptionPane.showMessageDialog(this, "[x] Falta la letra al inicio del código.");
+                    return; // Salir del método si falta la letra
+                } else if (validandoNume.matches()) {
+                    JOptionPane.showMessageDialog(this, "[x] Faltan numeros en el código - Debe tener 8 nuemros después de la letra.");
+                    return; // Salir del método si faltan dígitos
+                } else {
+                    JOptionPane.showMessageDialog(this, "[x] El código no cumple con el formato - Ejemplo: [Letra + 8 digitos].");
+                    return; // Salir del método si el formato es incorrecto
+                }
+
 
             Encuestador nuevoEncuestador = new Encuestador();
                 nuevoEncuestador.setNombre(txtNombre.getText());

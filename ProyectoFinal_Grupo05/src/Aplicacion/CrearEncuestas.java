@@ -12,9 +12,13 @@ import java.awt.BorderLayout;
 
 public class CrearEncuestas extends javax.swing.JPanel {
 
+    //Atributo para instanciar un jframe (MenuEncuestador)
+    private MenuEncuestador nuevomenu; //Funcionalidad que va a tener es poder poner al jframe Invisible
     
-    public CrearEncuestas() {
+    
+    public CrearEncuestas(MenuEncuestador nuevomenu) {
         initComponents();
+        this.nuevomenu=nuevomenu;
     }
 
     @SuppressWarnings("unchecked")
@@ -175,22 +179,9 @@ public class CrearEncuestas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPlantilla01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlantilla01ActionPerformed
-        // Mostrar el JFrame de la Plantilla 1
-        /*
-        PanelBienvenidaE pInicio = new PanelBienvenidaE();
-            pInicio.setSize(700,500); //Colocamos el tamaño de nuestro Jpanel
-            pInicio.setLocation(0,0);
-            
-            Contorno.removeAll();
-            Contorno.add(pInicio,BorderLayout.CENTER);
-            Contorno.revalidate();
-            Contorno.repaint();
-            */
-        
-        PlantillaEncuesta_01 p1 = new PlantillaEncuesta_01();
-            p1.setSize(950, 580);
-            p1.setLocation(0,0);
-        
+        PlantillaEncuesta_01 plan = new PlantillaEncuesta_01();
+            plan.setVisible(true);
+            nuevomenu.setVisible(false);
     }//GEN-LAST:event_btnPlantilla01ActionPerformed
 
     private void btnPlantilla02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlantilla02ActionPerformed

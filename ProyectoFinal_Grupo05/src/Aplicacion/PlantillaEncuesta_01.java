@@ -310,10 +310,10 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
         }
         
         Pregunta nuevaPregunta = new Pregunta();
-        nuevaPregunta.setEnunciado(txtTituloPregunta.getText());
-        nuevaPregunta.setTipoPregunta("Abierta");
-        nuevoPre.agregarPregunta(nuevaPregunta);
-        JOptionPane.showMessageDialog(this, "Pregunta listada");
+            nuevaPregunta.setEnunciado(txtTituloPregunta.getText());
+            nuevaPregunta.setTipoPregunta("Abierta");
+            nuevoPre.agregarPregunta(nuevaPregunta);
+            JOptionPane.showMessageDialog(this, "Pregunta listada");
         
         Encuesta nuevaEncuesta = new Encuesta();
         nuevaEncuesta.setTitulo(txtTituloEncuesta.getText());

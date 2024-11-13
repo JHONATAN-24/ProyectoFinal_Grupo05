@@ -25,6 +25,8 @@ public class MenuEncuestador extends javax.swing.JFrame{
     private Timer timer;
     private String nombreEncuestador;
     private String apellidoEncuestador;
+    
+    
 
     public MenuEncuestador(ListaEncuestadores datos1, String nombreEncuestador, String apellidoEncuestador) {
         initComponents();
@@ -131,7 +133,6 @@ public class MenuEncuestador extends javax.swing.JFrame{
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(950, 580));
         setMinimumSize(new java.awt.Dimension(950, 580));
         setResizable(false);
 
@@ -324,8 +325,8 @@ public class MenuEncuestador extends javax.swing.JFrame{
             FechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FechaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(lbFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlHora)
                 .addContainerGap())
         );
@@ -361,9 +362,9 @@ public class MenuEncuestador extends javax.swing.JFrame{
                         .addGap(18, 18, 18)
                         .addComponent(jlbNombreE, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(Contorno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 14, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         FondoBlancoLayout.setVerticalGroup(
             FondoBlancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -423,7 +424,7 @@ public class MenuEncuestador extends javax.swing.JFrame{
     }
     
     public void panelPlantilas(){
-        CrearEncuestas pPlantillas = new CrearEncuestas();
+        CrearEncuestas pPlantillas = new CrearEncuestas(this);
             pPlantillas.setSize(700,500); //Colocamos el tamaño de nuestro Jpanel
             pPlantillas.setLocation(0,0);
             

@@ -320,6 +320,7 @@ public class MenuParticipante extends javax.swing.JFrame {
     }
     
     public void panelPlantilas(){
+        /*
         CrearEncuestas pPlantillas = new CrearEncuestas();
             pPlantillas.setSize(700,500); //Colocamos el tamaño de nuestro Jpanel
             pPlantillas.setLocation(0,0);
@@ -328,6 +329,7 @@ public class MenuParticipante extends javax.swing.JFrame {
             Contorno.add(pPlantillas,BorderLayout.CENTER);
             Contorno.revalidate();
             Contorno.repaint();
+        */
     }
     
 
