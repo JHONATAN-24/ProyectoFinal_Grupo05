@@ -2,6 +2,9 @@
 package ArrayList;
 
 import CLASES.Encuestador;
+import CONEXION_BD.CRUDJavaE;
+import CONEXION_BD.ConexionSQLServer;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,4 +22,5 @@ public class ListaEncuestadores {
     public List<Encuestador> listarEncuestadores(){
         return T_listaEncuestadores;
     }  
+    
 }

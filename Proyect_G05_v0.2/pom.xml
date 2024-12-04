@@ -12,4 +12,13 @@
         <exec.mainClass>com.mycompany.plataforma_encuestag05.Plataforma_EncuestaG05</exec.mainClass>
     </properties>
     <name>Proyect_G05_v0.2</name>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>9.5.0.jre17-preview</version>
+        </dependency>
+        
+    </dependencies>
 </project>

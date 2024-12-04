@@ -38,7 +38,6 @@ public class InicioJDM extends javax.swing.JFrame {
         jPanel1.setMaximumSize(new java.awt.Dimension(800, 500));
         jPanel1.setMinimumSize(new java.awt.Dimension(800, 500));
 
-        LogoOso.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Oso logo de JDM Surveys (Color) (PNG).png")); // NOI18N
         LogoOso.setMaximumSize(new java.awt.Dimension(500, 500));
         LogoOso.setMinimumSize(new java.awt.Dimension(500, 500));
         LogoOso.setPreferredSize(new java.awt.Dimension(500, 500));
@@ -49,7 +48,6 @@ public class InicioJDM extends javax.swing.JFrame {
         PanelBienvenida.setPreferredSize(new java.awt.Dimension(294, 500));
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 36)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\JDM Logo Letras (Fondo 0) (200-133 px).png")); // NOI18N
         jLabel3.setText("Surveys");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel3.setIconTextGap(0);
@@ -75,7 +73,7 @@ public class InicioJDM extends javax.swing.JFrame {
                     .addGroup(PanelBienvenidaLayout.createSequentialGroup()
                         .addGap(91, 91, 91)
                         .addComponent(btnIniciar)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         PanelBienvenidaLayout.setVerticalGroup(
             PanelBienvenidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,7 +82,7 @@ public class InicioJDM extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(btnIniciar)
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

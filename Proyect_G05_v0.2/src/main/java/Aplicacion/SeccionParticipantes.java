@@ -9,6 +9,10 @@ package Aplicacion;
 
 import ArrayList.ListaParticipantes;
 import CLASES.Participante;
+import CONEXION_BD.CRUDJavaP;
+import CONEXION_BD.ConexionSQLServer;
+import java.sql.Connection;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -101,7 +105,6 @@ public class SeccionParticipantes extends javax.swing.JFrame {
                         .addComponent(jScrollPane1)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnListarParticipante)
                         .addGap(18, 18, 18)
                         .addComponent(btnSiguienteP)
@@ -126,7 +129,7 @@ public class SeccionParticipantes extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnListarParticipante)
                     .addComponent(btnSiguienteP, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -144,16 +147,22 @@ public class SeccionParticipantes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarParticipanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarParticipanteActionPerformed
-        DefaultTableModel dtm =(DefaultTableModel) tblParticipante.getModel();
-        while(dtm.getRowCount() !=0)dtm.removeRow(0);
+        DefaultTableModel dtm = (DefaultTableModel) tblParticipante.getModel();
+        while (dtm.getRowCount() != 0) dtm.removeRow(0); // Limpiar la tabla
+     
+        ConexionSQLServer T_conexionSQL = new ConexionSQLServer(); 
+        Connection T_conexion = T_conexionSQL.obtenerConexion(); 
+
+        CRUDJavaP T_crudP = new CRUDJavaP();
+        List<Participante> T_lista = T_crudP.obtenerParticipantes(T_conexion);
         
-        for(Participante p: T_listaPart2.listarParticipantes()){
+        for (Participante p : T_lista) {
             Object[] rowData = {
                 p.getEmail(),
                 p.getNombre(),
                 p.getApellidos(),
                 p.getGenero(),
-                p.getFechaNacimiento(), 
+                p.getFechaNacimiento()
             };
             dtm.addRow(rowData);
         }

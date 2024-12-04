@@ -11,6 +11,10 @@ import ArrayList.ListaEncuestadores;
 import ArrayList.ListaParticipantes;
 import CLASES.Encuestador;
 import CLASES.Participante;
+import CONEXION_BD.CRUDJavaE;
+import CONEXION_BD.CRUDJavaP;
+import CONEXION_BD.ConexionSQLServer;
+import java.sql.Connection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -68,7 +72,6 @@ public class RegistroJDM extends javax.swing.JFrame {
         PanelFondo2.setPreferredSize(new java.awt.Dimension(800, 500));
 
         IconoRegistros.setBackground(new java.awt.Color(252, 228, 186));
-        IconoRegistros.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Icono de Registro de JDM Surveys (PNG).png")); // NOI18N
         IconoRegistros.setMaximumSize(new java.awt.Dimension(398, 500));
         IconoRegistros.setMinimumSize(new java.awt.Dimension(398, 500));
         IconoRegistros.setPreferredSize(new java.awt.Dimension(398, 500));
@@ -172,7 +175,7 @@ public class RegistroJDM extends javax.swing.JFrame {
                         .addComponent(rbMasculino)
                         .addGap(27, 27, 27)
                         .addComponent(rbFemenino)
-                        .addGap(0, 20, Short.MAX_VALUE))
+                        .addGap(0, 16, Short.MAX_VALUE))
                     .addGroup(PanelRegistroLayout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addGroup(PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,7 +240,7 @@ public class RegistroJDM extends javax.swing.JFrame {
                 .addGroup(PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbVariante)
                     .addComponent(txtVariante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addGroup(PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAtras)
                     .addComponent(btnGuardarDatos))
@@ -380,9 +383,16 @@ public class RegistroJDM extends javax.swing.JFrame {
                 if(rbMasculino.isSelected()) nuevoENC.setGenero("Masculino");
                 if(rbFemenino.isSelected()) nuevoENC.setGenero("Femenino");
                 nuevoENC.setCodigo(txtVariante.getText());
-                
-                T_listaEnc1.agregarEncuestador(nuevoENC);
+                 
                 JOptionPane.showMessageDialog(this,"¡Encuestador Registrado!");
+                
+                ConexionSQLServer conexionSQL = new ConexionSQLServer();
+                Connection conexion = conexionSQL.obtenerConexion();
+                
+                CRUDJavaE crud = new CRUDJavaE();
+                    crud.insertarEncuestador(conexion, nuevoENC);
+                
+                T_listaEnc1.agregarEncuestador(nuevoENC);    
                 
                 //Metodo para limpiar los controles
                 limpiarControles();
@@ -435,6 +445,12 @@ public class RegistroJDM extends javax.swing.JFrame {
                 
                 T_listaPart1.agregarParticipante(nuevoPART);
                 JOptionPane.showMessageDialog(this,"¡Participante Registrado!");
+                
+                ConexionSQLServer T_conexionSQL = new ConexionSQLServer();
+                Connection T_conexion = T_conexionSQL.obtenerConexion();
+                
+                CRUDJavaP T_crudP = new CRUDJavaP();
+                    T_crudP.insertarParticipante(T_conexion, nuevoPART);
                 
                 //Metodo para limpiar los controles
                 limpiarControles();   

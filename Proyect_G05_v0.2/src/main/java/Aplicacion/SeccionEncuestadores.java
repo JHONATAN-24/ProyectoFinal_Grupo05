@@ -9,6 +9,10 @@ package Aplicacion;
 
 import ArrayList.ListaEncuestadores;
 import CLASES.Encuestador;
+import CONEXION_BD.CRUDJavaE;
+import CONEXION_BD.ConexionSQLServer;
+import java.sql.Connection;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,8 +28,9 @@ public class SeccionEncuestadores extends javax.swing.JFrame {
         this.setResizable(false);
         
         T_listaEnc2 = T_encuestador;
+        // Cargar datos al iniciar la ventana
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -37,6 +42,7 @@ public class SeccionEncuestadores extends javax.swing.JFrame {
         tblEncuestadores = new javax.swing.JTable();
         btnListar = new javax.swing.JButton();
         btnSiguiente = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(800, 500));
@@ -65,7 +71,15 @@ public class SeccionEncuestadores extends javax.swing.JFrame {
             new String [] {
                 "Codigo", "Nombre", "Apellido", "Genero", "Fecha de nacimiento"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tblEncuestadores.setMaximumSize(new java.awt.Dimension(788, 350));
         tblEncuestadores.setMinimumSize(new java.awt.Dimension(788, 350));
         tblEncuestadores.setPreferredSize(new java.awt.Dimension(788, 350));
@@ -87,6 +101,14 @@ public class SeccionEncuestadores extends javax.swing.JFrame {
             }
         });
 
+        btnEliminar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        btnEliminar.setText("Eliminar\n");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelFondo3Layout = new javax.swing.GroupLayout(PanelFondo3);
         PanelFondo3.setLayout(PanelFondo3Layout);
         PanelFondo3Layout.setHorizontalGroup(
@@ -96,8 +118,10 @@ public class SeccionEncuestadores extends javax.swing.JFrame {
                 .addGroup(PanelFondo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFondo3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnEliminar)
+                        .addGap(27, 27, 27)
                         .addComponent(btnListar)
-                        .addGap(18, 18, 18)
+                        .addGap(26, 26, 26)
                         .addComponent(btnSiguiente)
                         .addGap(6, 6, 6))
                     .addGroup(PanelFondo3Layout.createSequentialGroup()
@@ -117,10 +141,12 @@ public class SeccionEncuestadores extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(PanelFondo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnListar)
-                    .addComponent(btnSiguiente))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGroup(PanelFondo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEliminar)
+                    .addGroup(PanelFondo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnSiguiente)
+                        .addComponent(btnListar)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -141,12 +167,19 @@ public class SeccionEncuestadores extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+        // Obtener el modelo de la tabla
+        DefaultTableModel dtm = (DefaultTableModel) tblEncuestadores.getModel();
+        while (dtm.getRowCount() != 0) dtm.removeRow(0); // Limpiar la tabla
+     
+        ConexionSQLServer conexionSQL = new ConexionSQLServer(); 
+        Connection conexion = conexionSQL.obtenerConexion(); 
 
-        DefaultTableModel dtm=(DefaultTableModel) tblEncuestadores.getModel();
-        while(dtm.getRowCount() !=0)dtm.removeRow(0);
-
-        for(Encuestador e: T_listaEnc2.listarEncuestadores()){
+        CRUDJavaE crud = new CRUDJavaE();
+        List<Encuestador> lista = crud.obtenerEncuestadores(conexion);
+        
+        for (Encuestador e : lista) {
             Object[] rowData = {
                 e.getCodigo(),
                 e.getNombre(),
@@ -178,10 +211,50 @@ public class SeccionEncuestadores extends javax.swing.JFrame {
                 this.dispose();
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+         // Obtener la fila seleccionada
+            int selectedRow = tblEncuestadores.getSelectedRow();
+
+            // Validar que se haya seleccionado una fila
+            if (selectedRow == -1) {
+                JOptionPane.showMessageDialog(this, "Debe seleccionar un Encuestador");
+                return;
+            }
+
+            // Confirmación de eliminación
+            int T_confirmarE = JOptionPane.showConfirmDialog(this, "¿Está seguro de eliminar este encuestador?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+            if (T_confirmarE != JOptionPane.YES_OPTION) {
+                return;
+            }
+
+            // Obtener la lista de encuestadores y el encuestador seleccionado
+            List<Encuestador> listaEncuestadores = T_listaEnc2.listarEncuestadores();
+            Encuestador eEliminar = listaEncuestadores.get(selectedRow);
+
+            // Conexión a la base de datos
+            ConexionSQLServer conexionSQL = new ConexionSQLServer();
+            Connection conexion = conexionSQL.obtenerConexion();
+
+            if (conexion != null) {
+                CRUDJavaE T_crudE = new CRUDJavaE();
+                    T_crudE.borrarEncuestador(conexion, eEliminar.getCodigo());
+
+                // Actualizar lista y tabla
+                T_listaEnc2.quitarEncuestador(eEliminar);
+                DefaultTableModel dtm = (DefaultTableModel) tblEncuestadores.getModel();
+                dtm.removeRow(selectedRow);
+
+                JOptionPane.showMessageDialog(this, "Encuestador eliminado.");
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al conectar a la base de datos.");
+            }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelFondo3;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JScrollPane jScrollPane1;

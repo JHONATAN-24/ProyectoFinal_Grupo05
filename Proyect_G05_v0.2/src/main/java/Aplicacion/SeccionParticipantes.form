@@ -67,7 +67,6 @@
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="btnListarParticipante" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnSiguienteP" min="-2" max="-2" attributes="0"/>
@@ -99,7 +98,7 @@
                       <Component id="btnListarParticipante" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnSiguienteP" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="30" max="32767" attributes="0"/>
+                  <EmptySpace pref="24" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

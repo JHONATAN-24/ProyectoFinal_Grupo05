@@ -161,11 +161,8 @@ public class MenuEncuestador extends javax.swing.JFrame{
         MenuOpciones.setMinimumSize(new java.awt.Dimension(192, 500));
         MenuOpciones.setPreferredSize(new java.awt.Dimension(192, 500));
 
-        Icon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Oso JDM Surveys 2D (Color) (180 px).png")); // NOI18N
-
         btnInicio.setBackground(new java.awt.Color(255, 204, 102));
         btnInicio.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        btnInicio.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Inicio Menu.png")); // NOI18N
         btnInicio.setText("Inicio");
         btnInicio.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnInicio.setBorderPainted(false);
@@ -185,7 +182,6 @@ public class MenuEncuestador extends javax.swing.JFrame{
 
         btnCrear.setBackground(new java.awt.Color(255, 204, 102));
         btnCrear.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        btnCrear.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Crear Menu.png")); // NOI18N
         btnCrear.setText("Crear");
         btnCrear.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnCrear.setBorderPainted(false);
@@ -205,7 +201,6 @@ public class MenuEncuestador extends javax.swing.JFrame{
 
         btnPublicadas.setBackground(new java.awt.Color(255, 204, 102));
         btnPublicadas.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        btnPublicadas.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Publicadas Menu.png")); // NOI18N
         btnPublicadas.setText("Publicadas");
         btnPublicadas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnPublicadas.setBorderPainted(false);
@@ -225,7 +220,6 @@ public class MenuEncuestador extends javax.swing.JFrame{
 
         btnReportesEncuestas.setBackground(new java.awt.Color(255, 204, 102));
         btnReportesEncuestas.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        btnReportesEncuestas.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Reportes Menu.png")); // NOI18N
         btnReportesEncuestas.setText("Resultados");
         btnReportesEncuestas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnReportesEncuestas.setBorderPainted(false);
@@ -245,7 +239,6 @@ public class MenuEncuestador extends javax.swing.JFrame{
 
         btnSalir.setBackground(new java.awt.Color(255, 204, 102));
         btnSalir.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        btnSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Salir Menu.png")); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnSalir.setBorderPainted(false);
@@ -263,7 +256,6 @@ public class MenuEncuestador extends javax.swing.JFrame{
         });
 
         jLabel4.setFont(new java.awt.Font("Cabin Sketch", 2, 48)); // NOI18N
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\JDM Logo Letras (Fondo 0) (90-60 px).png")); // NOI18N
         jLabel4.setMaximumSize(new java.awt.Dimension(180, 60));
         jLabel4.setMinimumSize(new java.awt.Dimension(180, 60));
 
@@ -287,7 +279,7 @@ public class MenuEncuestador extends javax.swing.JFrame{
                             .addComponent(btnPublicadas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnReportesEncuestas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         MenuOpcionesLayout.setVerticalGroup(
             MenuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,7 +298,7 @@ public class MenuEncuestador extends javax.swing.JFrame{
                 .addComponent(btnReportesEncuestas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(278, Short.MAX_VALUE))
         );
 
         Contorno.setBackground(new java.awt.Color(255, 255, 153));
@@ -353,8 +345,6 @@ public class MenuEncuestador extends javax.swing.JFrame{
 
         jLabel14.setFont(new java.awt.Font("Segoe UI Semibold", 1, 13)); // NOI18N
         jLabel14.setText("con JDM Surveys!");
-
-        jLabel15.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\IconInicioPanel.png")); // NOI18N
 
         javax.swing.GroupLayout jPcontornoLayout = new javax.swing.GroupLayout(jPcontorno);
         jPcontorno.setLayout(jPcontornoLayout);
@@ -405,7 +395,7 @@ public class MenuEncuestador extends javax.swing.JFrame{
                                 .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(146, 146, 146))
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE))
                         .addGap(265, 265, 265))))
         );
         jPcontornoLayout.setVerticalGroup(
@@ -491,8 +481,6 @@ public class MenuEncuestador extends javax.swing.JFrame{
         lbNombreEnc.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         lbNombreEnc.setText("Nombre Persona");
         lbNombreEnc.setPreferredSize(new java.awt.Dimension(100, 20));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Oso JDM Usuario BN (Fondo 0) (50 px).png")); // NOI18N
 
         javax.swing.GroupLayout FondoBlancoLayout = new javax.swing.GroupLayout(FondoBlanco);
         FondoBlanco.setLayout(FondoBlancoLayout);
