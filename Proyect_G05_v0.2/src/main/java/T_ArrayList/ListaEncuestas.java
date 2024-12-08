@@ -2,7 +2,7 @@
 package T_ArrayList;
 
 
-import T_CLASES.Pregunta;
+import T_Clases.Pregunta;
 import java.util.ArrayList;
 import java.util.List;
 

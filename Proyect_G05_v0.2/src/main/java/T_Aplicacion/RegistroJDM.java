@@ -9,11 +9,11 @@ package T_Aplicacion;
 
 import T_ArrayList.ListaEncuestadores;
 import T_ArrayList.ListaParticipantes;
-import T_CLASES.Encuestador;
-import T_CLASES.Participante;
-import T_CONEXION_BD.CRUDJavaE;
-import T_CONEXION_BD.CRUDJavaP;
-import T_CONEXION_BD.ConexionSQLServer;
+import T_Clases.Encuestador;
+import T_Clases.Participante;
+import T_ConexionBD.CRUDJavaE;
+import T_ConexionBD.CRUDJavaP;
+import T_ConexionBD.ConexionSQLServer;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -62,9 +62,9 @@ public class RegistroJDM extends javax.swing.JFrame {
         txtVariante = new javax.swing.JTextField();
         btnAtras = new javax.swing.JButton();
         btnGuardarDatos = new javax.swing.JButton();
-        jcalendario = new com.toedter.calendar.JDateChooser();
         jLabel9 = new javax.swing.JLabel();
         txtContraseña = new javax.swing.JTextField();
+        jcalendario = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 500));
@@ -76,7 +76,7 @@ public class RegistroJDM extends javax.swing.JFrame {
         PanelFondo2.setPreferredSize(new java.awt.Dimension(800, 500));
 
         IconoRegistros.setBackground(new java.awt.Color(252, 228, 186));
-        IconoRegistros.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Desktop\\Recursos icon\\imagenes proyecto\\Icono de Registro de JDM Surveys (PNG).png")); // NOI18N
+        IconoRegistros.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Icono de Registro de JDM Surveys (PNG).png")); // NOI18N
         IconoRegistros.setMaximumSize(new java.awt.Dimension(398, 500));
         IconoRegistros.setMinimumSize(new java.awt.Dimension(398, 500));
         IconoRegistros.setPreferredSize(new java.awt.Dimension(398, 500));
@@ -165,10 +165,6 @@ public class RegistroJDM extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(PanelRegistroLayout.createSequentialGroup()
-                .addGap(124, 124, 124)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(PanelRegistroLayout.createSequentialGroup()
                 .addGroup(PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelRegistroLayout.createSequentialGroup()
                         .addGap(139, 139, 139)
@@ -186,7 +182,7 @@ public class RegistroJDM extends javax.swing.JFrame {
                         .addComponent(rbFemenino)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(PanelRegistroLayout.createSequentialGroup()
-                        .addGap(62, 62, 62)
+                        .addGap(26, 26, 26)
                         .addGroup(PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelRegistroLayout.createSequentialGroup()
                                 .addGroup(PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,20 +199,24 @@ public class RegistroJDM extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnGuardarDatos))
                             .addGroup(PanelRegistroLayout.createSequentialGroup()
-                                .addGroup(PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(PanelRegistroLayout.createSequentialGroup()
                                         .addComponent(jLabel9)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtContraseña))
+                                        .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel4)
                                     .addComponent(lbVariante)
-                                    .addComponent(jLabel8)
-                                    .addGroup(PanelRegistroLayout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jcalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                    .addComponent(jLabel8))
+                                .addGap(0, 36, Short.MAX_VALUE))
+                            .addGroup(PanelRegistroLayout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(jcalendario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addGap(27, 27, 27))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelRegistroLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(128, 128, 128))
         );
         PanelRegistroLayout.setVerticalGroup(
             PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,7 +257,7 @@ public class RegistroJDM extends javax.swing.JFrame {
                 .addGroup(PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(PanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAtras)
                     .addComponent(btnGuardarDatos))

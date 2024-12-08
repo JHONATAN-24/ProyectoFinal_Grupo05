@@ -7,7 +7,7 @@
 package T_Pruebas;
 
 
-import T_CLASES.Encuestador;
+import T_Clases.Encuestador;
 import T_HashSet.HashEncuestador;
 import java.util.ArrayList;
 import java.util.List;

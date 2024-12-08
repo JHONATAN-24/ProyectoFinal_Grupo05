@@ -1,7 +1,7 @@
 package T_HashSet;
 
 
-import T_CLASES.Encuesta;
+import T_Clases.Encuesta;
 import java.util.HashSet;
 import java.util.Set;
 

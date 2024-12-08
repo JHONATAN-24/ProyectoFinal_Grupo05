@@ -21,13 +21,14 @@ public class ReportesEncuestas extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setMaximumSize(new java.awt.Dimension(700, 500));
-        setMinimumSize(new java.awt.Dimension(700, 500));
+        setMaximumSize(new java.awt.Dimension(745, 420));
+        setMinimumSize(new java.awt.Dimension(745, 420));
+        setPreferredSize(new java.awt.Dimension(745, 420));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel1.setMaximumSize(new java.awt.Dimension(700, 500));
-        jPanel1.setMinimumSize(new java.awt.Dimension(700, 500));
-        jPanel1.setPreferredSize(new java.awt.Dimension(700, 500));
+        jPanel1.setMaximumSize(new java.awt.Dimension(745, 420));
+        jPanel1.setMinimumSize(new java.awt.Dimension(745, 420));
+        jPanel1.setPreferredSize(new java.awt.Dimension(745, 420));
 
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         jLabel2.setText("Resultados");
@@ -40,6 +41,9 @@ public class ReportesEncuestas extends javax.swing.JPanel {
                 "Titulo", "Participante", "Preguntas", "Respuestas", "Fecha de inicio", "Fecha de cierre"
             }
         ));
+        jTable1.setMaximumSize(new java.awt.Dimension(733, 372));
+        jTable1.setMinimumSize(new java.awt.Dimension(733, 372));
+        jTable1.setPreferredSize(new java.awt.Dimension(733, 372));
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -49,10 +53,10 @@ public class ReportesEncuestas extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 662, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -61,7 +65,7 @@ public class ReportesEncuestas extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -75,9 +79,7 @@ public class ReportesEncuestas extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

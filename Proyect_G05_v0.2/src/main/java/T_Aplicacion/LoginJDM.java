@@ -1,24 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package T_Aplicacion;
 
 import T_ArrayList.ListaEncuestadores;
 import T_ArrayList.ListaParticipantes;
-import T_CLASES.Encuestador;
-import T_CLASES.Participante;
-import T_CONEXION_BD.CRUDJavaE;
-import T_CONEXION_BD.CRUDJavaP;
+import T_Clases.Encuestador;
+import T_Clases.Participante;
+import T_ConexionBD.CRUDJavaE;
+import T_ConexionBD.CRUDJavaP;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author user
- */
 public class LoginJDM extends javax.swing.JFrame {
 
     ListaEncuestadores T_listaEnc = new ListaEncuestadores(); 
@@ -43,48 +36,54 @@ public class LoginJDM extends javax.swing.JFrame {
     private void initComponents() {
 
         bg01 = new javax.swing.ButtonGroup();
+        PanelFondo1 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jlbvariante = new javax.swing.JLabel();
         txtVariante = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         btnIniciarSesion = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         btnCrearcuenta = new javax.swing.JButton();
         rbEncuestador = new javax.swing.JRadioButton();
         rbParticipante = new javax.swing.JRadioButton();
         btnVision = new javax.swing.JButton();
         txtContraseña = new javax.swing.JPasswordField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        IconoRegistros = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 500));
+        setPreferredSize(new java.awt.Dimension(800, 500));
+        setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
-        jPanel1.setMaximumSize(new java.awt.Dimension(410, 500));
-        jPanel1.setMinimumSize(new java.awt.Dimension(410, 500));
+        PanelFondo1.setBackground(new java.awt.Color(255, 255, 255));
+        PanelFondo1.setMaximumSize(new java.awt.Dimension(800, 500));
+        PanelFondo1.setMinimumSize(new java.awt.Dimension(800, 500));
+        PanelFondo1.setPreferredSize(new java.awt.Dimension(800, 500));
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel1.setText("TIPO DE USUARIO:");
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel1.setMaximumSize(new java.awt.Dimension(398, 500));
+        jPanel1.setMinimumSize(new java.awt.Dimension(398, 500));
+        jPanel1.setPreferredSize(new java.awt.Dimension(398, 500));
 
-        jlbvariante.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jlbvariante.setText("CODIGO:");
+        jlbvariante.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jlbvariante.setText("Codigo :");
 
-        jLabel3.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel3.setText("PASSWORD :");
+        jLabel3.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel3.setText("Contraseña :");
 
-        btnIniciarSesion.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        btnIniciarSesion.setText("Iniciar sesión");
+        btnIniciarSesion.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        btnIniciarSesion.setText("Ingresar");
         btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIniciarSesionActionPerformed(evt);
             }
         });
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("___________________________________________________");
-
-        btnCrearcuenta.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        btnCrearcuenta.setText("Crear cuenta nueva");
+        btnCrearcuenta.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        btnCrearcuenta.setText("Registrarse");
         btnCrearcuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearcuentaActionPerformed(evt);
@@ -92,7 +91,7 @@ public class LoginJDM extends javax.swing.JFrame {
         });
 
         bg01.add(rbEncuestador);
-        rbEncuestador.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        rbEncuestador.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         rbEncuestador.setText("Encuestador");
         rbEncuestador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +100,7 @@ public class LoginJDM extends javax.swing.JFrame {
         });
 
         bg01.add(rbParticipante);
-        rbParticipante.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        rbParticipante.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         rbParticipante.setText("Participante");
         rbParticipante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,74 +114,125 @@ public class LoginJDM extends javax.swing.JFrame {
             }
         });
 
+        jLabel12.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel12.setText("Rol :");
+
+        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel1.setText("Visualizar la contraseña");
+
+        jLabel13.setFont(new java.awt.Font("Bungee Inline", 0, 36)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("inicia sesion");
+
+        jLabel14.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel14.setText("Hola!");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnIniciarSesion)
+                .addGap(18, 18, 18)
+                .addComponent(btnCrearcuenta)
+                .addGap(96, 96, 96))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jlbvariante)
-                                    .addComponent(txtVariante)
-                                    .addComponent(txtContraseña))
-                                .addGap(18, 18, 18)
-                                .addComponent(btnVision, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rbEncuestador)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rbParticipante))))
+                        .addGap(48, 48, 48)
+                        .addComponent(jLabel13))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(btnCrearcuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                        .addGap(25, 25, 25)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addGap(104, 104, 104)
+                                    .addComponent(rbEncuestador)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(rbParticipante)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnVision, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jlbvariante)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtVariante, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(174, 174, 174)
+                        .addComponent(jLabel14)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rbEncuestador)
-                    .addComponent(rbParticipante))
-                .addGap(32, 32, 32)
-                .addComponent(jlbvariante)
+                .addGap(13, 13, 13)
+                .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtVariante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel3)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbParticipante)
+                    .addComponent(rbEncuestador))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtVariante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlbvariante))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnVision, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(btnCrearcuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCrearcuenta)
+                    .addComponent(btnIniciarSesion))
+                .addContainerGap(205, Short.MAX_VALUE))
+        );
+
+        IconoRegistros.setBackground(new java.awt.Color(252, 228, 186));
+        IconoRegistros.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Icono de Registro de JDM Surveys (PNG).png")); // NOI18N
+        IconoRegistros.setMaximumSize(new java.awt.Dimension(398, 500));
+        IconoRegistros.setMinimumSize(new java.awt.Dimension(398, 500));
+        IconoRegistros.setPreferredSize(new java.awt.Dimension(398, 500));
+
+        javax.swing.GroupLayout PanelFondo1Layout = new javax.swing.GroupLayout(PanelFondo1);
+        PanelFondo1.setLayout(PanelFondo1Layout);
+        PanelFondo1Layout.setHorizontalGroup(
+            PanelFondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFondo1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(IconoRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        PanelFondo1Layout.setVerticalGroup(
+            PanelFondo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(IconoRegistros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 387, Short.MAX_VALUE))
+            .addComponent(PanelFondo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanelFondo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -309,13 +359,17 @@ public class LoginJDM extends javax.swing.JFrame {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel IconoRegistros;
+    private javax.swing.JPanel PanelFondo1;
     private javax.swing.ButtonGroup bg01;
     private javax.swing.JButton btnCrearcuenta;
     private javax.swing.JButton btnIniciarSesion;
     private javax.swing.JButton btnVision;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlbvariante;
     private javax.swing.JRadioButton rbEncuestador;

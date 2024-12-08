@@ -1,9 +1,9 @@
 
 package T_ArrayList;
 
-import T_CLASES.Encuestador;
-import T_CONEXION_BD.CRUDJavaE;
-import T_CONEXION_BD.ConexionSQLServer;
+import T_Clases.Encuestador;
+import T_ConexionBD.CRUDJavaE;
+import T_ConexionBD.ConexionSQLServer;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;

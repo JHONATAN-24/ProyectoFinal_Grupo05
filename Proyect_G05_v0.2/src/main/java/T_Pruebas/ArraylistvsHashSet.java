@@ -4,8 +4,8 @@ package T_Pruebas;
 import T_HashSet.HashParticipante;
 import T_ArrayList.ListaEncuestadores;
 import T_ArrayList.ListaParticipantes;
-import T_CLASES.Encuestador;
-import T_CLASES.Participante;
+import T_Clases.Encuestador;
+import T_Clases.Participante;
 
 
 public class ArraylistvsHashSet {

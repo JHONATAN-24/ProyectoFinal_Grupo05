@@ -1,5 +1,5 @@
 
-package T_CLASES;
+package T_Clases;
 
 import java.util.Objects;
 

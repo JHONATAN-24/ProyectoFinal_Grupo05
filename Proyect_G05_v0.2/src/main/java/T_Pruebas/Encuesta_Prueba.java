@@ -6,7 +6,7 @@
 */
 package T_Pruebas;
 
-import T_CLASES.Encuesta;
+import T_Clases.Encuesta;
 import T_HashSet.HashEncuesta;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;

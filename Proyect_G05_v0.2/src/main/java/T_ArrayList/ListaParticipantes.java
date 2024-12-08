@@ -1,7 +1,7 @@
 
 package T_ArrayList;
 
-import T_CLASES.Participante;
+import T_Clases.Participante;
 import java.util.ArrayList;
 import java.util.List;
 

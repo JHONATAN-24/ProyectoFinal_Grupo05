@@ -4,7 +4,7 @@
 
 package com.mycompany.plataforma_encuestag05;
 
-import T_CONEXION_BD.ConexionSQLServer;
+import T_ConexionBD.ConexionSQLServer;
 import java.sql.Connection;
 
 /**

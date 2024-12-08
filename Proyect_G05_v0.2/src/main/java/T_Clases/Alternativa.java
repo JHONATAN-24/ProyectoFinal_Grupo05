@@ -1,5 +1,5 @@
 
-package T_CLASES;
+package T_Clases;
 
 public class Alternativa {
     // ATRIBUTOS :______________________________________________________________

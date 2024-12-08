@@ -5,7 +5,7 @@
 package T_HashSet;
 
 
-import T_CLASES.Pregunta;
+import T_Clases.Pregunta;
 import java.util.HashSet;
 import java.util.Set;
 

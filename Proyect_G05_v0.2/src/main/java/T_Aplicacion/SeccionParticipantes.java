@@ -8,9 +8,9 @@
 package T_Aplicacion;
 
 import T_ArrayList.ListaParticipantes;
-import T_CLASES.Participante;
-import T_CONEXION_BD.CRUDJavaP;
-import T_CONEXION_BD.ConexionSQLServer;
+import T_Clases.Participante;
+import T_ConexionBD.CRUDJavaP;
+import T_ConexionBD.ConexionSQLServer;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;

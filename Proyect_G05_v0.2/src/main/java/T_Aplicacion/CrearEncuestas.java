@@ -55,7 +55,7 @@ public class CrearEncuestas extends javax.swing.JPanel {
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnPlantilla01.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        btnPlantilla01.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Desktop\\Recursos icon\\imagenes proyecto\\Plantilla01.png")); // NOI18N
+        btnPlantilla01.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Plantilla01.png")); // NOI18N
         btnPlantilla01.setText("Encuesta Simple");
         btnPlantilla01.setBorder(null);
         btnPlantilla01.setContentAreaFilled(false);
@@ -191,15 +191,15 @@ public class CrearEncuestas extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPlantilla02ActionPerformed
 
-        public void plantilla01(){
-        PlantillaEncuesta_01 plantilla01 = new PlantillaEncuesta_01();
-            plantilla01.setSize(700,500); //Colocamos el tamaño de nuestro Jpanel
-            plantilla01.setLocation(0,0);
-            
-            Fondo.removeAll();
-            Fondo.add(plantilla01,BorderLayout.CENTER);
-            Fondo.revalidate();
-            Fondo.repaint();
+    public void plantilla01(){
+    PlantillaEncuesta_01 plantilla01 = new PlantillaEncuesta_01();
+        plantilla01.setSize(965,500); //Colocamos el tamaño de nuestro Jpanel
+        plantilla01.setLocationRelativeTo(null);
+
+        Fondo.removeAll();
+        Fondo.add(plantilla01,BorderLayout.CENTER);
+        Fondo.revalidate();
+        Fondo.repaint();
     }
 
 

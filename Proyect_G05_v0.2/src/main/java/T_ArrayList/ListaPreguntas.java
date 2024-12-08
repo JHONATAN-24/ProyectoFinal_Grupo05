@@ -1,7 +1,7 @@
 
 package T_ArrayList;
 
-import T_CLASES.Encuesta;
+import T_Clases.Encuesta;
 import java.util.List;
 import java.util.ArrayList;
 

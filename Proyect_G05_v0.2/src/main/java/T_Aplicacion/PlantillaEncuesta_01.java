@@ -9,8 +9,8 @@ package T_Aplicacion;
 
 import T_HashSet.HashEncuesta;
 import T_HashSet.HashPregunta;
-import T_CLASES.Encuesta;
-import T_CLASES.Pregunta;
+import T_Clases.Encuesta;
+import T_Clases.Pregunta;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;

@@ -8,9 +8,9 @@
 package T_Aplicacion;
 
 import T_ArrayList.ListaEncuestadores;
-import T_CLASES.Encuestador;
-import T_CONEXION_BD.CRUDJavaE;
-import T_CONEXION_BD.ConexionSQLServer;
+import T_Clases.Encuestador;
+import T_ConexionBD.CRUDJavaE;
+import T_ConexionBD.ConexionSQLServer;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;

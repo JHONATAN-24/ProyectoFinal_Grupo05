@@ -69,7 +69,7 @@ public class PanelBienvenidaP extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Segoe UI Semibold", 1, 13)); // NOI18N
         jLabel10.setText("Nuestra plataforma se adapta tanto a encuestas informativas ");
 
-        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Desktop\\Recursos icon\\imagenes proyecto\\IconInicioPanel.png")); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\IconInicioPanel.png")); // NOI18N
 
         javax.swing.GroupLayout jPcontornoLayout = new javax.swing.GroupLayout(jPcontorno);
         jPcontorno.setLayout(jPcontornoLayout);

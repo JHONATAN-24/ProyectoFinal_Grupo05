@@ -5,7 +5,7 @@
 package T_HashSet;
 
 
-import T_CLASES.Participante;
+import T_Clases.Participante;
 import java.util.HashSet;
 import java.util.Set;
 

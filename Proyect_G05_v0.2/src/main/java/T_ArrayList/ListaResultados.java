@@ -2,10 +2,10 @@
 package T_ArrayList;
 
 
-import T_CLASES.Alternativa;
-import T_CLASES.Encuesta;
-import T_CLASES.Pregunta;
-import T_CLASES.Respuesta;
+import T_Clases.Alternativa;
+import T_Clases.Encuesta;
+import T_Clases.Pregunta;
+import T_Clases.Respuesta;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -7,7 +7,7 @@
 package T_Pruebas;
 
 
-import T_CLASES.Participante;
+import T_Clases.Participante;
 import T_HashSet.HashParticipante;
 import java.util.ArrayList;
 import java.util.HashSet;

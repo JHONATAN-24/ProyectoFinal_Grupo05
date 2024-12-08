@@ -5,7 +5,7 @@
 package T_HashSet;
 
 
-import T_CLASES.Encuestador;
+import T_Clases.Encuestador;
 import java.util.HashSet;
 import java.util.Set;
 

@@ -110,10 +110,9 @@ public class MenuParticipante extends javax.swing.JFrame {
         btnEncuestasRecibidas = new javax.swing.JButton();
         btnEncuestasRespondidas = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        Icon = new javax.swing.JLabel();
+        lbLogoOso2D = new javax.swing.JLabel();
+        lbLogoJDM = new javax.swing.JLabel();
         Contorno = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
         jPcontorno = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -125,12 +124,12 @@ public class MenuParticipante extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        lbIconoBienvenido = new javax.swing.JLabel();
         Fecha1 = new javax.swing.JPanel();
         lbHora = new javax.swing.JLabel();
         lbFecha = new javax.swing.JLabel();
         lbNombrePar = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lbFotoPerfil = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(950, 500));
@@ -211,9 +210,12 @@ public class MenuParticipante extends javax.swing.JFrame {
         btnSalir.setOpaque(true);
         btnSalir.setPreferredSize(new java.awt.Dimension(150, 30));
 
-        jLabel4.setFont(new java.awt.Font("Cabin Sketch", 2, 48)); // NOI18N
-        jLabel4.setMaximumSize(new java.awt.Dimension(180, 60));
-        jLabel4.setMinimumSize(new java.awt.Dimension(180, 60));
+        lbLogoOso2D.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Oso JDM Surveys 2D (Color) (180 px).png")); // NOI18N
+
+        lbLogoJDM.setFont(new java.awt.Font("Cabin Sketch", 2, 48)); // NOI18N
+        lbLogoJDM.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\JDM Logo Letras (Fondo 0) (90-60 px).png")); // NOI18N
+        lbLogoJDM.setMaximumSize(new java.awt.Dimension(180, 60));
+        lbLogoJDM.setMinimumSize(new java.awt.Dimension(180, 60));
 
         javax.swing.GroupLayout MenuOpcionesLayout = new javax.swing.GroupLayout(MenuOpciones);
         MenuOpciones.setLayout(MenuOpcionesLayout);
@@ -223,10 +225,7 @@ public class MenuParticipante extends javax.swing.JFrame {
                 .addGroup(MenuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MenuOpcionesLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Icon))
-                    .addGroup(MenuOpcionesLayout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lbLogoOso2D))
                     .addGroup(MenuOpcionesLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -238,16 +237,19 @@ public class MenuParticipante extends javax.swing.JFrame {
                         .addComponent(btnEncuestasRespondidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(MenuOpcionesLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MenuOpcionesLayout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(lbLogoJDM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MenuOpcionesLayout.setVerticalGroup(
             MenuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuOpcionesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Icon)
+                .addComponent(lbLogoOso2D)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbLogoJDM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -256,7 +258,7 @@ public class MenuParticipante extends javax.swing.JFrame {
                 .addComponent(btnEncuestasRespondidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(322, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         Contorno.setBackground(new java.awt.Color(255, 255, 153));
@@ -264,12 +266,10 @@ public class MenuParticipante extends javax.swing.JFrame {
         Contorno.setMinimumSize(new java.awt.Dimension(745, 420));
         Contorno.setPreferredSize(new java.awt.Dimension(745, 420));
 
-        jPanel1.setMaximumSize(new java.awt.Dimension(745, 420));
-        jPanel1.setMinimumSize(new java.awt.Dimension(745, 420));
-
         jPcontorno.setBackground(new java.awt.Color(255, 255, 255));
         jPcontorno.setMaximumSize(new java.awt.Dimension(745, 420));
         jPcontorno.setMinimumSize(new java.awt.Dimension(745, 420));
+        jPcontorno.setPreferredSize(new java.awt.Dimension(745, 420));
 
         jLabel2.setFont(new java.awt.Font("Myanmar Text", 1, 24)); // NOI18N
         jLabel2.setText("¡Bienvenido a JDM Surveys! ");
@@ -301,6 +301,8 @@ public class MenuParticipante extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Segoe UI Semibold", 1, 13)); // NOI18N
         jLabel12.setText("Nuestra plataforma se adapta tanto a encuestas informativas ");
 
+        lbIconoBienvenido.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\IconInicioPanel.png")); // NOI18N
+
         javax.swing.GroupLayout jPcontornoLayout = new javax.swing.GroupLayout(jPcontorno);
         jPcontorno.setLayout(jPcontornoLayout);
         jPcontornoLayout.setHorizontalGroup(
@@ -318,11 +320,11 @@ public class MenuParticipante extends javax.swing.JFrame {
                                 .addGap(125, 125, 125)))
                         .addGap(257, 257, 257))
                     .addGroup(jPcontornoLayout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
                         .addGap(411, 411, 411))
                     .addGroup(jPcontornoLayout.createSequentialGroup()
                         .addComponent(jLabel8)
-                        .addContainerGap(575, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPcontornoLayout.createSequentialGroup()
                         .addGroup(jPcontornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -338,7 +340,7 @@ public class MenuParticipante extends javax.swing.JFrame {
                                     .addComponent(jLabel11)
                                     .addComponent(jLabel10))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel13)
+                        .addComponent(lbIconoBienvenido)
                         .addContainerGap())))
         );
         jPcontornoLayout.setVerticalGroup(
@@ -368,21 +370,8 @@ public class MenuParticipante extends javax.swing.JFrame {
                         .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(687, 687, 687))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPcontornoLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
+                        .addComponent(lbIconoBienvenido)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPcontorno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPcontorno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout ContornoLayout = new javax.swing.GroupLayout(Contorno);
@@ -392,18 +381,16 @@ public class MenuParticipante extends javax.swing.JFrame {
             .addGap(0, 745, Short.MAX_VALUE)
             .addGroup(ContornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(ContornoLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jPcontorno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 107, Short.MAX_VALUE)))
         );
         ContornoLayout.setVerticalGroup(
             ContornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 963, Short.MAX_VALUE)
+            .addGap(0, 420, Short.MAX_VALUE)
             .addGroup(ContornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(ContornoLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jPcontorno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 16, Short.MAX_VALUE)))
         );
 
         Fecha1.setBackground(new java.awt.Color(255, 204, 204));
@@ -442,6 +429,8 @@ public class MenuParticipante extends javax.swing.JFrame {
         lbNombrePar.setText("Nombre Persona");
         lbNombrePar.setPreferredSize(new java.awt.Dimension(100, 20));
 
+        lbFotoPerfil.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Oso JDM Usuario BW (Fondo 0) (50px).png")); // NOI18N
+
         javax.swing.GroupLayout FondoBlancoLayout = new javax.swing.GroupLayout(FondoBlanco);
         FondoBlanco.setLayout(FondoBlancoLayout);
         FondoBlancoLayout.setHorizontalGroup(
@@ -451,7 +440,7 @@ public class MenuParticipante extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(FondoBlancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FondoBlancoLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(lbFotoPerfil)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbNombrePar, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -466,7 +455,7 @@ public class MenuParticipante extends javax.swing.JFrame {
             .addGroup(FondoBlancoLayout.createSequentialGroup()
                 .addComponent(MenuOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoBlancoLayout.createSequentialGroup()
+            .addGroup(FondoBlancoLayout.createSequentialGroup()
                 .addGroup(FondoBlancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FondoBlancoLayout.createSequentialGroup()
                         .addGroup(FondoBlancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -476,8 +465,8 @@ public class MenuParticipante extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoBlancoLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel1)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                .addComponent(lbFotoPerfil)))
+                        .addGap(12, 12, 12))
                     .addGroup(FondoBlancoLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(lbNombrePar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -505,13 +494,13 @@ public class MenuParticipante extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnEncuestasRecibidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncuestasRecibidasActionPerformed
-        panelPlantilas();
+        panelRecibidas();
     }//GEN-LAST:event_btnEncuestasRecibidasActionPerformed
 
     //Metodo para Impletar un Panel dentro de Otro
     public void panelInicial(){
         PanelBienvenidaE pInicio = new PanelBienvenidaE();
-            pInicio.setSize(700,500); //Colocamos el tamaño de nuestro Jpanel
+            pInicio.setSize(745,420); //Colocamos el tamaño de nuestro Jpanel
             pInicio.setLocation(0,0);
             
             Contorno.removeAll();
@@ -520,17 +509,16 @@ public class MenuParticipante extends javax.swing.JFrame {
             Contorno.repaint();
     }
     
-    public void panelPlantilas(){
-        /*
-        CrearEncuestas pPlantillas = new CrearEncuestas();
-            pPlantillas.setSize(700,500); //Colocamos el tamaño de nuestro Jpanel
+    public void panelRecibidas(){
+        EncuestasRecibidas pPlantillas = new EncuestasRecibidas();
+            pPlantillas.setSize(745,420); //Colocamos el tamaño de nuestro Jpanel
             pPlantillas.setLocation(0,0);
             
             Contorno.removeAll();
             Contorno.add(pPlantillas,BorderLayout.CENTER);
             Contorno.revalidate();
             Contorno.repaint();
-        */
+
     }
     
 
@@ -538,29 +526,28 @@ public class MenuParticipante extends javax.swing.JFrame {
     private javax.swing.JPanel Contorno;
     private javax.swing.JPanel Fecha1;
     private javax.swing.JPanel FondoBlanco;
-    private javax.swing.JLabel Icon;
     private javax.swing.JPanel MenuOpciones;
     private javax.swing.JButton btnEncuestasRecibidas;
     private javax.swing.JButton btnEncuestasRespondidas;
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPcontorno;
     private javax.swing.JLabel lbFecha;
+    private javax.swing.JLabel lbFotoPerfil;
     private javax.swing.JLabel lbHora;
+    private javax.swing.JLabel lbIconoBienvenido;
+    private javax.swing.JLabel lbLogoJDM;
+    private javax.swing.JLabel lbLogoOso2D;
     private javax.swing.JLabel lbNombrePar;
     // End of variables declaration//GEN-END:variables
 }

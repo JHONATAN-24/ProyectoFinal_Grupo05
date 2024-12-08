@@ -1,5 +1,5 @@
 
-package T_CLASES;
+package T_Clases;
 
 import T_ArrayList.ListaPreguntas;
 import java.util.Objects;

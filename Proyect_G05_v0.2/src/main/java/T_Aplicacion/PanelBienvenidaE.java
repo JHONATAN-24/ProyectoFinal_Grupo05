@@ -76,7 +76,7 @@ public class PanelBienvenidaE extends javax.swing.JPanel {
         jLabel12.setFont(new java.awt.Font("Segoe UI Semibold", 1, 13)); // NOI18N
         jLabel12.setText("con JDM Surveys!");
 
-        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Desktop\\Recursos icon\\imagenes proyecto\\IconInicioPanel.png")); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\IconInicioPanel.png")); // NOI18N
 
         javax.swing.GroupLayout jPcontornoLayout = new javax.swing.GroupLayout(jPcontorno);
         jPcontorno.setLayout(jPcontornoLayout);
@@ -174,7 +174,7 @@ public class PanelBienvenidaE extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPcontorno, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+            .addComponent(jPcontorno, javax.swing.GroupLayout.PREFERRED_SIZE, 420, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

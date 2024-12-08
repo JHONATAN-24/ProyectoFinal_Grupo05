@@ -2,7 +2,7 @@
 package T_Pruebas;
 
 import T_ArrayList.ListaEncuestadores;
-import T_CLASES.Encuestador;
+import T_Clases.Encuestador;
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 import java.text.SimpleDateFormat;
