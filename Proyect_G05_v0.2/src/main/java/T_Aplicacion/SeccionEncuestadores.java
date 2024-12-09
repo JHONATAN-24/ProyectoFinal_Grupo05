@@ -207,11 +207,12 @@ public class SeccionEncuestadores extends javax.swing.JFrame {
             }   
     
         // Obtener valores de la tabla
+            String codigoEncuestador = tblEncuestadores.getValueAt(selectedRow, 0).toString();
             String nombreEncuestador = tblEncuestadores.getValueAt(selectedRow, 1).toString();
             String apellidoEncuestador = tblEncuestadores.getValueAt(selectedRow, 2).toString();
 
         // Crear y mostrar nueva ventana
-            MenuEncuestador nuevaVentana = new MenuEncuestador(T_listaEnc2, nombreEncuestador, apellidoEncuestador);
+            MenuEncuestador nuevaVentana = new MenuEncuestador(T_listaEnc2,codigoEncuestador ,nombreEncuestador, apellidoEncuestador);
                 nuevaVentana.setVisible(true);
                 this.dispose();
     }//GEN-LAST:event_btnSiguienteActionPerformed

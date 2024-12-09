@@ -7,25 +7,50 @@
 
 package T_Aplicacion;
 
+import T_ArrayList.ListaEncuestadores;
 import T_HashSet.HashEncuesta;
 import T_HashSet.HashPregunta;
 import T_Clases.Encuesta;
 import T_Clases.Pregunta;
+import T_ConexionBD.CRUDJavaEn;
+import T_ConexionBD.CRUDJavaPre;
+import T_ConexionBD.ConexionSQLServer;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class PlantillaEncuesta_01 extends javax.swing.JFrame {
    
+    ListaEncuestadores T_listaEnc4 = new ListaEncuestadores();
     HashEncuesta nuevoEnc = new HashEncuesta();
     HashPregunta nuevoPre = new HashPregunta();
-    public PlantillaEncuesta_01() {
+    
+    private int idEncuestaActual = -1;
+    private boolean encuestaGuardada = false;
+    private String codigoEncuestador;
+    private String nombreEncuestador;
+    private String apellidoEncuestador;
+    
+    public PlantillaEncuesta_01(ListaEncuestadores encuestador, String codigoEncuestador, String nombreEncuestador , String apellidoEncuestador) {
         initComponents();
         this.setTitle("Plantilla N° 1");
         this.setSize(965, 500);
         this.setLocationRelativeTo(null);
-        this.setResizable(false);  
+        this.setResizable(false); 
+        
+        this.T_listaEnc4=encuestador;
+        this.codigoEncuestador=codigoEncuestador;
+        this.nombreEncuestador=nombreEncuestador;
+        this.apellidoEncuestador=apellidoEncuestador;
+        
+        System.out.println("Código de Encuestador: " + codigoEncuestador);
     }
 
     @SuppressWarnings("unchecked")
@@ -50,6 +75,8 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPreguntas = new javax.swing.JTable();
         btnEliminarPregunta = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jcalender = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(950, 580));
@@ -81,6 +108,11 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
         btnPublicar.setContentAreaFilled(false);
         btnPublicar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPublicar.setOpaque(true);
+        btnPublicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPublicarActionPerformed(evt);
+            }
+        });
 
         txtDescripcion.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         txtDescripcion.setText("Descripcion");
@@ -216,6 +248,8 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("FECHA CIERRE: ");
+
         javax.swing.GroupLayout FondoPlantilla01Layout = new javax.swing.GroupLayout(FondoPlantilla01);
         FondoPlantilla01.setLayout(FondoPlantilla01Layout);
         FondoPlantilla01Layout.setHorizontalGroup(
@@ -228,6 +262,10 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
                     .addGroup(FondoPlantilla01Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jcalender, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnGuardarPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnAgregarPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -243,10 +281,13 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addGroup(FondoPlantilla01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEliminarPregunta)
-                    .addComponent(btnAgregarPregunta)
-                    .addComponent(btnGuardarPregunta))
+                .addGroup(FondoPlantilla01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(FondoPlantilla01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnEliminarPregunta)
+                        .addComponent(btnAgregarPregunta)
+                        .addComponent(btnGuardarPregunta)
+                        .addComponent(jLabel1))
+                    .addComponent(jcalender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -269,41 +310,95 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarPreguntaActionPerformed
-        
-        if (txtTituloEncuesta.getText().length()==0){
-            JOptionPane.showMessageDialog(this,"Por Favor, Debe Ingresar el TITULO");
+       try {
+        if (txtTituloEncuesta.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por Favor, Debe Ingresar el TITULO");
             return;
         }
         
-        if (txtDescripcion.getText().length()==0){
-            JOptionPane.showMessageDialog(this,"Por Favor, Debe Ingresar la DESCRIPCION");
+        if (txtDescripcion.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por Favor, Debe Ingresar la DESCRIPCION");
             return;
         }
         
-        if (txtTituloPregunta.getText().length()==0){
-            JOptionPane.showMessageDialog(this,"Por Favor, Debe Ingresar la DESCRIPCION");
+        Connection conexion = ConexionSQLServer.getInstance().getConnection();
+        CRUDJavaEn crudEncuestas = new CRUDJavaEn();
+        CRUDJavaPre crudPreguntas = new CRUDJavaPre();
+
+        // Only save the survey once
+        if (!encuestaGuardada) {
+            // Obtener la fecha actual y formatearla
+            Date fechaActual = new Date();
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+            String fechaCreacion = formatoFecha.format(fechaActual);
+            
+            // Usar el JDateChooser    
+            Date T_fecha = jcalender.getDate();
+            SimpleDateFormat T_FechaE = new SimpleDateFormat("yyyy-MM-dd");
+            String date = T_FechaE.format(T_fecha);
+        
+            // Crear y guardar la encuesta
+            Encuesta nuevaEncuesta = new Encuesta();
+            nuevaEncuesta.setTitulo(txtTituloEncuesta.getText());
+            nuevaEncuesta.setDescripción(txtDescripcion.getText());
+            nuevaEncuesta.setTipoEncuesta("Abierta");
+            nuevaEncuesta.setFechaCreacion(fechaCreacion);
+            nuevaEncuesta.setFechaCierre(date);
+            
+            // Insertar encuesta
+            crudEncuestas.insertarEncuestas(conexion, nuevaEncuesta, codigoEncuestador);
+            
+            // Obtener el ID de la encuesta recién insertada
+            idEncuestaActual = obtenerIdUltimaEncuesta();
+            
+            // Marcar que la encuesta ha sido guardada
+            encuestaGuardada = true;
+            
+            JOptionPane.showMessageDialog(this, "Encuesta guardada");
+            nuevoEnc.agregarEncuesta(nuevaEncuesta);
+        }
+
+        if (txtTituloPregunta.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por Favor, Debe Ingresar el Título de la Pregunta");
             return;
         }
-        
+
+        // Crear y guardar la pregunta
         Pregunta nuevaPregunta = new Pregunta();
-            nuevaPregunta.setEnunciado(txtTituloPregunta.getText());
-            nuevaPregunta.setTipoPregunta("Abierta");
-            nuevoPre.agregarPregunta(nuevaPregunta);
-            JOptionPane.showMessageDialog(this, "Pregunta listada");
+        nuevaPregunta.setEnunciado(txtTituloPregunta.getText());
+        nuevaPregunta.setTipoPregunta("Abierta");
         
-        Encuesta nuevaEncuesta = new Encuesta();
-        nuevaEncuesta.setTitulo(txtTituloEncuesta.getText());
-        nuevaEncuesta.setDescripción(txtDescripcion.getText());
-        nuevaEncuesta.setTipoEncuesta("Abierta");
-        nuevaEncuesta.setFechaCreacion("");
-        nuevaEncuesta.setFechaCierre("");
-        nuevoEnc.agregarEncuesta(nuevaEncuesta);
-        JOptionPane.showMessageDialog(this, "Encuesta listada");
-     
+        // Insertar pregunta con el ID de la encuesta
+        crudPreguntas.insertarPregunta(conexion, nuevaPregunta, idEncuestaActual);
+        
+        JOptionPane.showMessageDialog(this, "Pregunta guardada");
+        nuevoPre.agregarPregunta(nuevaPregunta);
+        
+        // Limpiar campos de pregunta para la siguiente
+        txtTituloPregunta.setText("");
+
+        } catch(SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error de conexión: " + e.getMessage());
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btnGuardarPreguntaActionPerformed
 
+    private int obtenerIdUltimaEncuesta() throws SQLException {
+        Connection conexion = ConexionSQLServer.getInstance().getConnection();
+        String sql = "SELECT TOP 1 id_encuestas FROM T_Encuestas ORDER BY id_encuestas DESC";
+
+        try (PreparedStatement stmt = conexion.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            if (rs.next()) {
+                return rs.getInt("id_encuestas");
+            }
+        }
+
+        return -1; // Return -1 if no surveys found
+    }
+    
     private void btnAgregarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPreguntaActionPerformed
-        
         DefaultTableModel tblEnc = (DefaultTableModel) tblEncuestas.getModel();
         while(tblEnc.getRowCount()!=0) tblEnc.removeRow(0);
         
@@ -318,80 +413,105 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
             };
             tblEnc.addRow(rowData);
         }
-        
+
+    try {
+        // Obtener la conexión
+        Connection conexion = ConexionSQLServer.getInstance().getConnection();
+        CRUDJavaPre crudPreguntas = new CRUDJavaPre();
+
+        // Limpiar la tabla de preguntas
         DefaultTableModel tblPre = (DefaultTableModel) tblPreguntas.getModel();
-        while(tblPre.getRowCount() !=0) tblPre.removeRow(0);
+        while(tblPre.getRowCount() != 0) tblPre.removeRow(0);
         
-        for(Pregunta pre : nuevoPre.listarPregunta()){
-            Object[] rowData = {
-                pre.getEnunciado(),
-                pre.getTipoPregunta()
-            };
-            tblPre.addRow(rowData);
+        // Obtener las preguntas para el ID de la encuesta actual
+        if (idEncuestaActual != -1) {
+            List<Pregunta> preguntas = crudPreguntas.obtenerPreguntasPorEncuesta(conexion, idEncuestaActual);
+            
+            // Llenar la tabla con las preguntas
+            for(Pregunta pre : preguntas){
+                Object[] rowData = {
+                    pre.getEnunciado(),
+                    pre.getTipoPregunta()
+                };
+                tblPre.addRow(rowData);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay una encuesta seleccionada");
         }
         
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error al obtener preguntas: " + e.getMessage());
+            e.printStackTrace();
+        }   
     }//GEN-LAST:event_btnAgregarPreguntaActionPerformed
 
     private void btnEliminarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPreguntaActionPerformed
-         // Obtener la fila seleccionada
-        int selectPre = tblPreguntas.getSelectedRow();
+        try {
+        // Obtener la fila seleccionada
+        int selectedRow = tblPreguntas.getSelectedRow();
 
         // Validar que se haya seleccionado una fila
-        if (selectPre == -1) {
+        if (selectedRow == -1) {
             JOptionPane.showMessageDialog(this, "Debe seleccionar una Pregunta");
             return;
         }
 
-        // Convertir el Set a List para poder acceder por índice
-        List<Pregunta> listaPreguntas = new ArrayList<>(nuevoPre.listarPregunta());
-        Pregunta deletePre = listaPreguntas.get(selectPre);
+        // Confirmación de eliminación
+        int T_confirmarE = JOptionPane.showConfirmDialog(this, "¿Está seguro de eliminar esta Pregunta?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+        if (T_confirmarE != JOptionPane.YES_OPTION) {
+            return;
+        }
 
-        nuevoPre.eliminarPregunta(deletePre);
+        // Obtener el enunciado de la pregunta seleccionada
+        String enunciadoPre = (String) tblPreguntas.getValueAt(selectedRow, 0);
 
-        // Actualizar la tabla
-        DefaultTableModel dtm = (DefaultTableModel) tblPreguntas.getModel();
-        dtm.removeRow(selectPre);
-        JOptionPane.showMessageDialog(this, "Pregunta eliminada.");
+        // Obtener la conexión usando getInstance()
+        Connection conexion = ConexionSQLServer.getInstance().getConnection();
+        CRUDJavaPre T_crudE = new CRUDJavaPre();
+
+        // Borrar la pregunta de la base de datos
+        int filasEliminadas = T_crudE.borrarPregunta(conexion, enunciadoPre);
+
+            if (filasEliminadas > 0) {
+                // Actualizar la tabla
+                DefaultTableModel dtm = (DefaultTableModel) tblPreguntas.getModel();
+                dtm.removeRow(selectedRow);
+                JOptionPane.showMessageDialog(this, "Pregunta eliminada.");
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo eliminar la pregunta.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error al conectar a la base de datos: " + e.getMessage());
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btnEliminarPreguntaActionPerformed
+
+    private void btnPublicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPublicarActionPerformed
+        if (encuestaGuardada) {
+            JOptionPane.showMessageDialog(this, "Encuesta finalizada");
+            // Resetear banderas para una nueva encuesta
+            encuestaGuardada = false;
+            idEncuestaActual = -1;
+
+            // Limpiar campos
+            txtTituloEncuesta.setText("");
+            txtDescripcion.setText("");
+            txtTituloPregunta.setText("");
+            jcalender.setDate(null);
+        } else {
+            JOptionPane.showMessageDialog(this, "Primero debe guardar la encuesta");
+        }
+        
+        MenuEncuestador T_volverMenu = new MenuEncuestador(T_listaEnc4,codigoEncuestador, nombreEncuestador, apellidoEncuestador);
+            T_volverMenu.setVisible(true);
+            this.dispose();
+           
+    }//GEN-LAST:event_btnPublicarActionPerformed
     
     public void fechaDeEncuesta(){
         
     }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PlantillaEncuesta_01.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PlantillaEncuesta_01.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PlantillaEncuesta_01.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PlantillaEncuesta_01.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PlantillaEncuesta_01().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel FondoPlantilla01;
@@ -403,8 +523,10 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
     private javax.swing.JButton btnPublicar;
     private javax.swing.JLabel icnEncuesta;
     private javax.swing.JLabel icnEncuesta1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private com.toedter.calendar.JDateChooser jcalender;
     private javax.swing.JPanel pnlPregunta;
     private javax.swing.JPanel pnlTituloEncuesta;
     private javax.swing.JTable tblEncuestas;

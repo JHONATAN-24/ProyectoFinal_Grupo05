@@ -7,6 +7,7 @@ public class Pregunta {
     // ATRIBUTOS :______________________________________________________________
     private String enunciado;
     private String tipoPregunta;
+    private Encuesta encuesta;
     
     // CONSTRUCTOR SIN PARAMETROS :_____________________________________________
     
@@ -14,9 +15,11 @@ public class Pregunta {
     }
     
     // CONSTRUCTOR CON PARAMETROS:______________________________________________
-    public Pregunta(String enunciado, String tipoPregunta) {
+
+    public Pregunta(String enunciado, String tipoPregunta, Encuesta encuesta) {
         this.enunciado = enunciado;
         this.tipoPregunta = tipoPregunta;
+        this.encuesta = encuesta;
     }
     
     // GETTERS :________________________________________________________________
@@ -27,6 +30,11 @@ public class Pregunta {
     public String getTipoPregunta() {
         return tipoPregunta;
     }
+
+    public Encuesta getEncuesta() {
+        return encuesta;
+    }
+    
     
     // SETTERS :________________________________________________________________
     public void setEnunciado(String enunciado) {
@@ -36,12 +44,18 @@ public class Pregunta {
     public void setTipoPregunta(String tipoPregunta) {
         this.tipoPregunta = tipoPregunta;
     }
+
+    public void setEncuesta(Encuesta encuesta) {
+        this.encuesta = encuesta;
+    }
     
     // SOBREESCRITURA DEL METODO TO STRING :____________________________________
+
     @Override
     public String toString() {
-        return "Pregunta{" + "enunciado=" + enunciado + ", tipoPregunta=" + tipoPregunta + '}';
+        return "Pregunta{" + "enunciado=" + enunciado + ", tipoPregunta=" + tipoPregunta + ", encuesta=" + encuesta + '}';
     }
+    
     
     // Verifica si dos Preguntas son iguales comparando sus emails.
     @Override

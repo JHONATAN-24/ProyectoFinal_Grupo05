@@ -22,12 +22,13 @@ public class MenuEncuestador extends javax.swing.JFrame{
     
     ListaEncuestadores T_listaEnc3 = new ListaEncuestadores();
     private Timer timer;
+    private String codigoEncuestador;
     private String nombreEncuestador;
     private String apellidoEncuestador;
     
     
 
-    public MenuEncuestador(ListaEncuestadores encuestador, String nombreEncuestador, String apellidoEncuestador) {
+    public MenuEncuestador(ListaEncuestadores encuestador, String codigoEncuestador ,String nombreEncuestador, String apellidoEncuestador) {
         initComponents();
         this.setTitle("JDM Surveys - MenuOpciones");
         this.setSize(965, 540);
@@ -36,8 +37,11 @@ public class MenuEncuestador extends javax.swing.JFrame{
         
         // Guardar los datos
         this.T_listaEnc3 = encuestador;
+        this.codigoEncuestador=codigoEncuestador;
         this.nombreEncuestador = nombreEncuestador;
         this.apellidoEncuestador = apellidoEncuestador;
+        
+        System.out.println(codigoEncuestador);
         
         // Inicializar componentes
         iniciarReloj();
@@ -581,7 +585,7 @@ public class MenuEncuestador extends javax.swing.JFrame{
     }
     
     public void panelPlantilas(){
-        CrearEncuestas pPlantillas = new CrearEncuestas(this);
+        CrearEncuestas pPlantillas = new CrearEncuestas(this, T_listaEnc3, codigoEncuestador, nombreEncuestador, apellidoEncuestador);
             pPlantillas.setSize(745,420); //Colocamos el tamaño de nuestro Jpanel
             pPlantillas.setLocation(0,0);
             
@@ -592,7 +596,7 @@ public class MenuEncuestador extends javax.swing.JFrame{
     }
     
     public void panelEncuestas(){
-        EncuestasEnviadas pEnviadas = new EncuestasEnviadas();
+        EncuestasEnviadas pEnviadas = new EncuestasEnviadas(T_listaEnc3, codigoEncuestador);
             pEnviadas.setSize(745,420); //Colocamos el tamaño de nuestro Jpanel
             pEnviadas.setLocation(0,0);
             

@@ -8,17 +8,26 @@
 
 package T_Aplicacion;
 
+import T_ArrayList.ListaEncuestadores;
 import java.awt.BorderLayout;
 
 public class CrearEncuestas extends javax.swing.JPanel {
 
     //Atributo para instanciar un jframe (MenuEncuestador)
     private MenuEncuestador T_menuEnc; //Funcionalidad que va a tener es poder poner al jframe Invisible
+    ListaEncuestadores T_listaEnc5 = new ListaEncuestadores();
+    private String codigoEncuestador;
+    private String nombreEncuestador;
+    private String apellidoEncuestador;
     
     
-    public CrearEncuestas(MenuEncuestador T_menuEncuestador) {
+    public CrearEncuestas(MenuEncuestador T_menuEncuestador, ListaEncuestadores encuestador, String codigoEncuestador, String nombreEncuestador, String apellidoEncuestador) {
         initComponents();
         this.T_menuEnc = T_menuEncuestador;
+        T_listaEnc5 = encuestador;
+        this.codigoEncuestador=codigoEncuestador;
+        this.nombreEncuestador=nombreEncuestador;
+        this.apellidoEncuestador=apellidoEncuestador;
     }
 
     @SuppressWarnings("unchecked")
@@ -182,7 +191,7 @@ public class CrearEncuestas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPlantilla01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlantilla01ActionPerformed
-        PlantillaEncuesta_01 plan = new PlantillaEncuesta_01();
+        PlantillaEncuesta_01 plan = new PlantillaEncuesta_01(T_listaEnc5, codigoEncuestador, nombreEncuestador, apellidoEncuestador);
             plan.setVisible(true);
             T_menuEnc.setVisible(false);
     }//GEN-LAST:event_btnPlantilla01ActionPerformed
@@ -192,7 +201,7 @@ public class CrearEncuestas extends javax.swing.JPanel {
     }//GEN-LAST:event_btnPlantilla02ActionPerformed
 
     public void plantilla01(){
-    PlantillaEncuesta_01 plantilla01 = new PlantillaEncuesta_01();
+    PlantillaEncuesta_01 plantilla01 = new PlantillaEncuesta_01(T_listaEnc5, codigoEncuestador, nombreEncuestador, apellidoEncuestador);
         plantilla01.setSize(965,500); //Colocamos el tamaño de nuestro Jpanel
         plantilla01.setLocationRelativeTo(null);
 

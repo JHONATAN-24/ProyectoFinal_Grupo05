@@ -1,12 +1,20 @@
 
 package T_Aplicacion;
 
+import T_ArrayList.ListaParticipantes;
+
 public class EncuestasRecibidas extends javax.swing.JPanel {
+    ListaParticipantes T_listaP3 = new ListaParticipantes();
     private MenuParticipante T_menuPart;
-    
-    public EncuestasRecibidas(MenuParticipante T_menuParticipante) {
+    private String nombreParticipante;
+    private String apellidoParticipante;
+            
+    public EncuestasRecibidas(MenuParticipante T_menuParticipante, ListaParticipantes participante, String nombreParticipante, String apellidoParticipante) {
         initComponents();
         this.T_menuPart = T_menuParticipante;
+        T_listaP3=participante;
+        this.nombreParticipante=nombreParticipante;
+        this.apellidoParticipante=apellidoParticipante;
     }
 
     @SuppressWarnings("unchecked")
@@ -109,7 +117,7 @@ public class EncuestasRecibidas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAbrirEncuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirEncuestaActionPerformed
-        MenuParticipante menu = new MenuParticipante();
+        MenuParticipante menu = new MenuParticipante(T_listaP3, nombreParticipante, apellidoParticipante);
             menu.setVisible(true);
             T_menuPart.setVisible(false);
     }//GEN-LAST:event_btnAbrirEncuestaActionPerformed

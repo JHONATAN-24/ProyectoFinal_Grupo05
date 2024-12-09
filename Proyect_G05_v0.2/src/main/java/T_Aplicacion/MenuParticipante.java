@@ -510,7 +510,7 @@ public class MenuParticipante extends javax.swing.JFrame {
     }
     
     public void panelRecibidas(){
-        EncuestasRecibidas pPlantillas = new EncuestasRecibidas();
+        EncuestasRecibidas pPlantillas = new EncuestasRecibidas(this, T_listaP3, nombreParticipante, apellidoParticipante);
             pPlantillas.setSize(745,420); //Colocamos el tamaño de nuestro Jpanel
             pPlantillas.setLocation(0,0);
             
