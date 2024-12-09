@@ -2,19 +2,31 @@
 package T_Aplicacion;
 
 import T_ArrayList.ListaParticipantes;
+import T_Clases.Encuesta;
+import T_ConexionBD.CRUDJavaEn;
+import T_ConexionBD.ConexionSQLServer;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class EncuestasRecibidas extends javax.swing.JPanel {
     ListaParticipantes T_listaP3 = new ListaParticipantes();
     private MenuParticipante T_menuPart;
+    private int encuestaId;
     private String nombreParticipante;
     private String apellidoParticipante;
             
-    public EncuestasRecibidas(MenuParticipante T_menuParticipante, ListaParticipantes participante, String nombreParticipante, String apellidoParticipante) {
+    public EncuestasRecibidas(MenuParticipante T_menuParticipante, ListaParticipantes participante, 
+            String nombreParticipante, String apellidoParticipante, int encuestaId) {
         initComponents();
         this.T_menuPart = T_menuParticipante;
         T_listaP3=participante;
         this.nombreParticipante=nombreParticipante;
         this.apellidoParticipante=apellidoParticipante;
+        
+        mostrarEncuestas();
     }
 
     @SuppressWarnings("unchecked")
@@ -24,7 +36,7 @@ public class EncuestasRecibidas extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblRecibidas = new javax.swing.JTable();
         btnAbrirEncuesta = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(745, 420));
@@ -39,12 +51,12 @@ public class EncuestasRecibidas extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         jLabel2.setText("Recibidas");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblRecibidas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Titulo", "Descripcion", "Encuestador", "Fecha de creacion", "Estado"
+                "codigo_Encuestas", "Titulo", "Descripcion", "Encuestador", "Fecha de creacion"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -55,10 +67,10 @@ public class EncuestasRecibidas extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setMaximumSize(new java.awt.Dimension(733, 343));
-        jTable1.setMinimumSize(new java.awt.Dimension(733, 343));
-        jTable1.setPreferredSize(new java.awt.Dimension(733, 343));
-        jScrollPane1.setViewportView(jTable1);
+        tblRecibidas.setMaximumSize(new java.awt.Dimension(733, 343));
+        tblRecibidas.setMinimumSize(new java.awt.Dimension(733, 343));
+        tblRecibidas.setPreferredSize(new java.awt.Dimension(733, 343));
+        jScrollPane1.setViewportView(tblRecibidas);
 
         btnAbrirEncuesta.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         btnAbrirEncuesta.setText("Abrir");
@@ -116,10 +128,53 @@ public class EncuestasRecibidas extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public void mostrarEncuestas(){
+        try{
+        // Obtener el modelo de la tabla
+        DefaultTableModel dtm = (DefaultTableModel) tblRecibidas.getModel();
+        while (dtm.getRowCount() != 0) dtm.removeRow(0); // Limpiar la tabla
+     
+        // Usar getInstance() para obtener la conexión
+        Connection conexion = ConexionSQLServer.getInstance().getConnection(); 
+
+        CRUDJavaEn crud = new CRUDJavaEn();
+        List<Encuesta> lista = crud.obtenerEncuestasPar(conexion);
+        
+            for (Encuesta e : lista) {
+                Object[] rowData = {
+                  e.getId(),
+                  e.getTitulo(),
+                  e.getDescripción(),
+                  e.getEncuestador().getNombre(),
+                  e.getFechaCreacion()
+                };
+                dtm.addRow(rowData);
+            }
+           
+        }catch(SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error al conectar a la base de datos: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
     private void btnAbrirEncuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirEncuestaActionPerformed
-        MenuParticipante menu = new MenuParticipante(T_listaP3, nombreParticipante, apellidoParticipante);
-            menu.setVisible(true);
-            T_menuPart.setVisible(false);
+        // Escoger al usuario de la tabla
+        int selectedRow = tblRecibidas.getSelectedRow();
+
+        // Validación
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar una Encuesta.");
+            return;
+        }
+
+        // Obtener el ID de la encuesta seleccionada
+        int idEncuesta = (int) tblRecibidas.getValueAt(selectedRow, 0);
+        System.out.println("ID de encuesta seleccionada: " + idEncuesta);
+
+        // Crear una instancia del frame EncuestaBase
+        EncuestaBase encuestaBase = new EncuestaBase();
+            encuestaBase.mostrarPreguntasEncuesta(idEncuesta);
+            encuestaBase.setVisible(true);
     }//GEN-LAST:event_btnAbrirEncuestaActionPerformed
     
 
@@ -128,6 +183,6 @@ public class EncuestasRecibidas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblRecibidas;
     // End of variables declaration//GEN-END:variables
 }

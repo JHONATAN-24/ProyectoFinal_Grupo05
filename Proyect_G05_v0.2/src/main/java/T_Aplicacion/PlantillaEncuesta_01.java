@@ -19,10 +19,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import static javax.swing.JComponent.TOOL_TIP_TEXT_KEY;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -31,9 +32,9 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
     ListaEncuestadores T_listaEnc4 = new ListaEncuestadores();
     HashEncuesta nuevoEnc = new HashEncuesta();
     HashPregunta nuevoPre = new HashPregunta();
-    
     private int idEncuestaActual = -1;
     private boolean encuestaGuardada = false;
+    
     private String codigoEncuestador;
     private String nombreEncuestador;
     private String apellidoEncuestador;
@@ -44,7 +45,6 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
         this.setSize(965, 500);
         this.setLocationRelativeTo(null);
         this.setResizable(false); 
-        
         this.T_listaEnc4=encuestador;
         this.codigoEncuestador=codigoEncuestador;
         this.nombreEncuestador=nombreEncuestador;
@@ -75,8 +75,8 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPreguntas = new javax.swing.JTable();
         btnEliminarPregunta = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jcalender = new com.toedter.calendar.JDateChooser();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(950, 580));
@@ -147,7 +147,7 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
                             .addComponent(txtTituloEncuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         pnlPregunta.setBackground(new java.awt.Color(193, 224, 255));
@@ -248,7 +248,8 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("FECHA CIERRE: ");
+        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel1.setText("Fecha de Cierre:");
 
         javax.swing.GroupLayout FondoPlantilla01Layout = new javax.swing.GroupLayout(FondoPlantilla01);
         FondoPlantilla01.setLayout(FondoPlantilla01Layout);
@@ -263,8 +264,8 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
                     .addComponent(jScrollPane2)
                     .addGroup(FondoPlantilla01Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jcalender, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jcalender, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnGuardarPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -281,13 +282,13 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addGroup(FondoPlantilla01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(FondoPlantilla01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FondoPlantilla01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnEliminarPregunta)
                         .addComponent(btnAgregarPregunta)
-                        .addComponent(btnGuardarPregunta)
-                        .addComponent(jLabel1))
-                    .addComponent(jcalender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnGuardarPregunta))
+                    .addComponent(jcalender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -310,7 +311,8 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarPreguntaActionPerformed
-       try {
+        
+        try {
         if (txtTituloEncuesta.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por Favor, Debe Ingresar el TITULO");
             return;
@@ -380,7 +382,7 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
         } catch(SQLException e) {
             JOptionPane.showMessageDialog(this, "Error de conexión: " + e.getMessage());
             e.printStackTrace();
-        }
+        }   
     }//GEN-LAST:event_btnGuardarPreguntaActionPerformed
 
     private int obtenerIdUltimaEncuesta() throws SQLException {
@@ -395,10 +397,11 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
             }
         }
 
-        return -1; // Return -1 if no surveys found
+        return -1; // Return -1 if no surveys found
     }
     
     private void btnAgregarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPreguntaActionPerformed
+        
         DefaultTableModel tblEnc = (DefaultTableModel) tblEncuestas.getModel();
         while(tblEnc.getRowCount()!=0) tblEnc.removeRow(0);
         
@@ -438,11 +441,10 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "No hay una encuesta seleccionada");
         }
-        
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Error al obtener preguntas: " + e.getMessage());
-            e.printStackTrace();
-        }   
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "Error al obtener preguntas: " + e.getMessage());
+        e.printStackTrace();
+    }
     }//GEN-LAST:event_btnAgregarPreguntaActionPerformed
 
     private void btnEliminarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPreguntaActionPerformed
@@ -505,13 +507,13 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
         MenuEncuestador T_volverMenu = new MenuEncuestador(T_listaEnc4,codigoEncuestador, nombreEncuestador, apellidoEncuestador);
             T_volverMenu.setVisible(true);
             this.dispose();
-           
+
     }//GEN-LAST:event_btnPublicarActionPerformed
     
     public void fechaDeEncuesta(){
         
     }
-   
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel FondoPlantilla01;

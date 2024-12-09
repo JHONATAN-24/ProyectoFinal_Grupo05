@@ -13,6 +13,7 @@ public class Encuesta {
     private String fechaCierre;
     private ListaPreguntas nuevaPre;
     private Encuestador encuestador;
+    private int Id;
     
     // CONSTRUCTOR SIN PARAMETROS:______________________________________________
     public Encuesta() {
@@ -20,7 +21,7 @@ public class Encuesta {
 
     // CONSTRUCTOR CON PARAMETROS:______________________________________________
 
-    public Encuesta(String titulo, String descripción, String tipoEncuesta, String fechaCreacion, String fechaCierre, ListaPreguntas nuevaPre, Encuestador encuestador) {
+    public Encuesta(String titulo, String descripción, String tipoEncuesta, String fechaCreacion, String fechaCierre, ListaPreguntas nuevaPre, Encuestador encuestador, int Id) {
         this.titulo = titulo;
         this.descripción = descripción;
         this.tipoEncuesta = tipoEncuesta;
@@ -28,8 +29,8 @@ public class Encuesta {
         this.fechaCierre = fechaCierre;
         this.nuevaPre = nuevaPre;
         this.encuestador = encuestador;
+        this.Id = Id;
     }
-    
 
     // GETTERS :________________________________________________________________
     public String getTitulo() {
@@ -58,6 +59,10 @@ public class Encuesta {
 
     public Encuestador getEncuestador() {
         return encuestador;
+    }
+
+    public int getId() {
+        return Id;
     }
 
     // SETTERS :________________________________________________________________
@@ -89,12 +94,17 @@ public class Encuesta {
         this.encuestador = encuestador;
     }
 
+    public void setId(int Id) {
+        this.Id = Id;
+    }
+
     // SOBREESCRITURA DEL METODO TO STRING :____________________________________
 
     @Override
     public String toString() {
-        return "Encuesta{" + "titulo=" + titulo + ", descripci\u00f3n=" + descripción + ", tipoEncuesta=" + tipoEncuesta + ", fechaCreacion=" + fechaCreacion + ", fechaCierre=" + fechaCierre + ", nuevaPre=" + nuevaPre + ", encuestador=" + encuestador + '}';
+        return "Encuesta{" + "titulo=" + titulo + ", descripci\u00f3n=" + descripción + ", tipoEncuesta=" + tipoEncuesta + ", fechaCreacion=" + fechaCreacion + ", fechaCierre=" + fechaCierre + ", nuevaPre=" + nuevaPre + ", encuestador=" + encuestador + ", Id=" + Id + '}';
     }
+
     
     // Verifica si dos participantes son iguales comparando sus emails.
     @Override

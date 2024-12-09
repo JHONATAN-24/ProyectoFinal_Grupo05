@@ -102,7 +102,41 @@ public class CRUDJavaEn {
         }
 
         return T_lista;
-        }   
+    }   
+    
+    public List<Encuesta> obtenerEncuestasPar(Connection conexion) {
+    List<Encuesta> listaEncuestas = new ArrayList<>();
+    String sql = "SELECT e.id_encuestas, e.titulo, e.descripcion, e.tipo, " +
+                 "e.fechaCreacion, e.fechaCierre, en.nombre AS nombre_encuestador " +
+                 "FROM T_Encuestas AS e " +
+                 "INNER JOIN T_Encuestadores AS en ON (e.codigo = en.codigo)";
+    
+    try (PreparedStatement stmt = conexion.prepareStatement(sql);
+         ResultSet rs = stmt.executeQuery()) {
+    
+            while (rs.next()) {
+                Encuesta e = new Encuesta();
+                Encuestador encuestador = new Encuestador();
+
+                e.setId(rs.getInt("id_encuestas"));
+                e.setTitulo(rs.getString("titulo"));
+                e.setDescripción(rs.getString("descripcion"));
+                e.setTipoEncuesta(rs.getString("tipo"));
+                e.setFechaCreacion(rs.getString("fechaCreacion"));
+                e.setFechaCierre(rs.getString("fechaCierre"));
+
+                // Set the surveyor's name
+                encuestador.setNombre(rs.getString("nombre_encuestador"));
+                e.setEncuestador(encuestador);
+
+                listaEncuestas.add(e);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+            return listaEncuestas;
+        }
     
 }    
 
