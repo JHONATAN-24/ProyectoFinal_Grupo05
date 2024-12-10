@@ -56,7 +56,7 @@ public class EncuestasRecibidas extends javax.swing.JPanel {
 
             },
             new String [] {
-                "codigo_Encuestas", "Titulo", "Descripcion", "Encuestador", "Fecha de creacion"
+                "Codigo", "Titulo", "Descripcion", "Encuestador", "Fecha de creacion"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -174,7 +174,7 @@ public class EncuestasRecibidas extends javax.swing.JPanel {
         // Crear una instancia del frame EncuestaBase
         EncuestaBase encuestaBase = new EncuestaBase();
             encuestaBase.mostrarPreguntasEncuesta(idEncuesta);
-            encuestaBase.setVisible(true);
+            encuestaBase.setVisible(false);
     }//GEN-LAST:event_btnAbrirEncuestaActionPerformed
     
 

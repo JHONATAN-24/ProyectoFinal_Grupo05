@@ -20,8 +20,9 @@ public class Encuesta {
     }
 
     // CONSTRUCTOR CON PARAMETROS:______________________________________________
-
-    public Encuesta(String titulo, String descripción, String tipoEncuesta, String fechaCreacion, String fechaCierre, ListaPreguntas nuevaPre, Encuestador encuestador, int Id) {
+    public Encuesta(String titulo, String descripción, String tipoEncuesta,
+            String fechaCreacion, String fechaCierre, ListaPreguntas nuevaPre,
+            Encuestador encuestador, int Id) {
         this.titulo = titulo;
         this.descripción = descripción;
         this.tipoEncuesta = tipoEncuesta;

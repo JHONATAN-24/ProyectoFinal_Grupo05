@@ -34,7 +34,7 @@ public class EncuestasEnviadas extends javax.swing.JPanel {
     public void listarEncuestas(){
         try{
         // Obtener el modelo de la tabla
-        DefaultTableModel dtm = (DefaultTableModel) jListaEncuestas.getModel();
+        DefaultTableModel dtm = (DefaultTableModel) tblListaEncuestas.getModel();
         while (dtm.getRowCount() != 0) dtm.removeRow(0); // Limpiar la tabla
      
         // Usar getInstance() para obtener la conexión
@@ -66,30 +66,45 @@ public class EncuestasEnviadas extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jListaEncuestas = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblListaEncuestas = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 204));
-        setMaximumSize(new java.awt.Dimension(700, 500));
-        setMinimumSize(new java.awt.Dimension(700, 500));
+        setMaximumSize(new java.awt.Dimension(745, 420));
+        setMinimumSize(new java.awt.Dimension(745, 420));
+        setPreferredSize(new java.awt.Dimension(745, 420));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jListaEncuestas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Encuestas recientes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Comic Sans MS", 0, 14))); // NOI18N
-        jListaEncuestas.setModel(new javax.swing.table.DefaultTableModel(
+        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        jLabel2.setText("Encuestas recientes");
+
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(733, 372));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(733, 372));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(733, 372));
+
+        tblListaEncuestas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
                 "Titulo", "Descripción", "Tipo", "Fecha de creación", "Fecha de cierre"
             }
-        ));
-        jScrollPane2.setViewportView(jListaEncuestas);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
 
-        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        jLabel2.setText("Encuestas recientes");
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblListaEncuestas.setMaximumSize(new java.awt.Dimension(733, 400));
+        tblListaEncuestas.setMinimumSize(new java.awt.Dimension(733, 400));
+        tblListaEncuestas.setPreferredSize(new java.awt.Dimension(733, 400));
+        jScrollPane1.setViewportView(tblListaEncuestas);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -98,7 +113,7 @@ public class EncuestasEnviadas extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -110,8 +125,8 @@ public class EncuestasEnviadas extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -129,8 +144,8 @@ public class EncuestasEnviadas extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTable jListaEncuestas;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblListaEncuestas;
     // End of variables declaration//GEN-END:variables
 }

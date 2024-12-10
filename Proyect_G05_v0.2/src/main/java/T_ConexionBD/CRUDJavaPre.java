@@ -45,7 +45,7 @@ public class CRUDJavaPre {
         }
     }
  
-   public List<Pregunta> obtenerPreguntasPorEncuesta(Connection conexion, int idEncuesta) {
+    public List<Pregunta> obtenerPreguntasPorEncuesta(Connection conexion, int idEncuesta) {
         List<Pregunta> T_lista = new ArrayList<>();
         String sql = "SELECT enunciado FROM T_Preguntas WHERE id_encuestas = ?";
         try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
@@ -64,6 +64,26 @@ public class CRUDJavaPre {
         return T_lista;
     }
     
+    public List<Pregunta> obtenerPreguntas(Connection conexion, int idEncuesta) {
+        List<Pregunta> T_lista = new ArrayList<>();
+        String sql = "SELECT enunciado, tipo_pregunta FROM T_Preguntas WHERE id_encuestas = ?";
+        try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
+            stmt.setInt(1, idEncuesta);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    Pregunta pregunta = new Pregunta();
+                    pregunta.setEnunciado(rs.getString("enunciado"));
+                    pregunta.setTipoPregunta(rs.getString("tipo_pregunta"));
+                    T_lista.add(pregunta);
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error al obtener preguntas: " + ex.getMessage());
+        }
+        return T_lista;
+    }
+   
     public int borrarPregunta(Connection conexion, String enunciado) {
         String sql = "DELETE FROM T_Preguntas WHERE enunciado = ?";
         try {

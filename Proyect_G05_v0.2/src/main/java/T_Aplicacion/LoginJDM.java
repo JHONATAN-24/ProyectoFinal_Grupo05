@@ -45,17 +45,15 @@ public class LoginJDM extends javax.swing.JFrame {
         btnCrearcuenta = new javax.swing.JButton();
         rbEncuestador = new javax.swing.JRadioButton();
         rbParticipante = new javax.swing.JRadioButton();
-        btnVision = new javax.swing.JButton();
         txtContraseña = new javax.swing.JPasswordField();
         jLabel12 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        chbVisibilidad = new javax.swing.JCheckBox();
         IconoRegistros = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 500));
-        setPreferredSize(new java.awt.Dimension(800, 500));
         setResizable(false);
 
         PanelFondo1.setBackground(new java.awt.Color(255, 255, 255));
@@ -108,17 +106,8 @@ public class LoginJDM extends javax.swing.JFrame {
             }
         });
 
-        btnVision.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVisionActionPerformed(evt);
-            }
-        });
-
         jLabel12.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         jLabel12.setText("Rol :");
-
-        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel1.setText("Visualizar la contraseña");
 
         jLabel13.setFont(new java.awt.Font("Bungee Inline", 0, 36)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
@@ -127,16 +116,18 @@ public class LoginJDM extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel14.setText("Hola!");
 
+        chbVisibilidad.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        chbVisibilidad.setText("Visualizar la contraseña");
+        chbVisibilidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chbVisibilidadActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnIniciarSesion)
-                .addGap(18, 18, 18)
-                .addComponent(btnCrearcuenta)
-                .addGap(96, 96, 96))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -152,23 +143,28 @@ public class LoginJDM extends javax.swing.JFrame {
                                     .addComponent(rbEncuestador)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(rbParticipante)))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnVision, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jlbvariante)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtVariante, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(chbVisibilidad)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jlbvariante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(24, 24, 24))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                                    .addComponent(txtVariante)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(174, 174, 174)
                         .addComponent(jLabel14)))
                 .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnIniciarSesion)
+                .addGap(18, 18, 18)
+                .addComponent(btnCrearcuenta)
+                .addGap(96, 96, 96))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,13 +185,11 @@ public class LoginJDM extends javax.swing.JFrame {
                     .addComponent(jlbvariante))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVision, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
+                .addComponent(chbVisibilidad)
+                .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCrearcuenta)
                     .addComponent(btnIniciarSesion))
@@ -245,11 +239,11 @@ public class LoginJDM extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearcuentaActionPerformed
 
     private void rbEncuestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbEncuestadorActionPerformed
-        jlbvariante.setText("CODIGO:");
+        jlbvariante.setText("Codigo :");
     }//GEN-LAST:event_rbEncuestadorActionPerformed
 
     private void rbParticipanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbParticipanteActionPerformed
-        jlbvariante.setText("EMAIL:");
+        jlbvariante.setText("E-mail :");
     }//GEN-LAST:event_rbParticipanteActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
@@ -346,7 +340,8 @@ public class LoginJDM extends javax.swing.JFrame {
         txtContraseña.setText("");
     }
     
-    private void btnVisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisionActionPerformed
+    private void chbVisibilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbVisibilidadActionPerformed
+        // Permitir la visualizacion de la contraseña
         if (isPasswordVisible) {
 
             txtContraseña.setEchoChar('•'); 
@@ -355,7 +350,8 @@ public class LoginJDM extends javax.swing.JFrame {
             txtContraseña.setEchoChar((char) 0); 
             isPasswordVisible = true; 
         }
-    }//GEN-LAST:event_btnVisionActionPerformed
+        
+    }//GEN-LAST:event_chbVisibilidadActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -364,8 +360,7 @@ public class LoginJDM extends javax.swing.JFrame {
     private javax.swing.ButtonGroup bg01;
     private javax.swing.JButton btnCrearcuenta;
     private javax.swing.JButton btnIniciarSesion;
-    private javax.swing.JButton btnVision;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JCheckBox chbVisibilidad;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
