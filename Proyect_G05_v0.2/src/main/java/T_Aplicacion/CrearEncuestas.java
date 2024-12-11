@@ -36,13 +36,9 @@ public class CrearEncuestas extends javax.swing.JPanel {
 
         Fondo = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        btnPlantilla01 = new javax.swing.JButton();
-        btnPlantilla02 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        btnPlantilla03 = new javax.swing.JButton();
-        btnPlantilla04 = new javax.swing.JButton();
+        btnEncuestaAbierta = new javax.swing.JButton();
+        btnEncuestaMixta = new javax.swing.JButton();
+        btnEncuestaCerrada = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(745, 420));
         setMinimumSize(new java.awt.Dimension(745, 420));
@@ -59,62 +55,62 @@ public class CrearEncuestas extends javax.swing.JPanel {
         jPanel2.setMinimumSize(new java.awt.Dimension(660, 210));
         jPanel2.setPreferredSize(new java.awt.Dimension(660, 200));
 
-        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        btnPlantilla01.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        btnPlantilla01.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Plantilla01.png")); // NOI18N
-        btnPlantilla01.setText("Encuesta Simple");
-        btnPlantilla01.setBorder(null);
-        btnPlantilla01.setContentAreaFilled(false);
-        btnPlantilla01.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnPlantilla01.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnPlantilla01.setIconTextGap(0);
-        btnPlantilla01.setMaximumSize(new java.awt.Dimension(100, 130));
-        btnPlantilla01.setMinimumSize(new java.awt.Dimension(100, 130));
-        btnPlantilla01.setPreferredSize(new java.awt.Dimension(100, 130));
-        btnPlantilla01.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        btnPlantilla01.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnPlantilla01.addActionListener(new java.awt.event.ActionListener() {
+        btnEncuestaAbierta.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        btnEncuestaAbierta.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Plantilla01.png")); // NOI18N
+        btnEncuestaAbierta.setText("Encuesta Simple");
+        btnEncuestaAbierta.setBorder(null);
+        btnEncuestaAbierta.setContentAreaFilled(false);
+        btnEncuestaAbierta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEncuestaAbierta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEncuestaAbierta.setIconTextGap(0);
+        btnEncuestaAbierta.setMaximumSize(new java.awt.Dimension(100, 130));
+        btnEncuestaAbierta.setMinimumSize(new java.awt.Dimension(100, 130));
+        btnEncuestaAbierta.setPreferredSize(new java.awt.Dimension(100, 130));
+        btnEncuestaAbierta.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        btnEncuestaAbierta.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEncuestaAbierta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPlantilla01ActionPerformed(evt);
+                btnEncuestaAbiertaActionPerformed(evt);
             }
         });
 
-        btnPlantilla02.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        btnPlantilla02.setText("Plantilla 2");
-        btnPlantilla02.setBorder(new javax.swing.border.MatteBorder(null));
-        btnPlantilla02.setBorderPainted(false);
-        btnPlantilla02.setContentAreaFilled(false);
-        btnPlantilla02.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnPlantilla02.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnPlantilla02.setIconTextGap(10);
-        btnPlantilla02.addActionListener(new java.awt.event.ActionListener() {
+        btnEncuestaMixta.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        btnEncuestaMixta.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\EncuestaMixta (100px).png")); // NOI18N
+        btnEncuestaMixta.setText("Encuesta Simple");
+        btnEncuestaMixta.setBorder(null);
+        btnEncuestaMixta.setContentAreaFilled(false);
+        btnEncuestaMixta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEncuestaMixta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEncuestaMixta.setIconTextGap(0);
+        btnEncuestaMixta.setMaximumSize(new java.awt.Dimension(100, 130));
+        btnEncuestaMixta.setMinimumSize(new java.awt.Dimension(100, 130));
+        btnEncuestaMixta.setPreferredSize(new java.awt.Dimension(100, 130));
+        btnEncuestaMixta.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        btnEncuestaMixta.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEncuestaMixta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPlantilla02ActionPerformed(evt);
+                btnEncuestaMixtaActionPerformed(evt);
             }
         });
 
-        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        btnPlantilla03.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        btnPlantilla03.setText("Plantilla 3");
-        btnPlantilla03.setBorder(new javax.swing.border.MatteBorder(null));
-        btnPlantilla03.setBorderPainted(false);
-        btnPlantilla03.setContentAreaFilled(false);
-        btnPlantilla03.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnPlantilla03.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnPlantilla03.setIconTextGap(10);
-
-        btnPlantilla04.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        btnPlantilla04.setText("Plantilla 4");
-        btnPlantilla04.setBorder(new javax.swing.border.MatteBorder(null));
-        btnPlantilla04.setBorderPainted(false);
-        btnPlantilla04.setContentAreaFilled(false);
-        btnPlantilla04.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnPlantilla04.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnPlantilla04.setIconTextGap(10);
+        btnEncuestaCerrada.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        btnEncuestaCerrada.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\EncuestaCerrada (100px).png")); // NOI18N
+        btnEncuestaCerrada.setText("Encuesta Simple");
+        btnEncuestaCerrada.setBorder(null);
+        btnEncuestaCerrada.setContentAreaFilled(false);
+        btnEncuestaCerrada.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEncuestaCerrada.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEncuestaCerrada.setIconTextGap(0);
+        btnEncuestaCerrada.setMaximumSize(new java.awt.Dimension(100, 130));
+        btnEncuestaCerrada.setMinimumSize(new java.awt.Dimension(100, 130));
+        btnEncuestaCerrada.setPreferredSize(new java.awt.Dimension(100, 130));
+        btnEncuestaCerrada.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        btnEncuestaCerrada.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEncuestaCerrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEncuestaCerradaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -122,43 +118,22 @@ public class CrearEncuestas extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(btnPlantilla01, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPlantilla02, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnEncuestaAbierta, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnPlantilla03, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnPlantilla04, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addComponent(btnEncuestaCerrada, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(btnEncuestaMixta, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(206, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnPlantilla04, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnPlantilla03, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnPlantilla02, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(btnPlantilla01, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(90, 90, 90))
+                    .addComponent(btnEncuestaCerrada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEncuestaMixta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEncuestaAbierta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37))
         );
 
         javax.swing.GroupLayout FondoLayout = new javax.swing.GroupLayout(Fondo);
@@ -190,18 +165,31 @@ public class CrearEncuestas extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnPlantilla01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlantilla01ActionPerformed
-        PlantillaEncuesta_01 plan = new PlantillaEncuesta_01(T_listaEnc5, codigoEncuestador, nombreEncuestador, apellidoEncuestador);
-            plan.setVisible(true);
+    private void btnEncuestaAbiertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncuestaAbiertaActionPerformed
+        EncuestaTipoAbierta T_TipoAbierta = new EncuestaTipoAbierta(T_listaEnc5, codigoEncuestador, nombreEncuestador, apellidoEncuestador);
+            T_TipoAbierta.setVisible(true);
+            T_TipoAbierta.setSize(965, 540);
             T_menuEnc.setVisible(false);
-    }//GEN-LAST:event_btnPlantilla01ActionPerformed
+    }//GEN-LAST:event_btnEncuestaAbiertaActionPerformed
 
-    private void btnPlantilla02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlantilla02ActionPerformed
+    private void btnEncuestaMixtaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncuestaMixtaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnPlantilla02ActionPerformed
+        EncuestaTipoMixta T_TipoMixta = new EncuestaTipoMixta(T_listaEnc5, codigoEncuestador, nombreEncuestador, apellidoEncuestador);
+            T_TipoMixta.setVisible(true);
+            T_TipoMixta.setSize(965, 540);
+            T_menuEnc.setVisible(false);
+    }//GEN-LAST:event_btnEncuestaMixtaActionPerformed
+
+    private void btnEncuestaCerradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncuestaCerradaActionPerformed
+        // TODO add your handling code here:
+        EncuestaTipoCerrada T_TipoCerrada = new EncuestaTipoCerrada(T_listaEnc5, codigoEncuestador, nombreEncuestador, apellidoEncuestador);
+            T_TipoCerrada.setVisible(true);
+            T_TipoCerrada.setSize(965, 540);
+            T_menuEnc.setVisible(false);
+    }//GEN-LAST:event_btnEncuestaCerradaActionPerformed
 
     public void plantilla01(){
-    PlantillaEncuesta_01 plantilla01 = new PlantillaEncuesta_01(T_listaEnc5, codigoEncuestador, nombreEncuestador, apellidoEncuestador);
+    EncuestaTipoAbierta plantilla01 = new EncuestaTipoAbierta(T_listaEnc5, codigoEncuestador, nombreEncuestador, apellidoEncuestador);
         plantilla01.setSize(965,500); //Colocamos el tamaño de nuestro Jpanel
         plantilla01.setLocationRelativeTo(null);
 
@@ -214,13 +202,9 @@ public class CrearEncuestas extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Fondo;
-    private javax.swing.JButton btnPlantilla01;
-    private javax.swing.JButton btnPlantilla02;
-    private javax.swing.JButton btnPlantilla03;
-    private javax.swing.JButton btnPlantilla04;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton btnEncuestaAbierta;
+    private javax.swing.JButton btnEncuestaCerrada;
+    private javax.swing.JButton btnEncuestaMixta;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

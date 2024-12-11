@@ -27,7 +27,7 @@ import static javax.swing.JComponent.TOOL_TIP_TEXT_KEY;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class PlantillaEncuesta_01 extends javax.swing.JFrame {
+public class EncuestaTipoAbierta extends javax.swing.JFrame {
    
     ListaEncuestadores T_listaEnc4 = new ListaEncuestadores();
     HashEncuesta nuevoEnc = new HashEncuesta();
@@ -39,7 +39,7 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
     private String nombreEncuestador;
     private String apellidoEncuestador;
     
-    public PlantillaEncuesta_01(ListaEncuestadores encuestador, String codigoEncuestador, String nombreEncuestador , String apellidoEncuestador) {
+    public EncuestaTipoAbierta(ListaEncuestadores encuestador, String codigoEncuestador, String nombreEncuestador , String apellidoEncuestador) {
         initComponents();
         this.setTitle("Plantilla N° 1");
         this.setSize(965, 500);
@@ -57,29 +57,27 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bgTipoEncuesta = new javax.swing.ButtonGroup();
-        bgTipoPregunta = new javax.swing.ButtonGroup();
         FondoPlantilla01 = new javax.swing.JPanel();
         pnlTituloEncuesta = new javax.swing.JPanel();
         icnEncuesta = new javax.swing.JLabel();
         txtTituloEncuesta = new javax.swing.JTextField();
         btnPublicar = new javax.swing.JButton();
         txtDescripcion = new javax.swing.JTextField();
-        pnlPregunta = new javax.swing.JPanel();
         txtTituloPregunta = new javax.swing.JTextField();
-        icnEncuesta1 = new javax.swing.JLabel();
+        btnEliminarPregunta = new javax.swing.JButton();
+        btnAgregarPregunta = new javax.swing.JButton();
+        btnGuardarPregunta = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jcalender = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEncuestas = new javax.swing.JTable();
-        btnGuardarPregunta = new javax.swing.JButton();
-        btnAgregarPregunta = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPreguntas = new javax.swing.JTable();
-        btnEliminarPregunta = new javax.swing.JButton();
-        jcalender = new com.toedter.calendar.JDateChooser();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(950, 580));
+        setMaximumSize(new java.awt.Dimension(950, 500));
+        setMinimumSize(new java.awt.Dimension(950, 500));
+        setResizable(false);
 
         FondoPlantilla01.setBackground(new java.awt.Color(173, 197, 255));
         FondoPlantilla01.setMaximumSize(new java.awt.Dimension(950, 500));
@@ -92,9 +90,10 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
         pnlTituloEncuesta.setMinimumSize(new java.awt.Dimension(910, 80));
         pnlTituloEncuesta.setPreferredSize(new java.awt.Dimension(910, 80));
 
-        icnEncuesta.setMaximumSize(new java.awt.Dimension(55, 55));
-        icnEncuesta.setMinimumSize(new java.awt.Dimension(55, 55));
-        icnEncuesta.setPreferredSize(new java.awt.Dimension(55, 55));
+        icnEncuesta.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Oso JDM Surveys 2D (Color) (60 px).png")); // NOI18N
+        icnEncuesta.setMaximumSize(new java.awt.Dimension(60, 60));
+        icnEncuesta.setMinimumSize(new java.awt.Dimension(60, 60));
+        icnEncuesta.setPreferredSize(new java.awt.Dimension(60, 60));
 
         txtTituloEncuesta.setBackground(new java.awt.Color(193, 224, 255));
         txtTituloEncuesta.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
@@ -117,6 +116,45 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
         txtDescripcion.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         txtDescripcion.setText("Descripcion");
 
+        txtTituloPregunta.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        txtTituloPregunta.setText("Pregunta sin titulo");
+
+        btnEliminarPregunta.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        btnEliminarPregunta.setText("Eliminar Pregunta");
+        btnEliminarPregunta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnEliminarPregunta.setContentAreaFilled(false);
+        btnEliminarPregunta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminarPregunta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarPreguntaActionPerformed(evt);
+            }
+        });
+
+        btnAgregarPregunta.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        btnAgregarPregunta.setText("Agregar");
+        btnAgregarPregunta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnAgregarPregunta.setContentAreaFilled(false);
+        btnAgregarPregunta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAgregarPregunta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarPreguntaActionPerformed(evt);
+            }
+        });
+
+        btnGuardarPregunta.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        btnGuardarPregunta.setText("Guardar");
+        btnGuardarPregunta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnGuardarPregunta.setContentAreaFilled(false);
+        btnGuardarPregunta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGuardarPregunta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarPreguntaActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        jLabel1.setText("Fecha de Cierre:");
+
         javax.swing.GroupLayout pnlTituloEncuestaLayout = new javax.swing.GroupLayout(pnlTituloEncuesta);
         pnlTituloEncuesta.setLayout(pnlTituloEncuestaLayout);
         pnlTituloEncuestaLayout.setHorizontalGroup(
@@ -124,15 +162,27 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
             .addGroup(pnlTituloEncuestaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(icnEncuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(7, 7, 7)
                 .addGroup(pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlTituloEncuestaLayout.createSequentialGroup()
-                        .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 103, Short.MAX_VALUE))
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jcalender, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGuardarPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAgregarPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEliminarPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlTituloEncuestaLayout.createSequentialGroup()
-                        .addComponent(txtTituloEncuesta)
-                        .addGap(234, 234, 234)
-                        .addComponent(btnPublicar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtTituloEncuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addComponent(btnPublicar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlTituloEncuestaLayout.createSequentialGroup()
+                        .addGroup(pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtTituloPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
+                            .addComponent(txtDescripcion))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlTituloEncuestaLayout.setVerticalGroup(
@@ -140,43 +190,24 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
             .addGroup(pnlTituloEncuestaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(icnEncuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlTituloEncuestaLayout.createSequentialGroup()
                         .addGroup(pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnPublicar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtTituloEncuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        pnlPregunta.setBackground(new java.awt.Color(193, 224, 255));
-        pnlPregunta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pnlPregunta.setMaximumSize(new java.awt.Dimension(910, 100));
-        pnlPregunta.setMinimumSize(new java.awt.Dimension(910, 100));
-
-        txtTituloPregunta.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        txtTituloPregunta.setText("Pregunta sin titulo");
-
-        javax.swing.GroupLayout pnlPreguntaLayout = new javax.swing.GroupLayout(pnlPregunta);
-        pnlPregunta.setLayout(pnlPreguntaLayout);
-        pnlPreguntaLayout.setHorizontalGroup(
-            pnlPreguntaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPreguntaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(icnEncuesta1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(icnEncuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtTituloPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtTituloPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 738, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pnlPreguntaLayout.setVerticalGroup(
-            pnlPreguntaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlPreguntaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlPreguntaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(icnEncuesta1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTituloPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnEliminarPregunta)
+                        .addComponent(btnAgregarPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGuardarPregunta))
+                    .addComponent(jcalender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
         );
 
         tblEncuestas.setModel(new javax.swing.table.DefaultTableModel(
@@ -197,28 +228,6 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblEncuestas);
 
-        btnGuardarPregunta.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        btnGuardarPregunta.setText("Guardar");
-        btnGuardarPregunta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnGuardarPregunta.setContentAreaFilled(false);
-        btnGuardarPregunta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnGuardarPregunta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarPreguntaActionPerformed(evt);
-            }
-        });
-
-        btnAgregarPregunta.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        btnAgregarPregunta.setText("Agregar");
-        btnAgregarPregunta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnAgregarPregunta.setContentAreaFilled(false);
-        btnAgregarPregunta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAgregarPregunta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarPreguntaActionPerformed(evt);
-            }
-        });
-
         tblPreguntas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -237,20 +246,6 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblPreguntas);
 
-        btnEliminarPregunta.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        btnEliminarPregunta.setText("Eliminar Pregunta");
-        btnEliminarPregunta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnEliminarPregunta.setContentAreaFilled(false);
-        btnEliminarPregunta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnEliminarPregunta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarPreguntaActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel1.setText("Fecha de Cierre:");
-
         javax.swing.GroupLayout FondoPlantilla01Layout = new javax.swing.GroupLayout(FondoPlantilla01);
         FondoPlantilla01.setLayout(FondoPlantilla01Layout);
         FondoPlantilla01Layout.setHorizontalGroup(
@@ -258,40 +253,19 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoPlantilla01Layout.createSequentialGroup()
                 .addContainerGap(15, Short.MAX_VALUE)
                 .addGroup(FondoPlantilla01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(pnlPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlTituloEncuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addGroup(FondoPlantilla01Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jcalender, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnGuardarPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAgregarPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEliminarPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane2))
                 .addGap(17, 17, 17))
         );
         FondoPlantilla01Layout.setVerticalGroup(
             FondoPlantilla01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FondoPlantilla01Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(pnlTituloEncuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlTituloEncuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addGroup(FondoPlantilla01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(FondoPlantilla01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnEliminarPregunta)
-                        .addComponent(btnAgregarPregunta)
-                        .addComponent(btnGuardarPregunta))
-                    .addComponent(jcalender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(12, Short.MAX_VALUE))
         );
@@ -517,19 +491,15 @@ public class PlantillaEncuesta_01 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel FondoPlantilla01;
-    private javax.swing.ButtonGroup bgTipoEncuesta;
-    private javax.swing.ButtonGroup bgTipoPregunta;
     private javax.swing.JButton btnAgregarPregunta;
     private javax.swing.JButton btnEliminarPregunta;
     private javax.swing.JButton btnGuardarPregunta;
     private javax.swing.JButton btnPublicar;
     private javax.swing.JLabel icnEncuesta;
-    private javax.swing.JLabel icnEncuesta1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private com.toedter.calendar.JDateChooser jcalender;
-    private javax.swing.JPanel pnlPregunta;
     private javax.swing.JPanel pnlTituloEncuesta;
     private javax.swing.JTable tblEncuestas;
     private javax.swing.JTable tblPreguntas;
