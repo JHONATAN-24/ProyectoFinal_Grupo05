@@ -55,6 +55,10 @@ public class EncuestasRecibidas extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         jLabel2.setText("Recibidas");
 
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(733, 343));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(733, 343));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(733, 343));
+
         tblRecibidas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -71,9 +75,9 @@ public class EncuestasRecibidas extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblRecibidas.setMaximumSize(new java.awt.Dimension(733, 343));
-        tblRecibidas.setMinimumSize(new java.awt.Dimension(733, 343));
-        tblRecibidas.setPreferredSize(new java.awt.Dimension(733, 343));
+        tblRecibidas.setMaximumSize(new java.awt.Dimension(733, 800));
+        tblRecibidas.setMinimumSize(new java.awt.Dimension(733, 800));
+        tblRecibidas.setPreferredSize(new java.awt.Dimension(733, 800));
         jScrollPane1.setViewportView(tblRecibidas);
 
         btnAbrirEncuesta.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
@@ -95,10 +99,10 @@ public class EncuestasRecibidas extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(0, 671, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnAbrirEncuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -110,7 +114,7 @@ public class EncuestasRecibidas extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAbrirEncuesta)
                 .addContainerGap())
@@ -176,7 +180,7 @@ public class EncuestasRecibidas extends javax.swing.JPanel {
         System.out.println("ID de encuesta seleccionada: " + codigoEncuesta);
 
         // Crear una instancia del frame EncuestaBase
-        EncuestaBase encuestaBase = new EncuestaBase(codigoparticipante,codigoEncuesta);
+        EncBaseAbierta encuestaBase = new EncBaseAbierta(codigoparticipante,codigoEncuesta);
             encuestaBase.mostrarPreguntasEncuesta(codigoEncuesta);
             encuestaBase.setVisible(true);
     }//GEN-LAST:event_btnAbrirEncuestaActionPerformed

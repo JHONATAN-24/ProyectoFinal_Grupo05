@@ -101,9 +101,9 @@ public class EncuestasEnviadas extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblListaEncuestas.setMaximumSize(new java.awt.Dimension(733, 400));
-        tblListaEncuestas.setMinimumSize(new java.awt.Dimension(733, 400));
-        tblListaEncuestas.setPreferredSize(new java.awt.Dimension(733, 400));
+        tblListaEncuestas.setMaximumSize(new java.awt.Dimension(733, 800));
+        tblListaEncuestas.setMinimumSize(new java.awt.Dimension(733, 800));
+        tblListaEncuestas.setPreferredSize(new java.awt.Dimension(733, 800));
         jScrollPane1.setViewportView(tblListaEncuestas);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -113,10 +113,10 @@ public class EncuestasEnviadas extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -125,7 +125,7 @@ public class EncuestasEnviadas extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 

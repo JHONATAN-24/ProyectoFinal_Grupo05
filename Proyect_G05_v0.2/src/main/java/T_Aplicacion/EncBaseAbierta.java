@@ -19,7 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-public class EncuestaBase extends javax.swing.JFrame {
+public class EncBaseAbierta extends javax.swing.JFrame {
     
     ListaRespuestas T_respuestas = new ListaRespuestas();
     private JLabel[] labels;
@@ -27,7 +27,7 @@ public class EncuestaBase extends javax.swing.JFrame {
     private int codigoEncuestas;
     private List<Integer> id_preguntas = new ArrayList<>();
     
-    public EncuestaBase(int codigoparticipante, int codigoEncuestas) {
+    public EncBaseAbierta(int codigoparticipante, int codigoEncuestas) {
         
         this.codigoparticipante= codigoparticipante;
         this.codigoEncuestas=codigoEncuestas;
@@ -126,9 +126,7 @@ public class EncuestaBase extends javax.swing.JFrame {
         btnEnviarRespuestas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(950, 540));
         setMinimumSize(new java.awt.Dimension(950, 540));
-        setPreferredSize(new java.awt.Dimension(950, 540));
         setResizable(false);
 
         jScrollPane1.setMaximumSize(new java.awt.Dimension(960, 540));

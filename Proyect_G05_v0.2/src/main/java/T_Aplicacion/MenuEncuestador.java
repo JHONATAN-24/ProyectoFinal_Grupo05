@@ -123,12 +123,12 @@ public class MenuEncuestador extends javax.swing.JFrame{
         FondoBlanco = new javax.swing.JPanel();
         MenuOpciones = new javax.swing.JPanel();
         lbLogoOso2D = new javax.swing.JLabel();
+        lbLogoJDM = new javax.swing.JLabel();
         btnInicio = new javax.swing.JButton();
         btnCrear = new javax.swing.JButton();
         btnPublicadas = new javax.swing.JButton();
         btnReportesEncuestas = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        lbLogoJDM = new javax.swing.JLabel();
         Contorno = new javax.swing.JPanel();
         jPcontorno = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -165,6 +165,11 @@ public class MenuEncuestador extends javax.swing.JFrame{
         MenuOpciones.setPreferredSize(new java.awt.Dimension(192, 500));
 
         lbLogoOso2D.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Oso JDM Surveys 2D (Color) (180 px).png")); // NOI18N
+
+        lbLogoJDM.setFont(new java.awt.Font("Cabin Sketch", 2, 48)); // NOI18N
+        lbLogoJDM.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\JDM Logo Letras (Fondo 0) (90-60 px).png")); // NOI18N
+        lbLogoJDM.setMaximumSize(new java.awt.Dimension(180, 60));
+        lbLogoJDM.setMinimumSize(new java.awt.Dimension(180, 60));
 
         btnInicio.setBackground(new java.awt.Color(255, 204, 102));
         btnInicio.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
@@ -259,11 +264,6 @@ public class MenuEncuestador extends javax.swing.JFrame{
                 btnSalirActionPerformed(evt);
             }
         });
-
-        lbLogoJDM.setFont(new java.awt.Font("Cabin Sketch", 2, 48)); // NOI18N
-        lbLogoJDM.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\JDM Logo Letras (Fondo 0) (90-60 px).png")); // NOI18N
-        lbLogoJDM.setMaximumSize(new java.awt.Dimension(180, 60));
-        lbLogoJDM.setMinimumSize(new java.awt.Dimension(180, 60));
 
         javax.swing.GroupLayout MenuOpcionesLayout = new javax.swing.GroupLayout(MenuOpciones);
         MenuOpciones.setLayout(MenuOpcionesLayout);

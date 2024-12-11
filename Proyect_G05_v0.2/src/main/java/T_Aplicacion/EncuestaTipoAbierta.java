@@ -91,9 +91,7 @@ public class EncuestaTipoAbierta extends javax.swing.JFrame {
         pnlTituloEncuesta.setMinimumSize(new java.awt.Dimension(910, 80));
         pnlTituloEncuesta.setPreferredSize(new java.awt.Dimension(910, 80));
 
-        icnEncuesta.setMaximumSize(new java.awt.Dimension(60, 60));
-        icnEncuesta.setMinimumSize(new java.awt.Dimension(60, 60));
-        icnEncuesta.setPreferredSize(new java.awt.Dimension(60, 60));
+        icnEncuesta.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Oso JDM Surveys 2D (Color) (60 px).png")); // NOI18N
 
         txtTituloEncuesta.setBackground(new java.awt.Color(193, 224, 255));
         txtTituloEncuesta.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
@@ -161,7 +159,7 @@ public class EncuestaTipoAbierta extends javax.swing.JFrame {
             pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTituloEncuestaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(icnEncuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(icnEncuesta)
                 .addGap(7, 7, 7)
                 .addGroup(pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlTituloEncuestaLayout.createSequentialGroup()
@@ -176,7 +174,7 @@ public class EncuestaTipoAbierta extends javax.swing.JFrame {
                         .addComponent(btnEliminarPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlTituloEncuestaLayout.createSequentialGroup()
                         .addComponent(txtTituloEncuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnPublicar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlTituloEncuestaLayout.createSequentialGroup()
                         .addGroup(pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -196,19 +194,23 @@ public class EncuestaTipoAbierta extends javax.swing.JFrame {
                             .addComponent(txtTituloEncuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(icnEncuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(icnEncuesta))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTituloPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnAgregarPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(18, 18, 18)
+                .addGroup(pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnEliminarPregunta)
-                        .addComponent(btnGuardarPregunta))
-                    .addComponent(jcalender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21))
+                        .addComponent(btnGuardarPregunta)
+                        .addComponent(btnAgregarPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcalender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
+
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(918, 140));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(918, 140));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(918, 140));
 
         tblEncuestas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -226,7 +228,14 @@ public class EncuestaTipoAbierta extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblEncuestas.setMaximumSize(new java.awt.Dimension(1000, 300));
+        tblEncuestas.setMinimumSize(new java.awt.Dimension(1000, 300));
+        tblEncuestas.setPreferredSize(new java.awt.Dimension(1000, 300));
         jScrollPane1.setViewportView(tblEncuestas);
+
+        jScrollPane2.setMaximumSize(new java.awt.Dimension(918, 140));
+        jScrollPane2.setMinimumSize(new java.awt.Dimension(918, 140));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(918, 140));
 
         tblPreguntas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -244,6 +253,9 @@ public class EncuestaTipoAbierta extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblPreguntas.setMaximumSize(new java.awt.Dimension(1000, 300));
+        tblPreguntas.setMinimumSize(new java.awt.Dimension(1000, 300));
+        tblPreguntas.setPreferredSize(new java.awt.Dimension(1000, 300));
         jScrollPane2.setViewportView(tblPreguntas);
 
         javax.swing.GroupLayout FondoPlantilla01Layout = new javax.swing.GroupLayout(FondoPlantilla01);
@@ -254,8 +266,8 @@ public class EncuestaTipoAbierta extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE)
                 .addGroup(FondoPlantilla01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(pnlTituloEncuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17))
         );
         FondoPlantilla01Layout.setVerticalGroup(
@@ -264,9 +276,9 @@ public class EncuestaTipoAbierta extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(pnlTituloEncuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -396,27 +408,32 @@ public class EncuestaTipoAbierta extends javax.swing.JFrame {
     }
     
     private void btnAgregarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPreguntaActionPerformed
+    try{
+            CRUDJavaEn T_EncuestasCrud = new CRUDJavaEn(); 
+            Connection conexion = ConexionSQLServer.getInstance().getConnection();
+            Encuesta nuevaEncuesta = T_EncuestasCrud.obtenerEncuestaPorId(conexion, idEncuestaActual);
 
-    try {
+            if (nuevaEncuesta != null) {
+                DefaultTableModel tblEnc = (DefaultTableModel) tblEncuestas.getModel();
+                Object[] rowData = {
+                    nuevaEncuesta.getTitulo(),
+                    nuevaEncuesta.getDescripción(),
+                    nuevaEncuesta.getTipoEncuesta(),
+                    nuevaEncuesta.getFechaCreacion(),
+                    nuevaEncuesta.getFechaCierre()
+                };
+                tblEnc.addRow(rowData);
+            }
+
+            }catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error al obtener preguntas: " + e.getMessage());
+            e.printStackTrace();
+    }
         
-        CRUDJavaEn T_EncuestasCrud = new CRUDJavaEn(); 
-        Connection conexion = ConexionSQLServer.getInstance().getConnection();
-        Encuesta nuevaEncuesta = T_EncuestasCrud.obtenerEncuestaPorId(conexion, idEncuestaActual);
-
-        if (nuevaEncuesta != null) {
-            DefaultTableModel tblEnc = (DefaultTableModel) tblEncuestas.getModel();
-            Object[] rowData = {
-                nuevaEncuesta.getTitulo(),
-                nuevaEncuesta.getDescripción(),
-                nuevaEncuesta.getTipoEncuesta(),
-                nuevaEncuesta.getFechaCreacion(),
-                nuevaEncuesta.getFechaCierre()
-            };
-            tblEnc.addRow(rowData);
-        }
+    try {
         // Obtener la conexión
         CRUDJavaPre crudPreguntas = new CRUDJavaPre();
-
+        Connection conexion = ConexionSQLServer.getInstance().getConnection();
         // Limpiar la tabla de preguntas
         DefaultTableModel tblPre = (DefaultTableModel) tblPreguntas.getModel();
         while(tblPre.getRowCount() != 0) tblPre.removeRow(0);
