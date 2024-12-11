@@ -91,5 +91,16 @@ public class CRUDJavaAlter {
         return preguntas;
     }
     
+    public int borrarPregunta(Connection conexion, String enunciado) {
+        String sql = "DELETE FROM T_Preguntas WHERE enunciado = ?";
+        try {
+            PreparedStatement statement = conexion.prepareStatement(sql);
+            statement.setString(1, enunciado);
+            return statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
+}
     
 }

@@ -27,6 +27,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class EncuestaTipoCerrada extends javax.swing.JFrame {
@@ -38,12 +39,19 @@ public class EncuestaTipoCerrada extends javax.swing.JFrame {
     private boolean encuestaGuardada = false;
     private String codigoEncuestador;
     HashEncuesta nuevoEnc1 = new HashEncuesta();
+    private String nombreEncuestador;
+    private String apellidoEncuestador;
     
-    public EncuestaTipoCerrada(ListaEncuestadores encuestador, String codigoEncuestador) {
+    public EncuestaTipoCerrada(ListaEncuestadores encuestador, String codigoEncuestador, String nombreEncuestador , String apellidoEncuestador) {
         
         T_listaEnc9=encuestador;
         this.codigoEncuestador=codigoEncuestador;    
         System.out.println(codigoEncuestador);
+        this.nombreEncuestador=nombreEncuestador;
+        this.apellidoEncuestador=apellidoEncuestador;
+        
+        System.out.println("Código de Encuestador: " + codigoEncuestador);
+        
         this.setTitle("Plantilla N° 2");
         this.setSize(965, 500);
         this.setLocationRelativeTo(null);
@@ -284,7 +292,7 @@ public class EncuestaTipoCerrada extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Enunciado", "Opciónes", "Tipo de pregunta"
+                "Enunciado", "Tipo de pregunta", "Opciónes"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -337,126 +345,104 @@ public class EncuestaTipoCerrada extends javax.swing.JFrame {
 
     private void btnGuardarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarPreguntaActionPerformed
          try {
+            // Validaciones de la encuesta
+            // 1. Validar el título de la encuesta
             if (txtTituloEncuesta.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Por Favor, Debe Ingresar el TITULO");
+                JOptionPane.showMessageDialog(this, "Por favor, ingrese el título de la encuesta.");
+                return;
+            }
+            if (txtTituloEncuesta.getText().length() < 5) {
+                JOptionPane.showMessageDialog(this, "El título de la encuesta debe tener al menos 5 caracteres.");
                 return;
             }
 
+            // 2. Validar la descripción de la encuesta
             if (txtDescripcion.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Por Favor, Debe Ingresar la DESCRIPCION");
+                JOptionPane.showMessageDialog(this, "Por favor, ingrese la descripción de la encuesta.");
+                return;
+            }
+            if (txtDescripcion.getText().length() < 10) {
+                JOptionPane.showMessageDialog(this, "La descripción debe tener al menos 10 caracteres.");
                 return;
             }
 
+            // 3. Validar la fecha de cierre
+            Date fechaCierre = jcalender.getDate();
+            if (fechaCierre == null) {
+                JOptionPane.showMessageDialog(this, "Por favor, seleccione una fecha de cierre válida.");
+                return;
+            }
+            Date fechaActual = new Date();
+            if (!fechaCierre.after(fechaActual)) {
+                JOptionPane.showMessageDialog(this, "La fecha de cierre debe ser un día posterior a la fecha actual.");
+                return;
+            }
+
+            // Validaciones de la pregunta
+            // 4. Validar el título de la pregunta
+            if (txtTituloPregunta.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Por favor, ingrese el título de la pregunta.");
+                return;
+            }
+            if (txtTituloPregunta.getText().length() < 5) {
+                JOptionPane.showMessageDialog(this, "El título de la pregunta debe tener al menos 5 caracteres.");
+                return;
+            }
+
+            // 5. Validar las opciones de la pregunta
+            JTextField[] opciones = {txtOpcion1, txtOpcion2, txtOpcion3, txtOpcion4};
+            for (int i = 0; i < opciones.length; i++) {
+                if (opciones[i].getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "Por favor, ingrese la opción " + (i + 1) + " de la pregunta.");
+                    return;
+                }
+                if (opciones[i].getText().length() < 2) {
+                    JOptionPane.showMessageDialog(this, "La opción " + (i + 1) + " debe tener al menos 2 caracteres.");
+                    return;
+                }
+            }
+
+            // Lógica para guardar la encuesta y la pregunta
             Connection conexion = ConexionSQLServer.getInstance().getConnection();
             CRUDJavaEn crudEncuestas = new CRUDJavaEn();
             CRUDJavaPre crudPreguntas = new CRUDJavaPre();
             CRUDJavaAlter crudAlternativas = new CRUDJavaAlter();
 
-
+            // 6. Guardar la encuesta si aún no se ha guardado
             if (!encuestaGuardada) {
-                // Obtener la fecha actual y formatearla
-                Date fechaActual = new Date();
                 SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-                String fechaCreacion = formatoFecha.format(fechaActual);
-
-                // Usar el JDateChooser    
-                Date T_fecha = jcalender.getDate();
-                SimpleDateFormat T_FechaE = new SimpleDateFormat("yyyy-MM-dd");
-                String date = T_FechaE.format(T_fecha);
-
-                // Validar la fecha de cierre
-                Calendar calFechaActual = Calendar.getInstance();
-                Calendar calFechaCierre = Calendar.getInstance();
-                calFechaCierre.setTime(T_fecha);
-
-                // Comparar fechas
-                if (calFechaCierre.before(calFechaActual) || 
-                    calFechaCierre.equals(calFechaActual)) {
-                    JOptionPane.showMessageDialog(this, 
-                        "La fecha de cierre debe ser un día posterior a la fecha actual", 
-                        "Error de Fecha", 
-                        JOptionPane.ERROR_MESSAGE);
-                    return; // Detener el proceso
-                }
-
-                // Crear y guardar la encuesta
                 Encuesta nuevaEncuesta = new Encuesta();
                 nuevaEncuesta.setTitulo(txtTituloEncuesta.getText());
                 nuevaEncuesta.setDescripción(txtDescripcion.getText());
                 nuevaEncuesta.setTipoEncuesta("Cerrada");
-                nuevaEncuesta.setFechaCreacion(fechaCreacion);
-                nuevaEncuesta.setFechaCierre(date);
+                nuevaEncuesta.setFechaCreacion(formatoFecha.format(fechaActual));
+                nuevaEncuesta.setFechaCierre(formatoFecha.format(fechaCierre));
 
-                // Insertar encuesta
-                crudEncuestas.insertarEncuestasCerradas(conexion, nuevaEncuesta,codigoEncuestador);
-
-                // Obtener el ID de la encuesta recién insertada
+                crudEncuestas.insertarEncuestasCerradas(conexion, nuevaEncuesta, codigoEncuestador);
                 idEncuestaActual = obtenerIdUltimaEncuesta();
-
-                // Marcar que la encuesta ha sido guardada
                 encuestaGuardada = true;
+                JOptionPane.showMessageDialog(this, "Encuesta guardada exitosamente.");
+            }
 
-                JOptionPane.showMessageDialog(this, "Encuesta guardada");
-                nuevoEnc1.agregarEncuesta(nuevaEncuesta);
-            }    
-            
-            //Validando campos Vacios
-            if (txtTituloPregunta.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Por Favor, Debe Ingresar el Título de la Pregunta");
-                return;
-            }
-            
-            if (txtOpcion1.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Por Favor, Debe Ingresar una primera opcion de la Pregunta");
-                return;
-            }
-            
-            if(txtOpcion2.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Por Favor, Debe Ingresar una segunda opcion de la Pregunta");
-                return;
-            }
-            
-            if(txtOpcion3.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Por Favor, Debe Ingresar una tercera opcion de la Pregunta");
-                return;
-            }
-            
-            if(txtOpcion4.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Por Favor, Debe Ingresar una cuarta opcion de la Pregunta");
-                return;
-            }
-            
-            // Crear y guardar la pregunta
+            // 7. Crear y guardar la pregunta
             Pregunta nuevaPregunta = new Pregunta();
-                nuevaPregunta.setEnunciado(txtTituloPregunta.getText());
-                nuevaPregunta.setTipoPregunta("Cerrada");
-                
-             int idPregunta = crudPreguntas.insertarPreguntaCerradas(conexion, nuevaPregunta, idEncuestaActual);
-             nuevoPre.agregarPregunta(nuevaPregunta);
-             
-             if (idPregunta != -1) {
-                Alternativa opcion1 = new Alternativa(txtOpcion1.getText());
-                Alternativa opcion2 = new Alternativa(txtOpcion2.getText());
-                Alternativa opcion3 = new Alternativa(txtOpcion3.getText());
-                Alternativa opcion4 = new Alternativa(txtOpcion4.getText());
+            nuevaPregunta.setEnunciado(txtTituloPregunta.getText());
+            nuevaPregunta.setTipoPregunta("Cerrada");
+            int idPregunta = crudPreguntas.insertarPreguntaCerradas(conexion, nuevaPregunta, idEncuestaActual);
 
-                crudAlternativas.insertarAlternativas(conexion, idPregunta, opcion1);
-                crudAlternativas.insertarAlternativas(conexion, idPregunta, opcion2);
-                crudAlternativas.insertarAlternativas(conexion, idPregunta, opcion3);
-                crudAlternativas.insertarAlternativas(conexion, idPregunta, opcion4);
-
-                // Optional: Clear fields or show success message
-                JOptionPane.showMessageDialog(this, "Pregunta y Alternativas guardadas exitosamente");
-
-                // Clear input fields if needed
+            if (idPregunta != -1) {
+                // 8. Guardar las opciones de la pregunta
+                for (JTextField opcion : opciones) {
+                    Alternativa alternativa = new Alternativa(opcion.getText());
+                    crudAlternativas.insertarAlternativas(conexion, idPregunta, alternativa);
+                }
+                JOptionPane.showMessageDialog(this, "Pregunta y alternativas guardadas exitosamente.");
                 limpiarControles();
             }
-            
-        } catch(SQLException e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, "Error de conexión: " + e.getMessage());
             e.printStackTrace();
-        }
-        
+        }  
     }//GEN-LAST:event_btnGuardarPreguntaActionPerformed
     
     private void limpiarControles() {
@@ -483,64 +469,119 @@ public class EncuestaTipoCerrada extends javax.swing.JFrame {
     }
     
     private void btnAgregarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPreguntaActionPerformed
-        DefaultTableModel tblEnc = (DefaultTableModel) tblEncuestas.getModel();
-        while(tblEnc.getRowCount()!=0) tblEnc.removeRow(0);
-        
-        for (Encuesta enc : nuevoEnc1.listarEncuesta()){
-            Object[] rowData = {
-                enc.getTitulo(),
-                enc.getDescripción(),
-                enc.getTipoEncuesta(),
-                enc.getFechaCreacion(),
-                enc.getFechaCierre()
+        try {
+        CRUDJavaEn T_EncuestasCrud = new CRUDJavaEn(); 
+        Connection conexion = ConexionSQLServer.getInstance().getConnection();
+        Encuesta nuevaEncuesta = T_EncuestasCrud.obtenerEncuestaPorId(conexion, idEncuestaActual);
 
+        if (nuevaEncuesta != null) {
+            DefaultTableModel tblEnc = (DefaultTableModel) tblEncuestas.getModel();
+            Object[] rowData = {
+                nuevaEncuesta.getTitulo(),
+                nuevaEncuesta.getDescripción(),
+                nuevaEncuesta.getTipoEncuesta(),
+                nuevaEncuesta.getFechaCreacion(),
+                nuevaEncuesta.getFechaCierre()
             };
             tblEnc.addRow(rowData);
         }
-        
-        //Obtener las preguntas y alternativas
-        try {
-            Connection conexion = ConexionSQLServer.getInstance().getConnection();
-            CRUDJavaAlter crudAlternativas = new CRUDJavaAlter();
+            
+           DefaultTableModel tblPreg = (DefaultTableModel) tblPreguntas.getModel();
+           while(tblPreg.getRowCount() != 0) tblPreg.removeRow(0);
+    
+            CRUDJavaAlter crudAlternativa = new CRUDJavaAlter();
 
-            // Assuming you want to get questions for the current survey
-            List<Pregunta> preguntas = crudAlternativas.obtenerAlternativayPregunta(conexion, idEncuestaActual);
+            // Obtener preguntas y alternativas
+            List<Pregunta> preguntas = crudAlternativa.obtenerAlternativayPregunta(conexion, idEncuestaActual);
 
-            // Clear existing rows in the questions table
-            DefaultTableModel tblPreg = (DefaultTableModel) tblPreguntas.getModel(); // Assuming you have a tblPreguntas
-            while(tblPreg.getRowCount()!=0) tblPreg.removeRow(0);
-        
-            // Populate questions table
+            // Llenar la tabla de preguntas
             for (Pregunta pregunta : preguntas) {
-                // Display question details
-                Object[] preguntaRowData = {
-                    pregunta.getEnunciado(),
-                    pregunta.getTipoPregunta()
-                };
-                tblPreg.addRow(preguntaRowData);
-
-                // Optionally, display alternatives in another table or component
+                
                 for (Alternativa alternativa : pregunta.getAlternativas()) {
-                    Object[] alternativaRowData = {
-                        pregunta.getEnunciado(),
-                        alternativa.getTextoOpcion()
-                    };
-                    // Add to a separate alternatives table if you have one
-                    // tblAlternativas.addRow(alternativaRowData);
+                    tblPreg.addRow(new Object[] {
+                        pregunta.getEnunciado(), // Mantener enlace con la pregunta
+                        pregunta.getTipoPregunta(),
+                        alternativa.getTextoOpcion(),
+                        "Alternativa" // Tipo de fila para identificar que es una alternativa
+                    });
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Error al obtener preguntas: " + e.getMessage());
         }
+        
+    
     }//GEN-LAST:event_btnAgregarPreguntaActionPerformed
 
     private void btnEliminarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPreguntaActionPerformed
-       
+        try {
+        // Obtener la fila seleccionada
+        int selectedRow = tblPreguntas.getSelectedRow();
+
+            // Validar que se haya seleccionado una fila
+            if (selectedRow == -1) {
+                JOptionPane.showMessageDialog(this, "Debe seleccionar una Pregunta");
+                return;
+            }
+
+            // Confirmación de eliminación
+            int T_confirmarE = JOptionPane.showConfirmDialog(this, "¿Está seguro de eliminar esta Pregunta?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+            if (T_confirmarE != JOptionPane.YES_OPTION) {
+                return;
+            }
+
+        // Obtener el enunciado de la pregunta seleccionada
+        String enunciadoPre = (String) tblPreguntas.getValueAt(selectedRow, 0);
+
+        // Obtener la conexión usando getInstance()
+        Connection conexion = ConexionSQLServer.getInstance().getConnection();
+        CRUDJavaAlter T_crudAlter = new CRUDJavaAlter();
+
+        // Borrar la pregunta de la base de datos
+        int filasEliminadas = T_crudAlter.borrarPregunta(conexion, enunciadoPre);
+
+            if (filasEliminadas > 0) {
+                // Actualizar la tabla eliminando todas las filas relacionadas
+                DefaultTableModel dtm = (DefaultTableModel) tblPreguntas.getModel();
+
+                // Eliminar todas las filas cuyo enunciado coincida
+                for (int i = dtm.getRowCount() - 1; i >= 0; i--) {
+                    String enunciadoFila = (String) dtm.getValueAt(i, 0);
+                    if (enunciadoFila.equals(enunciadoPre)) {
+                        dtm.removeRow(i);
+                    }
+                }
+
+                JOptionPane.showMessageDialog(this, "Pregunta y sus alternativas eliminadas.");
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo eliminar la pregunta.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error al conectar a la base de datos: " + e.getMessage());
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btnEliminarPreguntaActionPerformed
 
     private void btnPublicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPublicarActionPerformed
+        if (encuestaGuardada) {
+            JOptionPane.showMessageDialog(this, "Encuesta finalizada");
+            // Resetear banderas para una nueva encuesta
+            encuestaGuardada = false;
+            idEncuestaActual = -1;
+
+            // Limpiar campos
+            txtTituloEncuesta.setText("");
+            txtDescripcion.setText("");
+            txtTituloPregunta.setText("");
+            jcalender.setDate(null);
+        } else {
+            JOptionPane.showMessageDialog(this, "Primero debe guardar la encuesta");
+        }
         
+        MenuEncuestador T_volverMenu = new MenuEncuestador(T_listaEnc9, codigoEncuestador, nombreEncuestador, apellidoEncuestador);
+            T_volverMenu.setVisible(true);
+            this.dispose();
     }//GEN-LAST:event_btnPublicarActionPerformed
     
     public void fechaDeEncuesta(){

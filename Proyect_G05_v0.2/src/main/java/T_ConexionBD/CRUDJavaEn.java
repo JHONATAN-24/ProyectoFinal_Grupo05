@@ -249,5 +249,24 @@ public class CRUDJavaEn {
         }
     }
     
+    public Encuesta obtenerEncuestaPorId(Connection conexion, int idEncuesta) throws SQLException {
+        String sql = "SELECT titulo, descripcion, tipo, fechaCreacion, fechaCierre FROM T_Encuestas WHERE id_encuestas = ?";
+        try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
+            stmt.setInt(1, idEncuesta);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    Encuesta encuesta = new Encuesta();
+                    encuesta.setTitulo(rs.getString("titulo"));
+                    encuesta.setDescripción(rs.getString("descripcion"));
+                    encuesta.setTipoEncuesta(rs.getString("tipo"));
+                    encuesta.setFechaCreacion(rs.getString("fechaCreacion"));
+                    encuesta.setFechaCierre(rs.getString("fechaCierre"));
+                    return encuesta;
+                }
+            }
+        }
+        return null; // Si no se encuentra la encuesta
+    }
+    
 }    
 

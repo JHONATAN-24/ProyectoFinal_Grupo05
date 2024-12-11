@@ -297,10 +297,21 @@ public class EncuestaTipoAbierta extends javax.swing.JFrame {
             return;
         }
         
+        if (txtTituloPregunta.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por Favor, Debe Ingresar el Título de la Pregunta");
+            return;
+        }
+         
+        if (jcalender.getDate() == null) {
+            JOptionPane.showMessageDialog(this, "Por favor, debe seleccionar una fecha de cierre.", "Error de Fecha", JOptionPane.ERROR_MESSAGE);
+            return; // Detener el proceso
+        }
+        
         Connection conexion = ConexionSQLServer.getInstance().getConnection();
         CRUDJavaEn crudEncuestas = new CRUDJavaEn();
         CRUDJavaPre crudPreguntas = new CRUDJavaPre();
 
+        
         // Only save the survey once
         if (!encuestaGuardada) {
             // Obtener la fecha actual y formatearla
@@ -349,11 +360,6 @@ public class EncuestaTipoAbierta extends javax.swing.JFrame {
             nuevoEnc.agregarEncuesta(nuevaEncuesta);
         }
 
-        if (txtTituloPregunta.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por Favor, Debe Ingresar el Título de la Pregunta");
-            return;
-        }
-
         // Crear y guardar la pregunta
         Pregunta nuevaPregunta = new Pregunta();
         nuevaPregunta.setEnunciado(txtTituloPregunta.getText());
@@ -390,25 +396,25 @@ public class EncuestaTipoAbierta extends javax.swing.JFrame {
     }
     
     private void btnAgregarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPreguntaActionPerformed
-        
-        DefaultTableModel tblEnc = (DefaultTableModel) tblEncuestas.getModel();
-        while(tblEnc.getRowCount()!=0) tblEnc.removeRow(0);
-        
-        for (Encuesta enc : nuevoEnc.listarEncuesta()){
-            Object[] rowData = {
-                enc.getTitulo(),
-                enc.getDescripción(),
-                enc.getTipoEncuesta(),
-                enc.getFechaCreacion(),
-                enc.getFechaCierre()
 
+    try {
+        
+        CRUDJavaEn T_EncuestasCrud = new CRUDJavaEn(); 
+        Connection conexion = ConexionSQLServer.getInstance().getConnection();
+        Encuesta nuevaEncuesta = T_EncuestasCrud.obtenerEncuestaPorId(conexion, idEncuestaActual);
+
+        if (nuevaEncuesta != null) {
+            DefaultTableModel tblEnc = (DefaultTableModel) tblEncuestas.getModel();
+            Object[] rowData = {
+                nuevaEncuesta.getTitulo(),
+                nuevaEncuesta.getDescripción(),
+                nuevaEncuesta.getTipoEncuesta(),
+                nuevaEncuesta.getFechaCreacion(),
+                nuevaEncuesta.getFechaCierre()
             };
             tblEnc.addRow(rowData);
         }
-
-    try {
         // Obtener la conexión
-        Connection conexion = ConexionSQLServer.getInstance().getConnection();
         CRUDJavaPre crudPreguntas = new CRUDJavaPre();
 
         // Limpiar la tabla de preguntas

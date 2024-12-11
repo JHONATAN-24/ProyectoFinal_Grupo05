@@ -307,6 +307,14 @@ public class LoginJDM extends javax.swing.JFrame {
                 return;
             }
             
+            Pattern T_validarEmail = Pattern.compile("^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$");
+            Matcher T_validandoEmail = T_validarEmail.matcher(txtVariante.getText());
+
+            if (!T_validandoEmail.matches()) {
+                JOptionPane.showMessageDialog(this, "[x] Por Favor, ingrese un email válido con la estructura 'usuario@dominio'.");
+                return;
+            }
+            
             if(txtContraseña.getPassword().length==0){
                 JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar su contraseña");
                 return;

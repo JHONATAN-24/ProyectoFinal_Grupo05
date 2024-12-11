@@ -471,9 +471,25 @@ public class RegistroJDM extends javax.swing.JFrame {
                     return;
                 }
                 
+                Pattern validarNombre = Pattern.compile("^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$");
+                Matcher validandoNombre = validarNombre.matcher(txtNombre.getText());
+
+                if (!validandoNombre.matches()) {
+                    JOptionPane.showMessageDialog(this, "[x] El Nombre no debe contener números ni caracteres especiales.");
+                    return;
+                }
+                
                 //Validando Apellido
                 if(txtApellido.getText().length()==0){
                     JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar su Apellido");
+                    return;
+                }
+                
+                Pattern validarApellido = Pattern.compile("^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$");
+                Matcher validandoApellido = validarApellido.matcher(txtApellido.getText());
+
+                if (!validandoApellido.matches()) {
+                    JOptionPane.showMessageDialog(this, "[x] El Apellido no debe contener números ni caracteres especiales.");
                     return;
                 }
           
@@ -492,6 +508,14 @@ public class RegistroJDM extends javax.swing.JFrame {
                 //Validando Email
                 if(txtVariante.getText().length()==0){
                     JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Escribir su Email");
+                    return;
+                }
+                
+                Pattern T_validarEmail = Pattern.compile("^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$");
+                Matcher T_validandoEmail = T_validarEmail.matcher(txtVariante.getText());
+
+                if (!T_validandoEmail.matches()) {
+                    JOptionPane.showMessageDialog(this, "[x] Por Favor, ingrese un email válido con la estructura 'usuario@dominio'.");
                     return;
                 }
                 
