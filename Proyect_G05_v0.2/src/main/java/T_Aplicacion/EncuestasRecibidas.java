@@ -6,6 +6,8 @@ import T_Clases.Encuesta;
 import T_ConexionBD.CRUDJavaEn;
 import T_ConexionBD.ConexionSQLServer;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -20,7 +22,7 @@ public class EncuestasRecibidas extends javax.swing.JPanel {
     private String apellidoParticipante;
             
     public EncuestasRecibidas(MenuParticipante T_menuParticipante, ListaParticipantes participante, 
-            int codigoparticipante ,String nombreParticipante, String apellidoParticipante, int encuestaId) {
+        int codigoparticipante ,String nombreParticipante, String apellidoParticipante, int encuestaId) {
         initComponents();
         this.T_menuPart = T_menuParticipante;
         T_listaP3=participante;
@@ -166,25 +168,59 @@ public class EncuestasRecibidas extends javax.swing.JPanel {
     }
     
     private void btnAbrirEncuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirEncuestaActionPerformed
-        // Escoger al usuario de la tabla
-        int selectedRow = tblRecibidas.getSelectedRow();
+         // Escoger al usuario de la tabla
+            int selectedRow = tblRecibidas.getSelectedRow();
+            // Validación
+            if (selectedRow == -1) {
+                JOptionPane.showMessageDialog(this, "Debe seleccionar una Encuesta.");
+                return;
+            }
 
-        // Validación
-        if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(this, "Debe seleccionar una Encuesta.");
-            return;
-        }
+            // Obtener el ID de la encuesta seleccionada
+            int codigoEncuesta = (int) tblRecibidas.getValueAt(selectedRow, 0);
+            System.out.println("ID de encuesta seleccionada: " + codigoEncuesta);
 
-        // Obtener el ID de la encuesta seleccionada
-        int codigoEncuesta = (int) tblRecibidas.getValueAt(selectedRow, 0);
-        System.out.println("ID de encuesta seleccionada: " + codigoEncuesta);
+            // Verificar el estado de la encuesta
+            String estadoEncuesta = obtenerEstadoEncuesta(codigoEncuesta);
 
-        // Crear una instancia del frame EncuestaBase
-        EncBaseAbierta encuestaBase = new EncBaseAbierta(codigoparticipante,codigoEncuesta);
-            encuestaBase.mostrarPreguntasEncuesta(codigoEncuesta);
-            encuestaBase.setVisible(true);
+            if ("Abierta".equals(estadoEncuesta)) {
+                // Abrir ventana de encuesta abierta
+                EncBaseAbierta encuestaBase = new EncBaseAbierta(codigoparticipante, codigoEncuesta);
+                encuestaBase.mostrarPreguntasEncuesta(codigoEncuesta);
+                encuestaBase.setVisible(true);
+            } else if ("Cerrada".equals(estadoEncuesta)) {
+                // Abrir ventana de encuesta cerrada
+                EncBaseCerrada encuestaCerrada = new EncBaseCerrada(codigoparticipante, codigoEncuesta);
+                encuestaCerrada.mostrarPreguntasEncuesta(codigoEncuesta);
+                encuestaCerrada.setVisible(true);
+            } else {
+                // Manejar otros estados o mostrar un mensaje de error
+                JOptionPane.showMessageDialog(this, "Estado de encuesta no válido.");
+            }
     }//GEN-LAST:event_btnAbrirEncuestaActionPerformed
     
+    private String obtenerEstadoEncuesta(int codigoEncuesta) {
+            String estadoEncuesta = "";
+        try {
+            Connection conexion = ConexionSQLServer.getInstance().getConnection();
+            String sql = "SELECT tipo FROM T_Encuestas WHERE id_encuestas = ?";
+
+            try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
+                stmt.setInt(1, codigoEncuesta);
+
+                try (ResultSet rs = stmt.executeQuery()) {
+                    if (rs.next()) {
+                        estadoEncuesta = rs.getString("tipo");
+                    }
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al obtener el estado de la encuesta: " + ex.getMessage());
+        }
+    
+        return estadoEncuesta;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAbrirEncuesta;

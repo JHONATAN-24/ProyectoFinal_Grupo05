@@ -48,23 +48,42 @@ public class CRUDJavaPre {
     }
  
     public List<Pregunta> obtenerPreguntasPorEncuesta(Connection conexion, int idEncuesta) {
-        List<Pregunta> T_lista = new ArrayList<>();
-        String sql = "SELECT enunciado FROM T_Preguntas WHERE id_encuestas = ?";
-        try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
-            stmt.setInt(1, idEncuesta);
-            try (ResultSet rs = stmt.executeQuery()) {
-                while (rs.next()) {
-                    Pregunta pregunta = new Pregunta();
-                    pregunta.setEnunciado(rs.getString("enunciado"));
-                    T_lista.add(pregunta);
-                }
+    List<Pregunta> preguntas = new ArrayList<>();
+    String sql = "SELECT id_preguntas, enunciado FROM T_Preguntas WHERE id_encuestas = ?";
+    
+    try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
+        stmt.setInt(1, idEncuesta);
+        
+        try (ResultSet rs = stmt.executeQuery()) {
+            // Depuración: imprimir consulta completa
+            System.out.println("SQL para obtener preguntas: " + sql);
+            System.out.println("ID de encuesta buscado: " + idEncuesta);
+            
+            int contadorPreguntas = 0;
+            while (rs.next()) {
+                int idPregunta = rs.getInt("id_preguntas");
+                String enunciado = rs.getString("enunciado");
+                
+                // Depuración detallada
+                System.out.println("Pregunta encontrada - ID: " + idPregunta + ", Enunciado: " + enunciado);
+                
+                Pregunta pregunta = new Pregunta();
+                pregunta.setId(idPregunta);
+                pregunta.setEnunciado(enunciado);
+                
+                preguntas.add(pregunta);
+                contadorPreguntas++;
             }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error al obtener preguntas: " + ex.getMessage());
+            
+            System.out.println("Total de preguntas recuperadas: " + contadorPreguntas);
         }
-        return T_lista;
+    } catch (SQLException e) {
+        e.printStackTrace();
+        System.out.println("Error al obtener preguntas: " + e.getMessage());
     }
+    
+    return preguntas;
+}
     
     public List<Pregunta> obtenerPreguntas(Connection conexion, int idEncuesta) {
         List<Pregunta> T_lista = new ArrayList<>();
@@ -133,7 +152,10 @@ public class CRUDJavaPre {
             }
         }
     }
-    return 0;
-}
+        return 0;
+    }
+    
+    
+    
     
 }
