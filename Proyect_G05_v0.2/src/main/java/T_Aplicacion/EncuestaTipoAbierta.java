@@ -484,8 +484,28 @@ public class EncuestaTipoAbierta extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarPreguntaActionPerformed
 
     private void btnPublicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPublicarActionPerformed
-        if (encuestaGuardada) {
+        try {
+            if (!encuestaGuardada) {
+                JOptionPane.showMessageDialog(this, "Primero debe guardar la encuesta.");
+                return;
+            }
+
+            Connection conexion = ConexionSQLServer.getInstance().getConnection();
+            CRUDJavaPre crudPreguntas = new CRUDJavaPre();
+
+            // Verificar la cantidad de preguntas registradas para la encuesta actual
+            int cantidadPreguntas = crudPreguntas.contarPreguntas(conexion, idEncuestaActual);
+            if (cantidadPreguntas < 10) {
+                JOptionPane.showMessageDialog(this, 
+                    "Debe registrar al menos 10 preguntas antes de finalizar la encuesta.", 
+                    "Error", 
+                    JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // Si hay al menos 10 preguntas, finalizar la encuesta
             JOptionPane.showMessageDialog(this, "Encuesta finalizada");
+
             // Resetear banderas para una nueva encuesta
             encuestaGuardada = false;
             idEncuestaActual = -1;
@@ -495,14 +515,15 @@ public class EncuestaTipoAbierta extends javax.swing.JFrame {
             txtDescripcion.setText("");
             txtTituloPregunta.setText("");
             jcalender.setDate(null);
-        } else {
-            JOptionPane.showMessageDialog(this, "Primero debe guardar la encuesta");
-        }
-        
-        MenuEncuestador T_volverMenu = new MenuEncuestador(T_listaEnc4,codigoEncuestador, nombreEncuestador, apellidoEncuestador);
+
+            // Regresar al menú principal
+            MenuEncuestador T_volverMenu = new MenuEncuestador(T_listaEnc4, codigoEncuestador, nombreEncuestador, apellidoEncuestador);
             T_volverMenu.setVisible(true);
             this.dispose();
-
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error al conectar a la base de datos: " + e.getMessage());
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btnPublicarActionPerformed
     
     public void fechaDeEncuesta(){

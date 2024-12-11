@@ -564,24 +564,44 @@ public class EncuestaTipoCerrada extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarPreguntaActionPerformed
 
     private void btnPublicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPublicarActionPerformed
-        if (encuestaGuardada) {
-            JOptionPane.showMessageDialog(this, "Encuesta finalizada");
-            // Resetear banderas para una nueva encuesta
-            encuestaGuardada = false;
-            idEncuestaActual = -1;
+        try {
+           // Verificar si la encuesta está guardada
+           if (!encuestaGuardada) {
+               JOptionPane.showMessageDialog(this, "Primero debe guardar la encuesta.");
+               return;
+           }
 
-            // Limpiar campos
-            txtTituloEncuesta.setText("");
-            txtDescripcion.setText("");
-            txtTituloPregunta.setText("");
-            jcalender.setDate(null);
-        } else {
-            JOptionPane.showMessageDialog(this, "Primero debe guardar la encuesta");
-        }
-        
-        MenuEncuestador T_volverMenu = new MenuEncuestador(T_listaEnc9, codigoEncuestador, nombreEncuestador, apellidoEncuestador);
-            T_volverMenu.setVisible(true);
-            this.dispose();
+           // Validar que haya al menos 10 preguntas asociadas a la encuesta
+           Connection conexion = ConexionSQLServer.getInstance().getConnection();
+           CRUDJavaPre crudPreguntas = new CRUDJavaPre();
+           List<Pregunta> preguntas = crudPreguntas.obtenerPreguntas(conexion, idEncuestaActual);
+
+           if (preguntas.size() < 10) {
+               JOptionPane.showMessageDialog(this, "La encuesta debe contener al menos 10 preguntas antes de ser publicada.", "Error", JOptionPane.ERROR_MESSAGE);
+               return;
+           }
+
+           // Publicar la encuesta
+           JOptionPane.showMessageDialog(this, "Encuesta finalizada exitosamente.");
+
+           // Resetear banderas para una nueva encuesta
+           encuestaGuardada = false;
+           idEncuestaActual = -1;
+
+           // Limpiar campos
+           txtTituloEncuesta.setText("");
+           txtDescripcion.setText("");
+           txtTituloPregunta.setText("");
+           jcalender.setDate(null);
+
+           // Redirigir al menú del encuestador
+           MenuEncuestador T_volverMenu = new MenuEncuestador(T_listaEnc9, codigoEncuestador, nombreEncuestador, apellidoEncuestador);
+           T_volverMenu.setVisible(true);
+           this.dispose();
+       } catch (SQLException e) {
+           JOptionPane.showMessageDialog(this, "Error al validar las preguntas: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+           e.printStackTrace();
+       }
     }//GEN-LAST:event_btnPublicarActionPerformed
     
     public void fechaDeEncuesta(){

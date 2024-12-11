@@ -123,4 +123,17 @@ public class CRUDJavaPre {
         return -1; 
     }
     
+    public int contarPreguntas(Connection conexion, int idEncuesta) throws SQLException {
+    String sql = "SELECT COUNT(*) AS total FROM T_Preguntas WHERE  id_encuestas = ?";
+    try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
+        stmt.setInt(1, idEncuesta);
+        try (ResultSet rs = stmt.executeQuery()) {
+            if (rs.next()) {
+                return rs.getInt("total");
+            }
+        }
+    }
+    return 0;
+}
+    
 }
