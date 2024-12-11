@@ -14,15 +14,19 @@ import javax.swing.table.DefaultTableModel;
 public class EncuestasRecibidas extends javax.swing.JPanel {
     ListaParticipantes T_listaP3 = new ListaParticipantes();
     private MenuParticipante T_menuPart;
+    private int codigoparticipante;
     private int encuestaId;
     private String nombreParticipante;
     private String apellidoParticipante;
             
     public EncuestasRecibidas(MenuParticipante T_menuParticipante, ListaParticipantes participante, 
-            String nombreParticipante, String apellidoParticipante, int encuestaId) {
+            int codigoparticipante ,String nombreParticipante, String apellidoParticipante, int encuestaId) {
         initComponents();
         this.T_menuPart = T_menuParticipante;
         T_listaP3=participante;
+        
+        this.codigoparticipante=codigoparticipante;
+        System.out.println(codigoparticipante);
         this.nombreParticipante=nombreParticipante;
         this.apellidoParticipante=apellidoParticipante;
         
@@ -168,13 +172,13 @@ public class EncuestasRecibidas extends javax.swing.JPanel {
         }
 
         // Obtener el ID de la encuesta seleccionada
-        int idEncuesta = (int) tblRecibidas.getValueAt(selectedRow, 0);
-        System.out.println("ID de encuesta seleccionada: " + idEncuesta);
+        int codigoEncuesta = (int) tblRecibidas.getValueAt(selectedRow, 0);
+        System.out.println("ID de encuesta seleccionada: " + codigoEncuesta);
 
         // Crear una instancia del frame EncuestaBase
-        EncuestaBase encuestaBase = new EncuestaBase();
-            encuestaBase.mostrarPreguntasEncuesta(idEncuesta);
-            encuestaBase.setVisible(false);
+        EncuestaBase encuestaBase = new EncuestaBase(codigoparticipante,codigoEncuesta);
+            encuestaBase.mostrarPreguntasEncuesta(codigoEncuesta);
+            encuestaBase.setVisible(true);
     }//GEN-LAST:event_btnAbrirEncuestaActionPerformed
     
 

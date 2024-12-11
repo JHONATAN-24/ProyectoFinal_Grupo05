@@ -1,14 +1,23 @@
 
 package T_ConexionBD;
 
+import T_ArrayList.ListaPreguntas;
+import T_ArrayList.ListaRespuestas;
 import T_Clases.Encuesta;
 import T_Clases.Encuestador;
+import T_Clases.Participante;
+import T_Clases.Pregunta;
+import T_Clases.Respuesta;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.swing.JOptionPane;
 
 
@@ -137,6 +146,108 @@ public class CRUDJavaEn {
 
             return listaEncuestas;
         }
+    
+    public List<Encuesta> obtenerTituloEncuesta(Connection conexion, int idEncuesta){
+        List<Encuesta> titulosEncuesta = new ArrayList<>();
+        String sql = "SELECT titulo FROM T_Encuestas WHERE id_encuestas = ?";
+        try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
+            stmt.setInt(1, idEncuesta);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    Encuesta encuesta = new Encuesta();
+                    encuesta.setTitulo(rs.getString("titulo")); // Asignar título al objeto Encuesta
+                    titulosEncuesta.add(encuesta); // Agregar a la lista
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error al obtener título: " + ex.getMessage());
+        }
+        return titulosEncuesta; // Retornar la lista de títulos
+    }
+    
+    public List<Encuesta> reporteEncuesta(Connection conexion, String codigoEncuestador){
+        List<Encuesta> listaEncuestas = new ArrayList<>();
+    
+        try {
+            String sql = "{CALL dbo.obtenerEncuestas(?)}";
+            try (CallableStatement statement = conexion.prepareCall(sql)) {
+                statement.setString(1, codigoEncuestador);
+
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    Map<String, Encuesta> encuestasMap = new HashMap<>();
+
+                    while (resultSet.next()) {
+                        String titulo = resultSet.getString("titulo");
+
+                        Encuesta encuesta = encuestasMap.get(titulo);
+                        if (encuesta == null) {
+                            encuesta = new Encuesta();
+                            encuesta.setTitulo(titulo);
+                            encuesta.setFechaCreacion(resultSet.getString("fechaCreacion"));
+                            encuesta.setFechaCierre(resultSet.getString("fechaCierre"));
+
+                            ListaPreguntas listaPreguntas = new ListaPreguntas();
+                            encuesta.setListaPreguntas(listaPreguntas);
+
+                            encuestasMap.put(titulo, encuesta);
+                            listaEncuestas.add(encuesta);
+                        }
+
+                        // Create Pregunta
+                        Pregunta pregunta = new Pregunta();
+                        pregunta.setEnunciado(resultSet.getString("enunciado"));
+
+                        // Create Respuesta
+                        Respuesta respuesta = new Respuesta();
+                        respuesta.setTextoRespuesta(resultSet.getString("respuestas"));
+
+                        // Create Participante
+                        Participante participante = new Participante();
+                        participante.setNombre(resultSet.getString("nombre"));
+                        respuesta.setParticipante(participante);
+
+                        // Create ListaRespuestas for the Pregunta
+                        ListaRespuestas listaRespuestas = new ListaRespuestas();
+                        listaRespuestas.agregarRespuesta(respuesta);
+                        pregunta.setRespuestas(listaRespuestas);
+
+                        // Add pregunta to encuesta's ListaPreguntas
+                        encuesta.getListaPreguntas().agregarPregunta(pregunta);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listaEncuestas;
+    }
+    
+    //Encuestas Cerradas
+    
+    public void insertarEncuestasCerradas(Connection conexion, Encuesta encuestas, String codigoEncuestador) {
+        Encuestador encuestador = new Encuestador();
+        encuestador.setCodigo(codigoEncuestador);
+        
+        String sql = "INSERT INTO T_Encuestas (codigo, titulo, descripcion, tipo, fechaCreacion, fechaCierre) VALUES (?, ?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement statement = conexion.prepareStatement(sql);
+            statement.setString(1, codigoEncuestador);  // Direct use of codigoEncuestador
+            statement.setString(2, encuestas.getTitulo());
+            statement.setString(3, encuestas.getDescripción());
+            statement.setString(4, encuestas.getTipoEncuesta());
+            statement.setString(5, encuestas.getFechaCreacion());
+            statement.setString(6, encuestas.getFechaCierre());
+            int filasInsertadas = statement.executeUpdate();
+            if (filasInsertadas > 0) {
+                JOptionPane.showMessageDialog(null, "¡Encuesta almacenado en la base de datos!");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error al insertar encuesta: " + e.getMessage());
+        }
+    }
     
 }    
 

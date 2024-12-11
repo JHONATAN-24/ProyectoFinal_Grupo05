@@ -1,23 +1,44 @@
 
 package T_Aplicacion;
 
+import T_ArrayList.ListaRespuestas;
+import T_Clases.Encuesta;
 import T_Clases.Pregunta;
+import T_Clases.Respuesta;
+import T_ConexionBD.CRUDJavaEn;
 import T_ConexionBD.CRUDJavaPre;
+import T_ConexionBD.CRUDJavaRes;
+import T_ConexionBD.ConexionSQLServer;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 public class EncuestaBase extends javax.swing.JFrame {
-    private JLabel[] labels;
     
-    public EncuestaBase() {
+    ListaRespuestas T_respuestas = new ListaRespuestas();
+    private JLabel[] labels;
+    private int codigoparticipante;
+    private int codigoEncuestas;
+    private List<Integer> id_preguntas = new ArrayList<>();
+    
+    public EncuestaBase(int codigoparticipante, int codigoEncuestas) {
+        
+        this.codigoparticipante= codigoparticipante;
+        this.codigoEncuestas=codigoEncuestas;
+        
         initComponents();
         this.setTitle("Encuesta Recibida");
         this.setSize(970, 580);
         this.setLocationRelativeTo(null);
         this.setResizable(false); 
+        
+        
     }
     
     private void initLabels() {
@@ -28,39 +49,60 @@ public class EncuestaBase extends javax.swing.JFrame {
 }
     
     public void mostrarPreguntasEncuesta(int idEncuesta) {
+        id_preguntas.clear();
+
         CRUDJavaPre crudJavaPre = new CRUDJavaPre();
         try (Connection conexion = crudJavaPre.obtenerConexion()) {
             List<Pregunta> preguntas = crudJavaPre.obtenerPreguntasPorEncuesta(conexion, idEncuesta);
 
-            // Debug print
             System.out.println("Número de preguntas obtenidas: " + preguntas.size());
 
-            // Inicializar los labels
             initLabels();
 
-            // Asignar texto a cada JLabel
-            for (int i = 0; i < labels.length; i++) {
-                if (i < preguntas.size()) {
-                    Pregunta pregunta = preguntas.get(i);
-                    labels[i].setText((i + 1) + ". " + pregunta.getEnunciado());
-                } else {
-                    // Vaciar el texto de los JLabel restantes
-                    labels[i].setText("");
-                }
+            for (int i = 0; i < preguntas.size() && i < labels.length; i++) {
+                Pregunta pregunta = preguntas.get(i);
+                labels[i].setText((i + 1) + ". " + pregunta.getEnunciado());
+                id_preguntas.add(pregunta.getId());
             }
+
+            for (int i = preguntas.size(); i < labels.length; i++) {
+                labels[i].setText("");
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Error al obtener preguntas: " + e.getMessage());
         }
-    }
     
+
+        CRUDJavaEn T_crudJavaEn = new CRUDJavaEn();
+        try (Connection conexion = T_crudJavaEn.obtenerConexion()) {
+            List<Encuesta> encuestas = T_crudJavaEn.obtenerTituloEncuesta(conexion, idEncuesta);
+
+            System.out.println("Número de Encuestas obtenidas: " + encuestas.size());
+
+            if (!encuestas.isEmpty()) {
+                Encuesta nuevaEncuesta = encuestas.get(0);
+
+                lbTituloEncuesta.setText(nuevaEncuesta.getTitulo());
+
+                System.out.println("Título obtenido: " + nuevaEncuesta.getTitulo());
+            } else {
+                lbTituloEncuesta.setText("Título no encontrado");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al obtener título: " + e.getMessage());
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lbTituloEncuesta = new javax.swing.JLabel();
         lbEnunciado1 = new javax.swing.JLabel();
         lbEnunciado2 = new javax.swing.JLabel();
         lbEnunciado3 = new javax.swing.JLabel();
@@ -71,16 +113,16 @@ public class EncuestaBase extends javax.swing.JFrame {
         lbEnunciado8 = new javax.swing.JLabel();
         lbEnunciado9 = new javax.swing.JLabel();
         lbEnunciado10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        txtRespuesta1 = new javax.swing.JTextField();
+        txtRespuesta8 = new javax.swing.JTextField();
+        txtRespuesta9 = new javax.swing.JTextField();
+        txtRespuesta10 = new javax.swing.JTextField();
+        txtRespuesta2 = new javax.swing.JTextField();
+        txtRespuesta3 = new javax.swing.JTextField();
+        txtRespuesta4 = new javax.swing.JTextField();
+        txtRespuesta5 = new javax.swing.JTextField();
+        txtRespuesta6 = new javax.swing.JTextField();
+        txtRespuesta7 = new javax.swing.JTextField();
         btnEnviarRespuestas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -98,8 +140,8 @@ public class EncuestaBase extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(900, 700));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 700));
 
-        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        jLabel1.setText("Titulo de encuesta");
+        lbTituloEncuesta.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        lbTituloEncuesta.setText("Titulo de encuesta");
 
         lbEnunciado1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         lbEnunciado1.setText("1. Enunciado de pregunta");
@@ -152,74 +194,74 @@ public class EncuestaBase extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnEnviarRespuestas, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
-                        .addComponent(jTextField10, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lbTituloEncuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
+                        .addComponent(txtRespuesta10, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(lbEnunciado10, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
-                        .addComponent(jTextField9)
+                        .addComponent(txtRespuesta9)
                         .addComponent(lbEnunciado9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField8)
+                        .addComponent(txtRespuesta8)
                         .addComponent(lbEnunciado8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField7)
+                        .addComponent(txtRespuesta7)
                         .addComponent(lbEnunciado7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField6)
+                        .addComponent(txtRespuesta6)
                         .addComponent(lbEnunciado6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField5)
+                        .addComponent(txtRespuesta5)
                         .addComponent(lbEnunciado5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lbEnunciado4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField4)
-                        .addComponent(jTextField3)
+                        .addComponent(txtRespuesta4)
+                        .addComponent(txtRespuesta3)
                         .addComponent(lbEnunciado3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField2)
+                        .addComponent(txtRespuesta2)
                         .addComponent(lbEnunciado2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lbEnunciado1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField1)))
+                        .addComponent(txtRespuesta1)))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(lbTituloEncuesta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbEnunciado1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtRespuesta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbEnunciado2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtRespuesta2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbEnunciado3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtRespuesta3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbEnunciado4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtRespuesta4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbEnunciado5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtRespuesta5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbEnunciado6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtRespuesta6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbEnunciado7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtRespuesta7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbEnunciado8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtRespuesta8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbEnunciado9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtRespuesta9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbEnunciado10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtRespuesta10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEnviarRespuestas)
                 .addContainerGap(88, Short.MAX_VALUE))
@@ -244,27 +286,63 @@ public class EncuestaBase extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnviarRespuestasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarRespuestasActionPerformed
-        // Regresar al MenuParticipante
-        
+        try {
+            Connection conexion = ConexionSQLServer.getInstance().getConnection();
+            CRUDJavaRes T_nrespuesta = new CRUDJavaRes();
+
+            String[] respuestas = {
+                txtRespuesta1.getText(), txtRespuesta2.getText(), txtRespuesta3.getText(), 
+                txtRespuesta4.getText(), txtRespuesta5.getText(), txtRespuesta6.getText(), 
+                txtRespuesta7.getText(), txtRespuesta8.getText(), txtRespuesta9.getText(), 
+                txtRespuesta10.getText()
+            };
+
+            boolean todasRespondidas = true;
+            for (int i = 0; i < respuestas.length; i++) {
+                if (respuestas[i].trim().isEmpty()) {
+                    todasRespondidas = false;
+                    JOptionPane.showMessageDialog(this, "Por favor, responda la pregunta " + (i + 1));
+                    break;
+                }
+            }
+
+            if (todasRespondidas) {
+                System.out.println("id Preguntas recopiladas: " + id_preguntas);
+                String sql = "SELECT id_preguntas FROM T_Preguntas WHERE id_encuestas = ?";
+                List<Integer> T_preguntaValida = new ArrayList<>();
+
+                try (PreparedStatement T_depredator = conexion.prepareStatement(sql)) {
+                    T_depredator.setInt(1, codigoEncuestas);
+                    try (ResultSet rs = T_depredator.executeQuery()) {
+                        while (rs.next()) {
+                            T_preguntaValida.add(rs.getInt("id_preguntas"));
+                        }
+                    }
+                }
+
+                System.out.println("Preguntas válidas para esta encuesta: " + T_preguntaValida);
+
+                for (int i = 0; i < respuestas.length && i < T_preguntaValida.size(); i++) {
+                    Respuesta T_nuevarespuesta = new Respuesta();
+                    T_nuevarespuesta.setTextoRespuesta(respuestas[i]);
+                    T_nrespuesta.insertarRespuesta(conexion, codigoparticipante, codigoEncuestas, T_preguntaValida.get(i), T_nuevarespuesta);
+                    T_respuestas.agregarRespuesta(T_nuevarespuesta);
+                }
+
+                JOptionPane.showMessageDialog(null, "Respuestas registradas");
+                this.dispose();
+            }
+        } catch(SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error de conexión: " + e.getMessage());
+            e.printStackTrace();
+        }  
     }//GEN-LAST:event_btnEnviarRespuestasActionPerformed
 
- 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviarRespuestas;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lbEnunciado1;
     private javax.swing.JLabel lbEnunciado10;
     private javax.swing.JLabel lbEnunciado2;
@@ -275,5 +353,16 @@ public class EncuestaBase extends javax.swing.JFrame {
     private javax.swing.JLabel lbEnunciado7;
     private javax.swing.JLabel lbEnunciado8;
     private javax.swing.JLabel lbEnunciado9;
+    private javax.swing.JLabel lbTituloEncuesta;
+    private javax.swing.JTextField txtRespuesta1;
+    private javax.swing.JTextField txtRespuesta10;
+    private javax.swing.JTextField txtRespuesta2;
+    private javax.swing.JTextField txtRespuesta3;
+    private javax.swing.JTextField txtRespuesta4;
+    private javax.swing.JTextField txtRespuesta5;
+    private javax.swing.JTextField txtRespuesta6;
+    private javax.swing.JTextField txtRespuesta7;
+    private javax.swing.JTextField txtRespuesta8;
+    private javax.swing.JTextField txtRespuesta9;
     // End of variables declaration//GEN-END:variables
 }

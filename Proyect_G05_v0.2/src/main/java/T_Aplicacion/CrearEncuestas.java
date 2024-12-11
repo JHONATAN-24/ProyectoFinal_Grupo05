@@ -182,7 +182,7 @@ public class CrearEncuestas extends javax.swing.JPanel {
 
     private void btnEncuestaCerradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncuestaCerradaActionPerformed
         // TODO add your handling code here:
-        EncuestaTipoCerrada T_TipoCerrada = new EncuestaTipoCerrada(T_listaEnc5, codigoEncuestador, nombreEncuestador, apellidoEncuestador);
+        EncuestaTipoCerrada T_TipoCerrada = new EncuestaTipoCerrada(T_listaEnc5, codigoEncuestador);
             T_TipoCerrada.setVisible(true);
             T_TipoCerrada.setSize(965, 540);
             T_menuEnc.setVisible(false);

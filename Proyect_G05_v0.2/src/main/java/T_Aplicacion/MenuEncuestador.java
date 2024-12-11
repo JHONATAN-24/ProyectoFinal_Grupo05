@@ -607,7 +607,7 @@ public class MenuEncuestador extends javax.swing.JFrame{
     }
     
     public void panelReportes(){
-        ReportesEncuestas pReportes = new ReportesEncuestas();
+        ReportesEncuestas pReportes = new ReportesEncuestas(T_listaEnc3, codigoEncuestador);
             pReportes.setSize(745,420); //Colocamos el tamaño de nuestro Jpanel
             pReportes.setLocation(0,0);
             

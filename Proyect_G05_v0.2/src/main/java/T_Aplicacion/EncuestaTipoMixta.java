@@ -65,8 +65,6 @@ public class EncuestaTipoMixta extends javax.swing.JFrame {
         pnlTituloEncuesta.setMinimumSize(new java.awt.Dimension(910, 80));
         pnlTituloEncuesta.setPreferredSize(new java.awt.Dimension(910, 80));
 
-        icnEncuesta.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Oso JDM Surveys 2D (Color) (60 px).png")); // NOI18N
-
         txtTituloEncuesta.setBackground(new java.awt.Color(255, 255, 204));
         txtTituloEncuesta.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         txtTituloEncuesta.setText("Encuesta sin titulo");
@@ -214,7 +212,7 @@ public class EncuestaTipoMixta extends javax.swing.JFrame {
                     .addGroup(pnlTituloEncuestaLayout.createSequentialGroup()
                         .addGap(7, 7, 7)
                         .addComponent(txtTituloEncuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                         .addComponent(btnPublicar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -241,14 +239,15 @@ public class EncuestaTipoMixta extends javax.swing.JFrame {
                 .addGroup(pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlTituloEncuestaLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                        .addGroup(pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnEliminarPregunta)
-                            .addComponent(btnAgregarPregunta)
-                            .addComponent(btnGuardarPregunta)
-                            .addComponent(chbTipoCerrada)
-                            .addComponent(chbTipoAbierta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)))
+                        .addGroup(pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAgregarPregunta, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnEliminarPregunta)
+                                .addComponent(btnGuardarPregunta)
+                                .addComponent(chbTipoCerrada)
+                                .addComponent(chbTipoAbierta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel1))))
                     .addGroup(pnlTituloEncuestaLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jcalender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))

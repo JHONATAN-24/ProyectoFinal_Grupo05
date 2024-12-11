@@ -60,11 +60,11 @@ public class SeccionParticipantes extends javax.swing.JFrame {
 
             },
             new String [] {
-                "E-mail", "Nombre", "Apellido", "Genero", "Fecha de nacimiento"
+                "Codigo Participante", "E-mail", "Nombre", "Apellido", "Genero", "Fecha de nacimiento"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -173,6 +173,7 @@ public class SeccionParticipantes extends javax.swing.JFrame {
         
             for (Participante p : listaP) {
                 Object[] rowData = {
+                    p.getCodigo(),
                     p.getEmail(),
                     p.getNombre(),
                     p.getApellidos(),
@@ -195,10 +196,14 @@ public class SeccionParticipantes extends javax.swing.JFrame {
             return; 
         }
         
+        // Obtener el ID de la encuesta seleccionada
+        int codigoparticipante = (int) tblParticipante.getValueAt(selectRow, 0);
+        System.out.println("ID de encuesta seleccionada: " + codigoparticipante);
+        
         String nombreParticipante = tblParticipante.getValueAt(selectRow, 1).toString();
         String apellidoParticipante = tblParticipante.getValueAt(selectRow, 2 ).toString();
         
-        MenuParticipante nuevaVentana = new MenuParticipante (T_listaPart2, nombreParticipante ,apellidoParticipante);
+        MenuParticipante nuevaVentana = new MenuParticipante (T_listaPart2,codigoparticipante, nombreParticipante ,apellidoParticipante);
             nuevaVentana.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_btnSiguientePActionPerformed

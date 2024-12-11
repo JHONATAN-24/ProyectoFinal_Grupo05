@@ -25,8 +25,8 @@ public class ArraylistvsHashSet {
             System.out.println(lp.listarEncuestadores());
             
         
-        Participante p = new Participante("moises@gmail.com", "Moises", "Avila", "14-01-2006", "Masculino", "1234");
-        Participante pa = new Participante("Jhonatan@gmail.com", "Jhonatan", "Quispe", "18-04-2006", "Masculino", "1546498156");
+        Participante p = new Participante("moises@gmail.com",15, "Moises", "Avila", "14-01-2006", "Masculino", "1234");
+        Participante pa = new Participante("Jhonatan@gmail.com",15, "Jhonatan", "Quispe", "18-04-2006", "Masculino", "1546498156");
         HashParticipante hp = new HashParticipante();
             hp.agregar(p);
             hp.agregar(p);

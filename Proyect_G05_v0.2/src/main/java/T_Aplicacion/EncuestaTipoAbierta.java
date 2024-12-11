@@ -21,6 +21,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import static javax.swing.JComponent.TOOL_TIP_TEXT_KEY;
@@ -90,7 +91,6 @@ public class EncuestaTipoAbierta extends javax.swing.JFrame {
         pnlTituloEncuesta.setMinimumSize(new java.awt.Dimension(910, 80));
         pnlTituloEncuesta.setPreferredSize(new java.awt.Dimension(910, 80));
 
-        icnEncuesta.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Oso JDM Surveys 2D (Color) (60 px).png")); // NOI18N
         icnEncuesta.setMaximumSize(new java.awt.Dimension(60, 60));
         icnEncuesta.setMinimumSize(new java.awt.Dimension(60, 60));
         icnEncuesta.setPreferredSize(new java.awt.Dimension(60, 60));
@@ -201,9 +201,9 @@ public class EncuestaTipoAbierta extends javax.swing.JFrame {
                 .addComponent(txtTituloPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregarPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlTituloEncuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnEliminarPregunta)
-                        .addComponent(btnAgregarPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnGuardarPregunta))
                     .addComponent(jcalender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -307,11 +307,26 @@ public class EncuestaTipoAbierta extends javax.swing.JFrame {
             Date fechaActual = new Date();
             SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
             String fechaCreacion = formatoFecha.format(fechaActual);
-            
+
             // Usar el JDateChooser    
             Date T_fecha = jcalender.getDate();
             SimpleDateFormat T_FechaE = new SimpleDateFormat("yyyy-MM-dd");
             String date = T_FechaE.format(T_fecha);
+
+            // Validar la fecha de cierre
+            Calendar calFechaActual = Calendar.getInstance();
+            Calendar calFechaCierre = Calendar.getInstance();
+            calFechaCierre.setTime(T_fecha);
+
+            // Comparar fechas
+            if (calFechaCierre.before(calFechaActual) || 
+                calFechaCierre.equals(calFechaActual)) {
+                JOptionPane.showMessageDialog(this, 
+                    "La fecha de cierre debe ser un día posterior a la fecha actual", 
+                    "Error de Fecha", 
+                    JOptionPane.ERROR_MESSAGE);
+                return; // Detener el proceso
+            }
         
             // Crear y guardar la encuesta
             Encuesta nuevaEncuesta = new Encuesta();

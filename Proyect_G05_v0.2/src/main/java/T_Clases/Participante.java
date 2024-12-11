@@ -6,24 +6,35 @@ import java.util.Objects;
 public class Participante extends Persona {
     // ATRIBUTOS :______________________________________________________________
     private String email;
+    private int codigo;
+    
     // CONSTRUCTOR SIN PARAMETROS:______________________________________________
     public Participante() {
     }
     // CONSTRUCTOR CON PARAMETROS:______________________________________________
 
-    public Participante(String email, String nombre, String apellidos, String fechaNacimiento, String genero, String password) {
+    public Participante(String email, int codigo, String nombre, String apellidos, String fechaNacimiento, String genero, String password) {
         super(nombre, apellidos, fechaNacimiento, genero, password);
         this.email = email;
+        this.codigo = codigo;
     }
-    
 
     // GETTERS :________________________________________________________________
     public String getEmail() {
         return email;
     }
+
+    public int getCodigo() {
+        return codigo;
+    }
+   
     // SETTERS :________________________________________________________________
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     //SOBREESCRITURA:___________________________________________________________

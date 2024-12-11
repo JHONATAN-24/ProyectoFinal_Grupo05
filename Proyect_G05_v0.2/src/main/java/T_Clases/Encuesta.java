@@ -11,8 +11,10 @@ public class Encuesta {
     private String tipoEncuesta;
     private String fechaCreacion;
     private String fechaCierre;
-    private ListaPreguntas nuevaPre;
+    private Pregunta pregunta;
+    private ListaPreguntas listaPreguntas;
     private Encuestador encuestador;
+    private Participante participante;
     private int Id;
     
     // CONSTRUCTOR SIN PARAMETROS:______________________________________________
@@ -20,16 +22,18 @@ public class Encuesta {
     }
 
     // CONSTRUCTOR CON PARAMETROS:______________________________________________
-    public Encuesta(String titulo, String descripción, String tipoEncuesta,
-            String fechaCreacion, String fechaCierre, ListaPreguntas nuevaPre,
-            Encuestador encuestador, int Id) {
+
+    public Encuesta(String titulo, String descripción, String tipoEncuesta, String fechaCreacion, String fechaCierre, 
+            Pregunta pregunta, ListaPreguntas listaPreguntas, Encuestador encuestador, Participante participante, int Id) {
         this.titulo = titulo;
         this.descripción = descripción;
         this.tipoEncuesta = tipoEncuesta;
         this.fechaCreacion = fechaCreacion;
         this.fechaCierre = fechaCierre;
-        this.nuevaPre = nuevaPre;
+        this.pregunta = pregunta;
+        this.listaPreguntas = listaPreguntas;
         this.encuestador = encuestador;
+        this.participante = participante;
         this.Id = Id;
     }
 
@@ -54,8 +58,8 @@ public class Encuesta {
         return fechaCierre;
     }
 
-    public ListaPreguntas getNuevaPre() {
-        return nuevaPre;
+    public ListaPreguntas getListaPreguntas() {
+        return listaPreguntas;
     }
 
     public Encuestador getEncuestador() {
@@ -64,6 +68,14 @@ public class Encuesta {
 
     public int getId() {
         return Id;
+    }
+
+    public Pregunta getPregunta() {
+        return pregunta;
+    }
+
+    public Participante getParticipante() {
+        return participante;
     }
 
     // SETTERS :________________________________________________________________
@@ -87,10 +99,10 @@ public class Encuesta {
         this.fechaCierre = fechaCierre;
     }
 
-    public void setNuevaPre(ListaPreguntas nuevaPre) {
-        this.nuevaPre = nuevaPre;
+    public void setListaPreguntas(ListaPreguntas listaPreguntas) {
+        this.listaPreguntas = listaPreguntas;
     }
-
+    
     public void setEncuestador(Encuestador encuestador) {
         this.encuestador = encuestador;
     }
@@ -99,14 +111,21 @@ public class Encuesta {
         this.Id = Id;
     }
 
+    public void setPregunta(Pregunta pregunta) {
+        this.pregunta = pregunta;
+    }
+
+    public void setParticipante(Participante participante) {
+        this.participante = participante;
+    }
+
     // SOBREESCRITURA DEL METODO TO STRING :____________________________________
 
     @Override
     public String toString() {
-        return "Encuesta{" + "titulo=" + titulo + ", descripci\u00f3n=" + descripción + ", tipoEncuesta=" + tipoEncuesta + ", fechaCreacion=" + fechaCreacion + ", fechaCierre=" + fechaCierre + ", nuevaPre=" + nuevaPre + ", encuestador=" + encuestador + ", Id=" + Id + '}';
+        return "Encuesta{" + "titulo=" + titulo + ", descripci\u00f3n=" + descripción + ", tipoEncuesta=" + tipoEncuesta + ", fechaCreacion=" + fechaCreacion + ", fechaCierre=" + fechaCierre + ", pregunta=" + pregunta + ", listaPreguntas=" + listaPreguntas + ", encuestador=" + encuestador + ", participante=" + participante + ", Id=" + Id + '}';
     }
 
-    
     // Verifica si dos participantes son iguales comparando sus emails.
     @Override
     public boolean equals(Object obj) {

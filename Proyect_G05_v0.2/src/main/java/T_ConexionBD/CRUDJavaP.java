@@ -50,13 +50,14 @@ public class CRUDJavaP {
     
     public List<Participante> obtenerParticipantesP(Connection conexion) {
         List<Participante> T_listaP = new ArrayList<>();
-        String sql = "SELECT email,nombre,apellido,genero,fechaNacimiento FROM T_participantes";
+        String sql = "SELECT id_participante, email,nombre,apellido,genero,fechaNacimiento FROM T_participantes";
 
         try (PreparedStatement stmt = conexion.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
                 Participante p = new Participante();
+                p.setCodigo(rs.getInt("id_participante"));
                 p.setEmail(rs.getString("email"));
                 p.setNombre(rs.getString("nombre"));
                 p.setApellidos(rs.getString("apellido"));
@@ -101,6 +102,7 @@ public class CRUDJavaP {
                     if(rs.next()){
                         T_participanteLogin = new Participante(
                                 rs.getString("email"),
+                                rs.getInt("id_participante"),
                                 rs.getString("nombre"),
                                 rs.getString("apellido"),
                                 rs.getString("fechaNacimiento"),

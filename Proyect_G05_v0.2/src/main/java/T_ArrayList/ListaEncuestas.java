@@ -2,26 +2,28 @@
 package T_ArrayList;
 
 
+import T_Clases.Encuesta;
 import T_Clases.Pregunta;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListaEncuestas {
-    List<Pregunta> listaEncuestas = new ArrayList<>();
+    private List<Encuesta> listaEncuestas = new ArrayList<>();
     
     // METODOS
-    public void agregarEncuesta(Pregunta p){
-        listaEncuestas.add(p);
+    public void agregarEncuesta(Encuesta e){
+        listaEncuestas.add(e);
     }
     
-    public void eliminarEncuesta(Pregunta p){
-        listaEncuestas.remove(p);
+    public void eliminarEncuesta(Encuesta e){
+        listaEncuestas.remove(e);
     }
     
-    public Pregunta obtener(int pos){
+    public Encuesta obtenerEncuesta(int pos){
         return listaEncuestas.get(pos);
     }
-    public List<Pregunta> listar(){
+    
+    public List<Encuesta> listarEncuestas(){
         return this.listaEncuestas;   
     }
 }

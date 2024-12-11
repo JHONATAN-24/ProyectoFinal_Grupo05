@@ -15,16 +15,19 @@ public class MenuParticipante extends javax.swing.JFrame {
     
     ListaParticipantes T_listaP3 = new ListaParticipantes();
     private Timer timer;
+    private int codigoparticipante;
     private String nombreParticipante;
     private String apellidoParticipante;
     
-    public MenuParticipante(ListaParticipantes participante, String nombreParticipante ,String apellidoParticipante) {
+    public MenuParticipante(ListaParticipantes participante,int codigoparticipante ,String nombreParticipante ,String apellidoParticipante) {
         
         this.setTitle("JDM Surveys - MenuOpciones");
         this.setSize(940, 580);
         this.setLocationRelativeTo(null);
         
         T_listaP3 = participante;
+        this.codigoparticipante=codigoparticipante;
+        System.out.println(codigoparticipante);
         this.nombreParticipante = nombreParticipante;
         this.apellidoParticipante = apellidoParticipante;
         
@@ -209,11 +212,13 @@ public class MenuParticipante extends javax.swing.JFrame {
         btnSalir.setMinimumSize(new java.awt.Dimension(150, 30));
         btnSalir.setOpaque(true);
         btnSalir.setPreferredSize(new java.awt.Dimension(150, 30));
-
-        lbLogoOso2D.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Oso JDM Surveys 2D (Color) (180 px).png")); // NOI18N
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         lbLogoJDM.setFont(new java.awt.Font("Cabin Sketch", 2, 48)); // NOI18N
-        lbLogoJDM.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\JDM Logo Letras (Fondo 0) (90-60 px).png")); // NOI18N
         lbLogoJDM.setMaximumSize(new java.awt.Dimension(180, 60));
         lbLogoJDM.setMinimumSize(new java.awt.Dimension(180, 60));
 
@@ -241,7 +246,7 @@ public class MenuParticipante extends javax.swing.JFrame {
                     .addGroup(MenuOpcionesLayout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addComponent(lbLogoJDM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         MenuOpcionesLayout.setVerticalGroup(
             MenuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,7 +263,7 @@ public class MenuParticipante extends javax.swing.JFrame {
                 .addComponent(btnEncuestasRespondidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(322, Short.MAX_VALUE))
         );
 
         Contorno.setBackground(new java.awt.Color(255, 255, 153));
@@ -300,8 +305,6 @@ public class MenuParticipante extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Segoe UI Semibold", 1, 13)); // NOI18N
         jLabel12.setText("Nuestra plataforma se adapta tanto a encuestas informativas ");
-
-        lbIconoBienvenido.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\IconInicioPanel.png")); // NOI18N
 
         javax.swing.GroupLayout jPcontornoLayout = new javax.swing.GroupLayout(jPcontorno);
         jPcontorno.setLayout(jPcontornoLayout);
@@ -429,8 +432,6 @@ public class MenuParticipante extends javax.swing.JFrame {
         lbNombrePar.setText("Nombre Persona");
         lbNombrePar.setPreferredSize(new java.awt.Dimension(100, 20));
 
-        lbFotoPerfil.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Iconos - Proyecto\\Oso JDM Usuario BW (Fondo 0) (50px).png")); // NOI18N
-
         javax.swing.GroupLayout FondoBlancoLayout = new javax.swing.GroupLayout(FondoBlanco);
         FondoBlanco.setLayout(FondoBlancoLayout);
         FondoBlancoLayout.setHorizontalGroup(
@@ -497,6 +498,12 @@ public class MenuParticipante extends javax.swing.JFrame {
         panelRecibidas();
     }//GEN-LAST:event_btnEncuestasRecibidasActionPerformed
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        LoginJDM T_nuevaEncuesta = new LoginJDM();
+            T_nuevaEncuesta.setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
     //Metodo para Impletar un Panel dentro de Otro
     public void panelInicial(){
         PanelBienvenidaE pInicio = new PanelBienvenidaE();
@@ -510,7 +517,7 @@ public class MenuParticipante extends javax.swing.JFrame {
     }
     
     public void panelRecibidas(){
-        EncuestasRecibidas pPlantillas = new EncuestasRecibidas(this, T_listaP3, nombreParticipante, apellidoParticipante, PROPERTIES);
+        EncuestasRecibidas pPlantillas = new EncuestasRecibidas(this,T_listaP3, codigoparticipante, nombreParticipante, apellidoParticipante, PROPERTIES);
             pPlantillas.setSize(745,420); //Colocamos el tamaño de nuestro Jpanel
             pPlantillas.setLocation(0,0);
             

@@ -17,6 +17,7 @@ import T_ConexionBD.ConexionSQLServer;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -398,11 +399,41 @@ public class RegistroJDM extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this,"[x] Por Favor, Debe Ingresar una contraseña");
                     return;
                 }
-            //Usaremos el JDateChooser    
-            Date T_fecha = jcalendario.getDate();
-            SimpleDateFormat T_FechaE = new SimpleDateFormat("yyyy-MM-dd");
-            String date = T_FechaE.format(T_fecha);
-            
+                
+                //Usaremos el JDateChooser    
+                // Obtener la fecha seleccionada
+                Date T_fecha = jcalendario.getDate();
+                SimpleDateFormat T_FechaE = new SimpleDateFormat("yyyy-MM-dd");
+                String date = T_FechaE.format(T_fecha);
+
+                // Calcular la edad
+                Calendar fechaNacimiento = Calendar.getInstance();
+                fechaNacimiento.setTime(T_fecha);
+                Calendar today = Calendar.getInstance();
+
+                int edad = today.get(Calendar.YEAR) - fechaNacimiento.get(Calendar.YEAR);
+
+                // Ajustar la edad considerando mes y día
+                if (today.get(Calendar.MONTH) < fechaNacimiento.get(Calendar.MONTH) || 
+                    (today.get(Calendar.MONTH) == fechaNacimiento.get(Calendar.MONTH) && 
+                     today.get(Calendar.DAY_OF_MONTH) < fechaNacimiento.get(Calendar.DAY_OF_MONTH))) {
+                    edad--;
+                }
+
+                // Validaciones de fecha
+                if (date.compareTo(T_FechaE.format(today.getTime())) > 0) {
+                    JOptionPane.showMessageDialog(this, 
+                        "No se puede seleccionar una fecha de nacimiento futura", 
+                        "Error de Fecha", 
+                        JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else if (edad < 14) {
+                    JOptionPane.showMessageDialog(this, 
+                        "El encuestador debe tener al menos 14 años", 
+                        "Error de Edad", 
+                        JOptionPane.ERROR_MESSAGE);
+                    return;
+}
 
             Encuestador nuevoENC = new Encuestador();
                 nuevoENC.setNombre(txtNombre.getText());
@@ -429,6 +460,7 @@ public class RegistroJDM extends javax.swing.JFrame {
                 SeccionEncuestadores T_seccionE = new SeccionEncuestadores(T_listaEnc1);
                 T_seccionE.setVisible(true);
                 this.dispose();
+            
                 
         }else if(rbParticipante.isSelected()){
             
@@ -469,9 +501,40 @@ public class RegistroJDM extends javax.swing.JFrame {
                     return;
                 }
            //Usaremos el JDateChooser    
-            Date T_fecha = jcalendario.getDate();
-            SimpleDateFormat T_FechaP = new SimpleDateFormat("yyyy-MM-dd");
-            String dateP = T_FechaP.format(T_fecha); 
+            //Usaremos el JDateChooser    
+                // Obtener la fecha seleccionada
+                Date T_fecha = jcalendario.getDate();
+                SimpleDateFormat T_FechaE = new SimpleDateFormat("yyyy-MM-dd");
+                String dateP = T_FechaE.format(T_fecha);
+
+                // Calcular la edad
+                Calendar fechaNacimiento = Calendar.getInstance();
+                fechaNacimiento.setTime(T_fecha);
+                Calendar today = Calendar.getInstance();
+
+                int edad = today.get(Calendar.YEAR) - fechaNacimiento.get(Calendar.YEAR);
+
+                // Ajustar la edad considerando mes y día
+                if (today.get(Calendar.MONTH) < fechaNacimiento.get(Calendar.MONTH) || 
+                    (today.get(Calendar.MONTH) == fechaNacimiento.get(Calendar.MONTH) && 
+                     today.get(Calendar.DAY_OF_MONTH) < fechaNacimiento.get(Calendar.DAY_OF_MONTH))) {
+                    edad--;
+                }
+
+                // Validaciones de fecha
+                if (dateP.compareTo(T_FechaE.format(today.getTime())) > 0) {
+                    JOptionPane.showMessageDialog(this, 
+                        "No se puede seleccionar una fecha de nacimiento futura", 
+                        "Error de Fecha", 
+                        JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else if (edad < 14) {
+                    JOptionPane.showMessageDialog(this, 
+                        "El encuestador debe tener al menos 14 años", 
+                        "Error de Edad", 
+                        JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
                 
           Participante nuevoPART = new Participante();
                 nuevoPART.setNombre(txtNombre.getText());

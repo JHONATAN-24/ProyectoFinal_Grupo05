@@ -1,13 +1,21 @@
 
 package T_Clases;
 
+import T_ArrayList.ListaPreguntas;
+import T_ArrayList.ListaRespuestas;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Pregunta {
     // ATRIBUTOS :______________________________________________________________
+    private int Id;
     private String enunciado;
     private String tipoPregunta;
     private Encuesta encuesta;
+    private ListaRespuestas respuestas;
+    private Alternativa alternativa;
+    private List<Alternativa> alternativas;
     
     // CONSTRUCTOR SIN PARAMETROS :_____________________________________________
     
@@ -15,13 +23,15 @@ public class Pregunta {
     }
     
     // CONSTRUCTOR CON PARAMETROS:______________________________________________
-
-    public Pregunta(String enunciado, String tipoPregunta, Encuesta encuesta) {
+    public Pregunta(int Id, String enunciado, String tipoPregunta, Encuesta encuesta, ListaRespuestas respuestas, Alternativa alternativa) {
+        this.Id = Id;
         this.enunciado = enunciado;
         this.tipoPregunta = tipoPregunta;
         this.encuesta = encuesta;
+        this.respuestas = respuestas;
+        this.alternativa = alternativa;
     }
-    
+
     // GETTERS :________________________________________________________________
     public String getEnunciado() {
         return enunciado;
@@ -34,7 +44,23 @@ public class Pregunta {
     public Encuesta getEncuesta() {
         return encuesta;
     }
+
+    public int getId() {
+        return Id;
+    }
+
+    public ListaRespuestas getRespuestas() {
+        return respuestas;
+    }
+
+    public Alternativa getAlternativa() {
+        return alternativa;
+    } 
     
+    public List<Alternativa> getAlternativas() {
+        return alternativas;
+    }
+
     
     // SETTERS :________________________________________________________________
     public void setEnunciado(String enunciado) {
@@ -47,6 +73,22 @@ public class Pregunta {
 
     public void setEncuesta(Encuesta encuesta) {
         this.encuesta = encuesta;
+    }
+
+    public void setId(int Id) {
+        this.Id = Id;
+    }
+
+    public void setRespuestas(ListaRespuestas respuestas) {
+        this.respuestas = respuestas;
+    }
+
+    public void setAlternativa(Alternativa alternativa) {
+        this.alternativa = alternativa;
+    } 
+    
+    public void setAlternativas(List<Alternativa> alternativas) {
+        this.alternativas = alternativas;
     }
     
     // SOBREESCRITURA DEL METODO TO STRING :____________________________________
