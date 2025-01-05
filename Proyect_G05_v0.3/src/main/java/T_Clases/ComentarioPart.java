@@ -1,0 +1,12 @@
+/*
+ GRUPO 05:
+- JHONATAN BRANDON QUISPE CAUTIVO
+- MOISES SEBASTIAN AVILA ROLDAN
+- D'ALESSANDRO WILLIAMS CASANA MONTOYA
+*/
+
+package T_Clases;
+
+public class ComentarioPart {
+    
+}
