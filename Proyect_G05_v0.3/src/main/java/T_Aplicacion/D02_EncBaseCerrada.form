@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="bgEnunciado01">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bgEnunciado02">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bgEnunciado03">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bgEnunciado04">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bgEnunciado05">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bgEnunciado06">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bgEnunciado07">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bgEnunciado08">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bgEnunciado09">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bgEnunciado10">
+    </Component>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[960, 540]"/>
+    </Property>
+    <Property name="resizable" type="boolean" value="false"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[960, 540]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[960, 540]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[960, 540]"/>
+        </Property>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="jPanel1">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="ff" red="cc" type="rgb"/>
+            </Property>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[900, 700]"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[900, 700]"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[900, 700]"/>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="btnEnviarRespuestas" min="-2" pref="98" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lbTituloEncuesta" pref="900" max="32767" attributes="0"/>
+                                      <Component id="lbEnunciado10" alignment="0" pref="900" max="32767" attributes="0"/>
+                                      <Component id="lbEnunciado9" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbEnunciado8" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbEnunciado7" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbEnunciado6" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbEnunciado5" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbEnunciado4" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbEnunciado3" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbEnunciado2" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="chbOpcion01" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion02" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion03" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion04" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="chbOpcion05" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion06" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion07" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion08" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="chbOpcion09" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion10" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion11" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion12" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="chbOpcion13" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion14" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion15" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion16" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="chbOpcion17" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion18" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion19" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion20" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="chbOpcion21" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion22" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion23" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion24" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="chbOpcion25" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion26" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion27" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion28" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="chbOpcion29" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion30" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion31" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion32" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="chbOpcion33" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion34" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion35" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion36" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="chbOpcion37" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion38" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion39" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="chbOpcion40" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Component id="lbEnunciado1" alignment="0" min="-2" pref="900" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lbTituloEncuesta" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lbEnunciado1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="chbOpcion03" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion04" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion01" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion02" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lbEnunciado2" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Component id="chbOpcion05" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="chbOpcion06" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chbOpcion07" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chbOpcion08" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lbEnunciado3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="chbOpcion09" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion10" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion11" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion12" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Component id="lbEnunciado4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="chbOpcion13" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion14" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion15" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion16" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Component id="lbEnunciado5" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="chbOpcion17" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion18" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion19" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion20" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Component id="lbEnunciado6" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="chbOpcion21" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion22" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion23" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion24" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Component id="lbEnunciado7" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="chbOpcion25" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion26" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion27" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion28" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Component id="lbEnunciado8" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="chbOpcion29" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion30" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion31" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion32" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Component id="lbEnunciado9" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="chbOpcion33" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion34" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion35" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion36" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lbEnunciado10" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="chbOpcion37" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion38" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion39" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbOpcion40" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Component id="btnEnviarRespuestas" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="90" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lbTituloEncuesta">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Comic Sans MS" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Titulo de encuesta"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lbEnunciado1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Comic Sans MS" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="1. Enunciado de pregunta"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lbEnunciado2">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Comic Sans MS" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="2. Enunciado de pregunta"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lbEnunciado3">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Comic Sans MS" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="3. Enunciado de pregunta"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lbEnunciado4">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Comic Sans MS" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="4. Enunciado de pregunta"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lbEnunciado5">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Comic Sans MS" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="5. Enunciado de pregunta"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lbEnunciado6">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Comic Sans MS" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="6. Enunciado de pregunta"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lbEnunciado7">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Comic Sans MS" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="7. Enunciado de pregunta"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lbEnunciado8">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Comic Sans MS" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="8. Enunciado de pregunta"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lbEnunciado9">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Comic Sans MS" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="9. Enunciado de pregunta"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lbEnunciado10">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Comic Sans MS" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="10. Enunciado de pregunta"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnEnviarRespuestas">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Comic Sans MS" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Enviar"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder/>
+                  </Border>
+                </Property>
+                <Property name="contentAreaFilled" type="boolean" value="false"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
+                <Property name="horizontalTextPosition" type="int" value="0"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEnviarRespuestasActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion01">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado01"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="a) Opcion 1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion02">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado01"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="b) Opcion 2"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion03">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado01"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="c) Opcion 3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion04">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado01"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="d) Opcion 4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion05">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado02"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="a) Opcion 1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion09">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado03"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="a) Opcion 1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion13">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado04"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="a) Opcion 1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion17">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado05"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="a) Opcion 1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion21">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado06"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="a) Opcion 1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion25">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="a) Opcion 1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion29">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado08"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="a) Opcion 1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion33">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado09"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="a) Opcion 1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion37">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado10"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="a) Opcion 1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion10">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado03"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="b) Opcion 2"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion06">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado02"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="b) Opcion 2"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion14">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado04"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="b) Opcion 2"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion18">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado05"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="b) Opcion 2"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion22">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado06"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="b) Opcion 2"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion26">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado07"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="b) Opcion 2"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion30">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado08"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="b) Opcion 2"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion34">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado09"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="b) Opcion 2"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion38">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado10"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="b) Opcion 2"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion07">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado02"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="c) Opcion 3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion11">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado03"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="c) Opcion 3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion15">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado04"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="c) Opcion 3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion19">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado05"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="c) Opcion 3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion23">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado06"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="c) Opcion 3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion27">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado07"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="c) Opcion 3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion31">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado08"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="c) Opcion 3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion35">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado09"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="c) Opcion 3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion39">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado10"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="c) Opcion 3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion08">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado02"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="d) Opcion 4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion12">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado03"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="d) Opcion 4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion16">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado04"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="d) Opcion 4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion20">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado05"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="d) Opcion 4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion24">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado06"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="d) Opcion 4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion28">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado07"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="d) Opcion 4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion32">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado08"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="d) Opcion 4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion36">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado09"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="d) Opcion 4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbOpcion40">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="bgEnunciado10"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="d) Opcion 4"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
